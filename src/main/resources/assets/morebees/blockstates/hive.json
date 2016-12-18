@@ -1,0 +1,11 @@
+{
+    "parent": "block/cube",
+
+    "variants": 
+    {
+        "hive=rock": {"model": "morebees:rockhive"},
+        "inventory": {"model": "morebees:rockhive"}
+    }
+
+
+}
