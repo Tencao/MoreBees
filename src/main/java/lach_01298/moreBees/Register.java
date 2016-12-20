@@ -65,65 +65,67 @@ public class Register
 	public static IAlleleFlowers FlowerTypeTNT;
 	public static IAlleleFlowers FlowerTypeSlime;
 	public static BlockHive beeHive;
+	
+	private static final String MOD_ID = MoreBees.MOD_ID;
 
 	public static void RegisterFlowers()
 	{
 
 		FlowerRegistry flowerRegistry = (FlowerRegistry) FlowerManager.flowerRegistry;
-		flowerRegistry.registerAcceptableFlower(Blocks.COAL_ORE, new String[] { "Ore" });
-		flowerRegistry.registerAcceptableFlower(Blocks.IRON_ORE, new String[] { "Ore" });
-		flowerRegistry.registerAcceptableFlower(OreDicPreferences.getBlock((String) "oreCopper"), new String[] { "Ore" });
-		flowerRegistry.registerAcceptableFlower(OreDicPreferences.getBlock((String) "oreTin"), new String[] { "Ore" });
-		flowerRegistry.registerAcceptableFlower(Blocks.DIAMOND_ORE, new String[] { "Diamond" });
-		flowerRegistry.registerAcceptableFlower(Blocks.EMERALD_ORE, new String[] { "Emerald" });
-		flowerRegistry.registerAcceptableFlower(Blocks.REDSTONE_ORE, new String[] { "Redstone" });
-		flowerRegistry.registerAcceptableFlower(Blocks.WATERLILY, new String[] { "Water" });
-		flowerRegistry.registerAcceptableFlower(Blocks.TNT, new String[] { "TNT" });
-		flowerRegistry.registerAcceptableFlower(Blocks.SLIME_BLOCK, new String[] { "Slime" });
+		flowerRegistry.registerAcceptableFlower(Blocks.COAL_ORE, FlowerOre);
+		flowerRegistry.registerAcceptableFlower(Blocks.IRON_ORE, FlowerOre);
+		flowerRegistry.registerAcceptableFlower(OreDicPreferences.getBlock("oreCopper"), FlowerOre);
+		flowerRegistry.registerAcceptableFlower(OreDicPreferences.getBlock("oreTin"), FlowerOre);
+		flowerRegistry.registerAcceptableFlower(Blocks.DIAMOND_ORE, FlowerDiamond);
+		flowerRegistry.registerAcceptableFlower(Blocks.EMERALD_ORE, FlowerEmerald);
+		flowerRegistry.registerAcceptableFlower(Blocks.REDSTONE_ORE, FlowerRedstone);
+		flowerRegistry.registerAcceptableFlower(Blocks.WATERLILY, FlowerWater);
+		flowerRegistry.registerAcceptableFlower(Blocks.TNT, FlowerTNT);
+		flowerRegistry.registerAcceptableFlower(Blocks.SLIME_BLOCK, FlowerSlime);
 		if(LoadMods.enableTinkers)
 		{
-			List<ItemStack> list = OreDictionary.getOres((String) "blockSlime");
+			List<ItemStack> list = OreDictionary.getOres("blockSlime");
 			for(ItemStack block : list)
 			{
-				flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem((Item) block.getItem()), new String[] { "Slime" });
+				flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(block.getItem()), FlowerSlime);
 			}
 		}
 		if(LoadMods.enableUranium)
 		{
-			List<ItemStack> list = OreDictionary.getOres((String) "oreUranium");
+			List<ItemStack> list = OreDictionary.getOres("oreUranium");
 			for(ItemStack block : list)
 			{
-				flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem((Item) block.getItem()), new String[] { "Uranium" });
+				flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(block.getItem()),FlowerUranium);
 			}
 		}
-		flowerRegistry.registerAcceptableFlower(Blocks.CHORUS_FLOWER, new String[] { "flowersEnd" });
+		flowerRegistry.registerAcceptableFlower(Blocks.CHORUS_FLOWER, FlowerManager.FlowerTypeEnd);
 	}
 
 	public static void RegisterGenes()
 	{
-		FlowerTypeOre = AlleleManager.alleleFactory.createFlowers("morebees", "flowers", "Ore", (IFlowerProvider) Flowers.ORE.getValue(), true, new IChromosomeType[] { EnumBeeChromosome.FLOWER_PROVIDER });
-		FlowerTypeDiamond = AlleleManager.alleleFactory.createFlowers("morebees", "flowers", "Diamond", (IFlowerProvider) Flowers.DIAMOND.getValue(), true, new IChromosomeType[] { EnumBeeChromosome.FLOWER_PROVIDER });
-		FlowerTypeEmerald = AlleleManager.alleleFactory.createFlowers("morebees", "flowers", "Emerald", (IFlowerProvider) Flowers.EMERALD.getValue(), true, new IChromosomeType[] { EnumBeeChromosome.FLOWER_PROVIDER });
-		FlowerTypeRedstone = AlleleManager.alleleFactory.createFlowers("morebees", "flowers", "Redstone", (IFlowerProvider) Flowers.REDSTONE.getValue(), true, new IChromosomeType[] { EnumBeeChromosome.FLOWER_PROVIDER });
-		FlowerTypeWater = AlleleManager.alleleFactory.createFlowers("morebees", "flowers", "Water", (IFlowerProvider) Flowers.WATER.getValue(), true, new IChromosomeType[] { EnumBeeChromosome.FLOWER_PROVIDER });
-		FlowerTypeTNT = AlleleManager.alleleFactory.createFlowers("morebees", "flowers", "TNT", (IFlowerProvider) Flowers.TNT.getValue(), true, new IChromosomeType[] { EnumBeeChromosome.FLOWER_PROVIDER });
-		FlowerTypeUranium = AlleleManager.alleleFactory.createFlowers("morebees", "flowers", "Uranium", (IFlowerProvider) Flowers.URANIUM.getValue(), true, new IChromosomeType[] { EnumBeeChromosome.FLOWER_PROVIDER });
-		FlowerTypeSlime = AlleleManager.alleleFactory.createFlowers("morebees", "flowers", "Slime", (IFlowerProvider) Flowers.SLIME.getValue(), true, new IChromosomeType[] { EnumBeeChromosome.FLOWER_PROVIDER });
+		FlowerTypeOre = AlleleManager.alleleFactory.createFlowers(MOD_ID, FlowerType, FlowerOre, Flowers.ORE.getValue(), true, EnumBeeChromosome.FLOWER_PROVIDER);
+		FlowerTypeDiamond = AlleleManager.alleleFactory.createFlowers(MOD_ID, FlowerType, FlowerDiamond, Flowers.DIAMOND.getValue(), true, EnumBeeChromosome.FLOWER_PROVIDER);
+		FlowerTypeEmerald = AlleleManager.alleleFactory.createFlowers(MOD_ID, FlowerType, FlowerEmerald, Flowers.EMERALD.getValue(), true, EnumBeeChromosome.FLOWER_PROVIDER);
+		FlowerTypeRedstone = AlleleManager.alleleFactory.createFlowers(MOD_ID, FlowerType, FlowerRedstone, Flowers.REDSTONE.getValue(), true, EnumBeeChromosome.FLOWER_PROVIDER);
+		FlowerTypeWater = AlleleManager.alleleFactory.createFlowers(MOD_ID, FlowerType, FlowerWater, Flowers.WATER.getValue(), true, EnumBeeChromosome.FLOWER_PROVIDER);
+		FlowerTypeTNT = AlleleManager.alleleFactory.createFlowers(MOD_ID, FlowerType, FlowerTNT, Flowers.TNT.getValue(), true, EnumBeeChromosome.FLOWER_PROVIDER);
+		FlowerTypeUranium = AlleleManager.alleleFactory.createFlowers(MOD_ID, FlowerType, FlowerUranium, Flowers.URANIUM.getValue(), true, EnumBeeChromosome.FLOWER_PROVIDER);
+		FlowerTypeSlime = AlleleManager.alleleFactory.createFlowers(MOD_ID, FlowerType, FlowerSlime, Flowers.SLIME.getValue(), true, EnumBeeChromosome.FLOWER_PROVIDER);
 		effectWither = new AlleleEffectPotion("wither", true, MobEffects.WITHER, 400);
-		AlleleManager.alleleRegistry.registerAllele((IAllele) effectWither, new IChromosomeType[] { EnumBeeChromosome.EFFECT });
+		AlleleManager.alleleRegistry.registerAllele(effectWither, EnumBeeChromosome.EFFECT );
 		effectRadiation = new AlleleEffectPotion("Radiation", true, MobEffects.HUNGER, 400);
-		AlleleManager.alleleRegistry.registerAllele((IAllele) effectRadiation, new IChromosomeType[] { EnumBeeChromosome.EFFECT });
+		AlleleManager.alleleRegistry.registerAllele(effectRadiation,  EnumBeeChromosome.EFFECT );
 		effectSlimey = new AlleleEffectPotion("Slimey", true, MobEffects.JUMP_BOOST, 400);
-		AlleleManager.alleleRegistry.registerAllele((IAllele) effectSlimey, new IChromosomeType[] { EnumBeeChromosome.EFFECT });
+		AlleleManager.alleleRegistry.registerAllele(effectSlimey, EnumBeeChromosome.EFFECT );
 	}
 
 	public static void RegisterHives()
 	{
-		PluginApiculture.hiveRegistry.registerHive(MoreBeesHiveType.ROCK.getHiveUid(), (IHiveDescription) MoreBeesHiveDescription.ROCK);
+		PluginApiculture.hiveRegistry.registerHive(MoreBeesHiveType.ROCK.getHiveUid(), MoreBeesHiveDescription.ROCK);
 		ItemStack honeyComb = PluginApiculture.items.beeComb.get(EnumHoneyComb.HONEY, 1);
-		ItemStack rockComb = new ItemStack((Item) MoreBeesItems.CombRock);
+		ItemStack rockComb = new ItemStack(MoreBeesItems.CombRock);
 		PluginApiculture.hiveRegistry.addDrops(MoreBeesHiveType.ROCK.getHiveUid(), new IHiveDrop[] {
-				new HiveDrop(0.8, (IBeeDefinition) BeeSpecies.ROCK, new ItemStack[] { rockComb }).setIgnobleShare(0.7),
-				new HiveDrop(0.03, (IBeeDefinition) BeeDefinition.VALIANT, new ItemStack[] { honeyComb }) });
+				new HiveDrop(0.8, BeeSpecies.ROCK, new ItemStack[] { rockComb }).setIgnobleShare(0.7),
+				new HiveDrop(0.03, BeeDefinition.VALIANT, new ItemStack[] { honeyComb }) });
 	}
 }
