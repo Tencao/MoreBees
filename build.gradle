@@ -28,12 +28,16 @@ minecraft {
     
 }
 
-dependencies {
-    
-    compile files('/forestry_1.10.2-5.2.16.334.jar') //add file location  
-    
-	current/userguide/dependency_management.html
+repositories {
+    maven { // Forestry
+        url "http://maven.ic2.player.to"
+    }
+}
 
+dependencies {
+    deobfCompile("net.sengir.forestry:forestry_1.10.2:5.2.16.+") {
+        exclude module: "jei_1.10.2"
+    }
 }
 
 processResources
