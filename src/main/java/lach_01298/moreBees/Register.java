@@ -24,7 +24,9 @@ import forestry.apiculture.items.EnumHoneyComb;
 import forestry.apiculture.items.ItemHoneyComb;
 import forestry.apiculture.items.ItemRegistryApiculture;
 import forestry.apiculture.worldgen.HiveRegistry;
+
 import java.util.List;
+
 import lach_01298.moreBees.Flowers;
 import lach_01298.moreBees.Genetics.BeeSpecies;
 import lach_01298.moreBees.block.BlockHive;
@@ -32,6 +34,7 @@ import lach_01298.moreBees.hives.MoreBeesHiveDescription;
 import lach_01298.moreBees.hives.MoreBeesHiveType;
 import lach_01298.moreBees.item.BasicItem;
 import lach_01298.moreBees.item.MoreBeesItems;
+import lach_01298.moreBees.util.Config;
 import lach_01298.moreBees.util.LoadMods;
 import lach_01298.moreBees.util.OreDicPreferences;
 import net.minecraft.block.Block;
@@ -121,11 +124,15 @@ public class Register
 
 	public static void RegisterHives()
 	{
-		PluginApiculture.hiveRegistry.registerHive(MoreBeesHiveType.ROCK.getHiveUid(), MoreBeesHiveDescription.ROCK);
-		ItemStack honeyComb = PluginApiculture.items.beeComb.get(EnumHoneyComb.HONEY, 1);
-		ItemStack rockComb = new ItemStack(MoreBeesItems.CombRock);
-		PluginApiculture.hiveRegistry.addDrops(MoreBeesHiveType.ROCK.getHiveUid(), new IHiveDrop[] {
-				new HiveDrop(0.8, BeeSpecies.ROCK, new ItemStack[] { rockComb }).setIgnobleShare(0.7),
-				new HiveDrop(0.03, BeeDefinition.VALIANT, new ItemStack[] { honeyComb }) });
+		if(Config.genHives)
+		{
+			PluginApiculture.hiveRegistry.registerHive(MoreBeesHiveType.ROCK.getHiveUid(), MoreBeesHiveDescription.ROCK);
+			ItemStack honeyComb = PluginApiculture.items.beeComb.get(EnumHoneyComb.HONEY, 1);
+			ItemStack rockComb = new ItemStack(MoreBeesItems.CombRock);
+			PluginApiculture.hiveRegistry.addDrops(MoreBeesHiveType.ROCK.getHiveUid(), new IHiveDrop[] {
+					new HiveDrop(0.8, BeeSpecies.ROCK, new ItemStack[] { rockComb }).setIgnobleShare(0.7),
+					new HiveDrop(0.03, BeeDefinition.VALIANT, new ItemStack[] { honeyComb }) });
+		}
+		
 	}
 }

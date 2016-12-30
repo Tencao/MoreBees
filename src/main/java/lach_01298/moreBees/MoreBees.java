@@ -20,7 +20,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 public class MoreBees
 {
 	public static final String MOD_ID = "morebees";
-	public static final String VERSION = "1.10.2-1.1.6";
+	public static final String VERSION = "1.10.2-1.2";
 	public static final String MCVERSION = "1.10.2";
 	@Mod.Instance(value = "morebees")
 	public static MoreBees instance;
@@ -30,7 +30,7 @@ public class MoreBees
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
-		proxy.registerProxies();
+		proxy.preInit(event);
 		LoadMods.loadMods();
 		MoreBeesItems.initItems();
 		MoreBeesBlocks.init();
@@ -52,5 +52,6 @@ public class MoreBees
 	@Mod.EventHandler
 	public void postInit(FMLPostInitializationEvent event)
 	{
+		proxy.postInit(event);
 	}
 }

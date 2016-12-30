@@ -10,8 +10,7 @@ import java.util.Set;
 import lach_01298.moreBees.MoreBees;
 import lach_01298.moreBees.Register;
 import lach_01298.moreBees.item.MoreBeesItems;
-import lach_01298.moreBees.util.LoadMods;
-import lach_01298.moreBees.util.OreDicPreferences;
+import lach_01298.moreBees.util.*;
 
 import org.apache.commons.lang3.text.WordUtils;
 
@@ -21,24 +20,13 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.oredict.OreDictionary;
-import forestry.api.apiculture.BeeManager;
-import forestry.api.apiculture.EnumBeeChromosome;
-import forestry.api.apiculture.EnumBeeType;
-import forestry.api.apiculture.IAlleleBeeSpecies;
-import forestry.api.apiculture.IAlleleBeeSpeciesBuilder;
-import forestry.api.apiculture.IBee;
-import forestry.api.apiculture.IBeeGenome;
-import forestry.api.apiculture.IBeeMutationBuilder;
+import forestry.api.apiculture.*;
 import forestry.api.core.EnumHumidity;
 import forestry.api.core.EnumTemperature;
 import forestry.api.genetics.AlleleManager;
 import forestry.api.genetics.IAllele;
 import forestry.apiculture.PluginApiculture;
-import forestry.apiculture.genetics.Bee;
-import forestry.apiculture.genetics.BeeBranchDefinition;
-import forestry.apiculture.genetics.BeeDefinition;
-import forestry.apiculture.genetics.BeeVariation;
-import forestry.apiculture.genetics.IBeeDefinition;
+import forestry.apiculture.genetics.*;
 import forestry.apiculture.genetics.alleles.AlleleEffect;
 import forestry.apiculture.items.EnumHoneyComb;
 import forestry.apiculture.items.EnumPollenCluster;
@@ -102,7 +90,7 @@ public enum BeeSpecies implements IBeeDefinition
 		protected void registerMutations()
 		{
 
-			BeeManager.beeMutationFactory.createMutation(RockBee, CultivatedBee, getTemplate(), 10);
+			BeeManager.beeMutationFactory.createMutation(RockBee, CultivatedBee, getTemplate(), MathUtil.maxInt((int)(10*Config.mutationMultipler),100));
 
 		}
 	},
@@ -130,7 +118,7 @@ public enum BeeSpecies implements IBeeDefinition
 		protected void registerMutations()
 		{
 
-			BeeManager.beeMutationFactory.createMutation(HardenedBee, SteadfastBee, getTemplate(), 10);
+			BeeManager.beeMutationFactory.createMutation(HardenedBee, SteadfastBee, getTemplate(), MathUtil.maxInt((int)(10*Config.mutationMultipler),100));
 
 		}
 
@@ -159,7 +147,7 @@ public enum BeeSpecies implements IBeeDefinition
 		protected void registerMutations()
 		{
 
-			BeeManager.beeMutationFactory.createMutation(ObsidianBee, ImperialBee, getTemplate(), 8);
+			BeeManager.beeMutationFactory.createMutation(ObsidianBee, ImperialBee, getTemplate(), MathUtil.maxInt((int)(8*Config.mutationMultipler),100));
 
 		}
 	},
@@ -189,7 +177,7 @@ public enum BeeSpecies implements IBeeDefinition
 
 			for(int i = 0; i < hiveBees.length; i++)
 			{
-				BeeManager.beeMutationFactory.createMutation(RockBee, hiveBees[i], getTemplate(), 15);
+				BeeManager.beeMutationFactory.createMutation(RockBee, hiveBees[i], getTemplate(), MathUtil.maxInt((int)(15*Config.mutationMultipler),100));
 			}
 
 		}
@@ -216,7 +204,7 @@ public enum BeeSpecies implements IBeeDefinition
 		protected void registerMutations()
 		{
 
-			BeeManager.beeMutationFactory.createMutation(DirtBee, hiveBees[1], getTemplate(), 15);
+			BeeManager.beeMutationFactory.createMutation(DirtBee, hiveBees[1], getTemplate(), MathUtil.maxInt((int)(15*Config.mutationMultipler),100));
 
 		}
 	},
@@ -244,7 +232,7 @@ public enum BeeSpecies implements IBeeDefinition
 		protected void registerMutations()
 		{
 
-			BeeManager.beeMutationFactory.createMutation(DirtBee, hiveBees[3], getTemplate(), 15);
+			BeeManager.beeMutationFactory.createMutation(DirtBee, hiveBees[3], getTemplate(), MathUtil.maxInt((int)(15*Config.mutationMultipler),100));
 
 		}
 	},
@@ -273,7 +261,7 @@ public enum BeeSpecies implements IBeeDefinition
 		protected void registerMutations()
 		{
 
-			BeeManager.beeMutationFactory.createMutation(ObsidianBee, SteadfastBee, getTemplate(), 8);
+			BeeManager.beeMutationFactory.createMutation(ObsidianBee, SteadfastBee, getTemplate(), MathUtil.maxInt((int)(8*Config.mutationMultipler),100));
 
 		}
 	},
@@ -301,7 +289,7 @@ public enum BeeSpecies implements IBeeDefinition
 		protected void registerMutations()
 		{
 
-			BeeManager.beeMutationFactory.createMutation(RedstoneBee, ImperialBee, getTemplate(), 5);
+			BeeManager.beeMutationFactory.createMutation(RedstoneBee, ImperialBee, getTemplate(), MathUtil.maxInt((int)(5*Config.mutationMultipler),100));
 
 		}
 	},
@@ -329,7 +317,7 @@ public enum BeeSpecies implements IBeeDefinition
 		protected void registerMutations()
 		{
 
-			BeeManager.beeMutationFactory.createMutation(EmeraldBee, LapisBee, getTemplate(), 2);
+			BeeManager.beeMutationFactory.createMutation(EmeraldBee, LapisBee, getTemplate(), MathUtil.maxInt((int)(2*Config.mutationMultipler),100));
 
 		}
 	},
@@ -358,7 +346,7 @@ public enum BeeSpecies implements IBeeDefinition
 		protected void registerMutations()
 		{
 
-			BeeManager.beeMutationFactory.createMutation(RedstoneBee, ImperialBee, getTemplate(), 7);
+			BeeManager.beeMutationFactory.createMutation(RedstoneBee, ImperialBee, getTemplate(), MathUtil.maxInt((int)(7*Config.mutationMultipler),100));
 
 		}
 	},
@@ -387,7 +375,7 @@ public enum BeeSpecies implements IBeeDefinition
 		protected void registerMutations()
 		{
 
-			BeeManager.beeMutationFactory.createMutation(RedstoneBee, ImperialBee, getTemplate(), 7);
+			BeeManager.beeMutationFactory.createMutation(RedstoneBee, ImperialBee, getTemplate(), MathUtil.maxInt((int)(7*Config.mutationMultipler),100));
 
 		}
 	},
@@ -416,7 +404,7 @@ public enum BeeSpecies implements IBeeDefinition
 		protected void registerMutations()
 		{
 
-			BeeManager.beeMutationFactory.createMutation(RedstoneBee, LapisBee, getTemplate(), 15);
+			BeeManager.beeMutationFactory.createMutation(RedstoneBee, LapisBee, getTemplate(), MathUtil.maxInt((int)(15*Config.mutationMultipler),100));
 
 		}
 	},
@@ -443,7 +431,7 @@ public enum BeeSpecies implements IBeeDefinition
 		protected void registerMutations()
 		{
 
-			BeeManager.beeMutationFactory.createMutation(RedstoneBee, FiendishBee, getTemplate(), 10);
+			BeeManager.beeMutationFactory.createMutation(RedstoneBee, FiendishBee, getTemplate(), MathUtil.maxInt((int)(10*Config.mutationMultipler),100));
 
 		}
 	},
@@ -474,7 +462,7 @@ public enum BeeSpecies implements IBeeDefinition
 		protected void registerMutations()
 		{
 
-			BeeManager.beeMutationFactory.createMutation(ObsidianBee, FiendishBee, getTemplate(), 10);
+			BeeManager.beeMutationFactory.createMutation(ObsidianBee, FiendishBee, getTemplate(), MathUtil.maxInt((int)(10*Config.mutationMultipler),100));
 
 		}
 	},
@@ -501,7 +489,7 @@ public enum BeeSpecies implements IBeeDefinition
 		protected void registerMutations()
 		{
 
-			BeeManager.beeMutationFactory.createMutation(MetallicBee, IndustriousBee, getTemplate(), 10);
+			BeeManager.beeMutationFactory.createMutation(MetallicBee, IndustriousBee, getTemplate(), MathUtil.maxInt((int)(10*Config.mutationMultipler),100));
 
 		}
 	},
@@ -527,7 +515,7 @@ public enum BeeSpecies implements IBeeDefinition
 		protected void registerMutations()
 		{
 
-			BeeManager.beeMutationFactory.createMutation(MetallicBee, IndustriousBee, getTemplate(), 10);
+			BeeManager.beeMutationFactory.createMutation(MetallicBee, IndustriousBee, getTemplate(), MathUtil.maxInt((int)(10*Config.mutationMultipler),100));
 
 		}
 	},
@@ -553,7 +541,7 @@ public enum BeeSpecies implements IBeeDefinition
 		protected void registerMutations()
 		{
 
-			BeeManager.beeMutationFactory.createMutation(MetallicBee, IndustriousBee, getTemplate(), 10);
+			BeeManager.beeMutationFactory.createMutation(MetallicBee, IndustriousBee, getTemplate(), MathUtil.maxInt((int)(10*Config.mutationMultipler),100));
 
 		}
 	},
@@ -582,7 +570,7 @@ public enum BeeSpecies implements IBeeDefinition
 		protected void registerMutations()
 		{
 
-			BeeManager.beeMutationFactory.createMutation(MetallicBee, IndustriousBee, getTemplate(), 10);
+			BeeManager.beeMutationFactory.createMutation(MetallicBee, IndustriousBee, getTemplate(), MathUtil.maxInt((int)(10*Config.mutationMultipler),100));
 
 		}
 	},
@@ -609,7 +597,7 @@ public enum BeeSpecies implements IBeeDefinition
 		protected void registerMutations()
 		{
 
-			BeeManager.beeMutationFactory.createMutation(MetallicBee, ImperialBee, getTemplate(), 8);
+			BeeManager.beeMutationFactory.createMutation(MetallicBee, ImperialBee, getTemplate(), MathUtil.maxInt((int)(8*Config.mutationMultipler),100));
 
 		}
 	},
@@ -638,7 +626,7 @@ public enum BeeSpecies implements IBeeDefinition
 		protected void registerMutations()
 		{
 
-			BeeManager.beeMutationFactory.createMutation(GoldBee, TinBee, getTemplate(), 8);
+			BeeManager.beeMutationFactory.createMutation(GoldBee, TinBee, getTemplate(), MathUtil.maxInt((int)(8*Config.mutationMultipler),100));
 
 		}
 	},
@@ -667,7 +655,7 @@ public enum BeeSpecies implements IBeeDefinition
 		protected void registerMutations()
 		{
 
-			BeeManager.beeMutationFactory.createMutation(MetallicBee, ObsidianBee, getTemplate(), 8);
+			BeeManager.beeMutationFactory.createMutation(MetallicBee, ObsidianBee, getTemplate(), MathUtil.maxInt((int)(8*Config.mutationMultipler),100));
 
 		}
 	},
@@ -696,7 +684,7 @@ public enum BeeSpecies implements IBeeDefinition
 		protected void registerMutations()
 		{
 
-			BeeManager.beeMutationFactory.createMutation(DemonicBee, TinBee, getTemplate(), 8);
+			BeeManager.beeMutationFactory.createMutation(DemonicBee, TinBee, getTemplate(), MathUtil.maxInt((int)(8*Config.mutationMultipler),100));
 
 		}
 	},
@@ -725,7 +713,7 @@ public enum BeeSpecies implements IBeeDefinition
 		protected void registerMutations()
 		{
 
-			BeeManager.beeMutationFactory.createMutation(DemonicBee, CopperBee, getTemplate(), 8);
+			BeeManager.beeMutationFactory.createMutation(DemonicBee, CopperBee, getTemplate(), MathUtil.maxInt((int)(8*Config.mutationMultipler),100));
 
 		}
 	},
@@ -764,7 +752,7 @@ public enum BeeSpecies implements IBeeDefinition
 		protected void registerMutations()
 		{
 
-			BeeManager.beeMutationFactory.createMutation(LeadBee, AustereBee, getTemplate(), 8);
+			BeeManager.beeMutationFactory.createMutation(LeadBee, AustereBee, getTemplate(), MathUtil.maxInt((int)(8*Config.mutationMultipler),100));
 
 		}
 	},
@@ -799,7 +787,7 @@ public enum BeeSpecies implements IBeeDefinition
 		protected void registerMutations()
 		{
 
-			BeeManager.beeMutationFactory.createMutation(RadioactiveBee, ApocalypticBee, getTemplate(), 5).restrictBiomeType(BiomeDictionary.Type.NETHER);
+			BeeManager.beeMutationFactory.createMutation(RadioactiveBee, ApocalypticBee, getTemplate(), MathUtil.maxInt((int)(5*Config.mutationMultipler),100)).restrictBiomeType(BiomeDictionary.Type.NETHER);
 
 		}
 	},
@@ -827,7 +815,7 @@ public enum BeeSpecies implements IBeeDefinition
 		protected void registerMutations()
 		{
 
-			BeeManager.beeMutationFactory.createMutation(ObsidianBee, ClayBee, getTemplate(), 15).restrictBiomeType(BiomeDictionary.Type.OCEAN);
+			BeeManager.beeMutationFactory.createMutation(ObsidianBee, ClayBee, getTemplate(), MathUtil.maxInt((int)(15*Config.mutationMultipler),100)).restrictBiomeType(BiomeDictionary.Type.OCEAN);
 
 		}
 	},
@@ -857,7 +845,7 @@ public enum BeeSpecies implements IBeeDefinition
 		protected void registerMutations()
 		{
 
-			BeeManager.beeMutationFactory.createMutation(AustereBee, DemonicBee, getTemplate(), 5).restrictBiomeType(BiomeDictionary.Type.NETHER);
+			BeeManager.beeMutationFactory.createMutation(AustereBee, DemonicBee, getTemplate(), MathUtil.maxInt((int)(5*Config.mutationMultipler),100)).restrictBiomeType(BiomeDictionary.Type.NETHER);
 
 		}
 	},
@@ -885,7 +873,7 @@ public enum BeeSpecies implements IBeeDefinition
 		protected void registerMutations()
 		{
 
-			BeeManager.beeMutationFactory.createMutation(ApocalypticBee, DemonicBee, getTemplate(), 5).restrictBiomeType(BiomeDictionary.Type.NETHER);
+			BeeManager.beeMutationFactory.createMutation(ApocalypticBee, DemonicBee, getTemplate(), MathUtil.maxInt((int)(5*Config.mutationMultipler),100)).restrictBiomeType(BiomeDictionary.Type.NETHER);
 
 		}
 	},
@@ -910,7 +898,7 @@ public enum BeeSpecies implements IBeeDefinition
 		@Override
 		protected void registerMutations()
 		{
-			BeeManager.beeMutationFactory.createMutation(WitherBee, EnderBee, getTemplate(), 5).restrictBiomeType(BiomeDictionary.Type.NETHER);
+			BeeManager.beeMutationFactory.createMutation(WitherBee, EnderBee, getTemplate(), MathUtil.maxInt((int)(2*Config.mutationMultipler),100)).restrictBiomeType(BiomeDictionary.Type.NETHER);
 		}
 	},
 	// Slime Branch
@@ -940,7 +928,7 @@ public enum BeeSpecies implements IBeeDefinition
 		@Override
 		protected void registerMutations()
 		{
-			BeeManager.beeMutationFactory.createMutation(RockBee, BoggyBee, getTemplate(), 30);
+			BeeManager.beeMutationFactory.createMutation(RockBee, BoggyBee, getTemplate(), MathUtil.maxInt((int)(30*Config.mutationMultipler),100));
 		}
 	},
 	BLUESLIMEY(BeeBranches.Slime, "BlueSlimey", true, new Color(0x7dc873), new Color(0x74c8c7))
@@ -964,7 +952,7 @@ public enum BeeSpecies implements IBeeDefinition
 		@Override
 		protected void registerMutations()
 		{
-			BeeManager.beeMutationFactory.createMutation(SlimeyBee, PrismarineBee, getTemplate(), 30);
+			BeeManager.beeMutationFactory.createMutation(SlimeyBee, PrismarineBee, getTemplate(), MathUtil.maxInt((int)(30*Config.mutationMultipler),100));
 		}
 	},
 	PURPLESLIMEY(BeeBranches.Slime, "PurpleSlimey", false, new Color(0x7dc873), new Color(0xbb5aff))
@@ -989,7 +977,7 @@ public enum BeeSpecies implements IBeeDefinition
 		protected void registerMutations()
 		{
 			System.out.println(BlueSlimeyBee);
-			BeeManager.beeMutationFactory.createMutation(BlueSlimeyBee, RedstoneBee, getTemplate(), 8);
+			BeeManager.beeMutationFactory.createMutation(BlueSlimeyBee, RedstoneBee, getTemplate(), MathUtil.maxInt((int)(8*Config.mutationMultipler),100));
 		}
 	},
 	MAGMASLIMEY(BeeBranches.Slime, "MagmaSlimey", false, new Color(0x7dc873), new Color(0xffab49))
@@ -1013,7 +1001,7 @@ public enum BeeSpecies implements IBeeDefinition
 		@Override
 		protected void registerMutations()
 		{
-			BeeManager.beeMutationFactory.createMutation(SlimeyBee, FiendishBee, getTemplate(), 10);
+			BeeManager.beeMutationFactory.createMutation(SlimeyBee, FiendishBee, getTemplate(), MathUtil.maxInt((int)(10*Config.mutationMultipler),100));
 		}
 	},
 	//forestry branches
@@ -1040,7 +1028,7 @@ public enum BeeSpecies implements IBeeDefinition
 		@Override
 		protected void registerMutations()
 		{
-			BeeManager.beeMutationFactory.createMutation(TropicalBee, DiligentBee, getTemplate(), 10);
+			BeeManager.beeMutationFactory.createMutation(TropicalBee, DiligentBee, getTemplate(), MathUtil.maxInt((int)(10*Config.mutationMultipler),100));
 		}
 	};
 	
@@ -1130,179 +1118,133 @@ public enum BeeSpecies implements IBeeDefinition
 			switch(bee)
 			{
 			// addon bees
+				case DIAMOND:
+					if(Config.diamondBees)
+					{
+						bee.init();
+						bee.registerMutations();
+					}
+					break;
+				case NETHERSTAR:
+					if(Config.netherStarBees)
+					{
+						bee.init();
+						bee.registerMutations();
+					}
+					break;
+				case WITHER:
+					if(Config.witherBees)
+					{
+						bee.init();
+						bee.registerMutations();
+					}
+					break;
+				case APOCALYPTIC:
+					if(Config.apocalypticBees)
+					{
+						bee.init();
+						bee.registerMutations();
+					}
+					break;
 				case LEAD:
 					if(LoadMods.enableLead)
 					{
 						bee.init();
+						bee.registerMutations();
 					}
 					break;
 				case SILVER:
 					if(LoadMods.enableSilver)
 					{
 						bee.init();
+						bee.registerMutations();
 					}
 					break;
 				case RADIOACTIVE:
-					if(LoadMods.enableUranium)
+					if(LoadMods.enableUranium && Config.radioactiveBees)
 					{
 						bee.init();
+						bee.registerMutations();
 					}
 					break;
 				case URANIUM:
-					if(LoadMods.enableIC2)
+					if(LoadMods.enableIC2 && Config.uranicBees)
 					{
 						bee.init();
+						bee.registerMutations();
 					}
 					break;
 				case ALUMINIUM:
 					if(LoadMods.enableAluminium)
 					{
 						bee.init();
+						bee.registerMutations();
 					}
 					break;
 				case RUBY:
 					if(LoadMods.enableRuby)
 					{
 						bee.init();
+						bee.registerMutations();
 					}
 					break;
 				case SAPPHIRE:
 					if(LoadMods.enableSapphire)
 					{
 						bee.init();
+						bee.registerMutations();
 					}
 					break;
 				case SULFUR:
 					if(LoadMods.enableSulfur)
 					{
 						bee.init();
+						bee.registerMutations();
 					}
 					break;
 				case COBALT:
-					if(LoadMods.enableTinkers)
+					if(LoadMods.enableTinkers && Config.tinkersMetalBees)
 					{
 						bee.init();
+						bee.registerMutations();
 					}
 					break;
 
 				case ARDITE:
-					if(LoadMods.enableTinkers)
+					if(LoadMods.enableTinkers && Config.tinkersMetalBees)
 					{
 						bee.init();
+						bee.registerMutations();
 					}
 					break;
 				case BLUESLIMEY:
-					if(LoadMods.enableTinkers)
+					if(LoadMods.enableTinkers && Config.tinkersSlimeBees)
 					{
 						bee.init();
+						bee.registerMutations();
 					}
 					break;
 				case MAGMASLIMEY:
-					if(LoadMods.enableTinkers)
+					if(LoadMods.enableTinkers && Config.tinkersSlimeBees)
 					{
 						bee.init();
+						bee.registerMutations();
 					}
 					break;
 				case PURPLESLIMEY:
-					if(LoadMods.enableTinkers)
+					if(LoadMods.enableTinkers && Config.tinkersSlimeBees)
 					{
 						bee.init();
+						bee.registerMutations();
 					}
 					break;
 
 				default:
 					bee.init();
-			}
-		}
-		for(BeeSpecies bee : values())
-		{
-			switch(bee)
-			{
-			// addon bees
-				case LEAD:
-					if(LoadMods.enableLead)
-					{
-						bee.registerMutations();
-					}
-					break;
-				case SILVER:
-					if(LoadMods.enableSilver)
-					{
-						bee.registerMutations();
-					}
-					break;
-				case RADIOACTIVE:
-					if(LoadMods.enableUranium)
-					{
-						bee.registerMutations();
-					}
-					break;
-				case URANIUM:
-					if(LoadMods.enableIC2)
-					{
-						bee.registerMutations();
-					}
-					break;
-				case ALUMINIUM:
-					if(LoadMods.enableAluminium)
-					{
-						bee.registerMutations();
-					}
-					break;
-				case RUBY:
-					if(LoadMods.enableRuby)
-					{
-						bee.registerMutations();
-					}
-					break;
-				case SAPPHIRE:
-					if(LoadMods.enableSapphire)
-					{
-						bee.registerMutations();
-					}
-					break;
-				case SULFUR:
-					if(LoadMods.enableSulfur)
-					{
-						bee.registerMutations();
-					}
-					break;
-				case COBALT:
-					if(LoadMods.enableTinkers)
-					{
-						bee.registerMutations();
-					}
-					break;
-
-				case ARDITE:
-					if(LoadMods.enableTinkers)
-					{
-						bee.registerMutations();
-					}
-					break;
-				case BLUESLIMEY:
-					if(LoadMods.enableTinkers)
-					{
-						bee.registerMutations();
-					}
-					break;
-				case MAGMASLIMEY:
-					if(LoadMods.enableTinkers)
-					{
-						bee.registerMutations();
-					}
-					break;
-				case PURPLESLIMEY:
-					if(LoadMods.enableTinkers)
-					{
-						bee.registerMutations();
-					}
-					break;
-				default:
 					bee.registerMutations();
 			}
-
 		}
+
 	}
 
 	public static void preInit()

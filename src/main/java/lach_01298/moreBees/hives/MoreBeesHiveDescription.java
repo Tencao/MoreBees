@@ -9,6 +9,7 @@ import lach_01298.moreBees.Register;
 import lach_01298.moreBees.Genetics.BeeSpecies;
 import lach_01298.moreBees.block.BlockHive;
 import lach_01298.moreBees.block.MoreBeesBlocks;
+import lach_01298.moreBees.util.Config;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -48,7 +49,10 @@ public enum MoreBeesHiveDescription implements IHiveDescription
 		{
 			
 			super.postGen(world, rand, pos);
+			if(Config.genHiveFlowers)
+			{
 			postGenFlowers(world, rand, pos, OreStates);
+			}
 		}
 	};
 

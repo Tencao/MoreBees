@@ -1,6 +1,7 @@
 package lach_01298.moreBees.item;
 
-import lach_01298.moreBees.util.LoadMods;
+
+import lach_01298.moreBees.util.*;
 import forestry.api.core.Tabs;
 import forestry.apiculture.items.ItemHiveFrame;
 import net.minecraft.creativetab.CreativeTabs;
@@ -35,10 +36,13 @@ public class MoreBeesItems
 	
 	public static void initItems() 
 	{
-		frameSweet = register(new ItemFrame(120, 1.1f, 2.5f, 1.0f, 0.5f,"frameSweet"));
-		frameCooled = register(new ItemFrame(300, 2.0f, 3.5f, 0.8f, 0.25f,"frameCooled"));
-		frameMutating = register(new ItemFrame(240, 1.5f, 0.9f, 1.0f, 3.0f,"frameMutating"));
 		
+		if(Config.enableFrames)
+		{
+			frameSweet = register(new ItemFrame(120, 1.1f, 2.5f, 1.0f, 0.5f, "frameSweet"));
+			frameCooled = register(new ItemFrame(300, 2.0f, 3.5f, 0.8f, 0.25f, "frameCooled"));
+			frameMutating = register(new ItemFrame(240, 1.5f, 0.9f, 1.0f, 3.0f, "frameMutating"));
+		}
 		CombRock = register(new BasicItem("CombRock").setCreativeTab(Tabs.tabApiculture));
 		CombDirt = register(new BasicItem("CombDirt").setCreativeTab(Tabs.tabApiculture));
 		CombWither = register(new BasicItem("CombWither").setCreativeTab(Tabs.tabApiculture));
