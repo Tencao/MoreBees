@@ -22,6 +22,9 @@ for.bees.species.prismarine=Prismarine
 for.bees.species.apocalyptic=Apocalyptic
 for.bees.species.wither=Withering
 for.bees.species.netherstar=Wither
+for.bees.species.quartz=Quartz
+for.bees.species.osmium=Osmium
+for.bees.species.draconic=Draconic
 
 for.bees.species.aluminium=Aluminium
 for.bees.species.ruby=Ruby
@@ -111,6 +114,12 @@ morebees.description.speciesArdite=A very hard metal is produced by theses bees.
 morebees.description.speciesApatite=This bee takes nutriats out of the groud to create a fertiliser.
 
 morebees.description.speciesSulfur=You can smell these bees from a mile away becuase they produce smelly sulfur compounds.
+
+morebees.description.speciesQuartz=Not a diamond, but still shiny.
+
+morebees.description.speciesDraconic=These bees can conquer the end.
+
+morebees.description.speciesOsmium=These bees are very technical and industrious
 
 
 

@@ -6,11 +6,9 @@ import forestry.api.apiculture.FlowerManager;
 import forestry.apiculture.flowers.FlowerProvider;
 import forestry.core.genetics.alleles.IAlleleValue;
 
-public enum Flowers implements IAlleleValue<FlowerProvider> 
+public enum Flowers implements IAlleleValue<FlowerProvider>
 {
 	ORE(Register.FlowerOre, true),
-	DIAMOND(Register.FlowerDiamond,true),
-	EMERALD(Register.FlowerEmerald,true),
 	REDSTONE(Register.FlowerRedstone,true),
 	URANIUM(Register.FlowerUranium,true),
 	WATER(Register.FlowerWater),
@@ -20,12 +18,12 @@ public enum Flowers implements IAlleleValue<FlowerProvider>
 	private final FlowerProvider value;
 	private final boolean dominant;
 
-	Flowers(String flowerType) 
+	Flowers(String flowerType)
 	{
 		this(flowerType, false);
 	}
 
-	Flowers(String flowerType, boolean dominant) 
+	Flowers(String flowerType, boolean dominant)
 	{
 		String lowercaseName = toString().toLowerCase(Locale.ENGLISH);
 		this.value = new FlowerProvider(flowerType, "for.flowers." + lowercaseName);
@@ -34,16 +32,16 @@ public enum Flowers implements IAlleleValue<FlowerProvider>
 
 
 	@Override
-	public FlowerProvider getValue() 
+	public FlowerProvider getValue()
 	{
-		
+
 		return value;
 	}
 
 	@Override
-	public boolean isDominant() 
+	public boolean isDominant()
 	{
-		
+
 		return dominant;
 	}
 }

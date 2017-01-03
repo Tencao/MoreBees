@@ -48,8 +48,6 @@ import net.minecraftforge.oredict.OreDictionary;
 public class Register
 {
 	public static final String FlowerOre = "Ore";
-	public static final String FlowerDiamond = "Diamond";
-	public static final String FlowerEmerald = "Emerald";
 	public static final String FlowerRedstone = "Redstone";
 	public static final String FlowerUranium = "Uranium";
 	public static final String FlowerWater = "Water";
@@ -60,15 +58,13 @@ public class Register
 	public static IAlleleBeeEffect effectRadiation;
 	public static IAlleleBeeEffect effectSlimey;
 	public static IAlleleFlowers FlowerTypeOre;
-	public static IAlleleFlowers FlowerTypeDiamond;
-	public static IAlleleFlowers FlowerTypeEmerald;
 	public static IAlleleFlowers FlowerTypeRedstone;
 	public static IAlleleFlowers FlowerTypeUranium;
 	public static IAlleleFlowers FlowerTypeWater;
 	public static IAlleleFlowers FlowerTypeTNT;
 	public static IAlleleFlowers FlowerTypeSlime;
 	public static BlockHive beeHive;
-	
+
 	private static final String MOD_ID = MoreBees.MOD_ID;
 
 	public static void RegisterFlowers()
@@ -79,8 +75,6 @@ public class Register
 		flowerRegistry.registerAcceptableFlower(Blocks.IRON_ORE, FlowerOre);
 		flowerRegistry.registerAcceptableFlower(OreDicPreferences.getBlock("oreCopper"), FlowerOre);
 		flowerRegistry.registerAcceptableFlower(OreDicPreferences.getBlock("oreTin"), FlowerOre);
-		flowerRegistry.registerAcceptableFlower(Blocks.DIAMOND_ORE, FlowerDiamond);
-		flowerRegistry.registerAcceptableFlower(Blocks.EMERALD_ORE, FlowerEmerald);
 		flowerRegistry.registerAcceptableFlower(Blocks.REDSTONE_ORE, FlowerRedstone);
 		flowerRegistry.registerAcceptableFlower(Blocks.WATERLILY, FlowerWater);
 		flowerRegistry.registerAcceptableFlower(Blocks.TNT, FlowerTNT);
@@ -101,20 +95,26 @@ public class Register
 				flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(block.getItem()),FlowerUranium);
 			}
 		}
+		if(LoadMods.enableResonating)
+		{
+			List<ItemStack> list = OreDictionary.getOres("oreResonating");
+			for(ItemStack block : list)
+			{
+				flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(block.getItem()),FlowerUranium);
+			}
+		}
 		flowerRegistry.registerAcceptableFlower(Blocks.CHORUS_FLOWER, FlowerManager.FlowerTypeEnd);
 	}
 
 	public static void RegisterGenes()
 	{
 		FlowerTypeOre = AlleleManager.alleleFactory.createFlowers(MOD_ID, FlowerType, FlowerOre, Flowers.ORE.getValue(), true, EnumBeeChromosome.FLOWER_PROVIDER);
-		FlowerTypeDiamond = AlleleManager.alleleFactory.createFlowers(MOD_ID, FlowerType, FlowerDiamond, Flowers.DIAMOND.getValue(), true, EnumBeeChromosome.FLOWER_PROVIDER);
-		FlowerTypeEmerald = AlleleManager.alleleFactory.createFlowers(MOD_ID, FlowerType, FlowerEmerald, Flowers.EMERALD.getValue(), true, EnumBeeChromosome.FLOWER_PROVIDER);
 		FlowerTypeRedstone = AlleleManager.alleleFactory.createFlowers(MOD_ID, FlowerType, FlowerRedstone, Flowers.REDSTONE.getValue(), true, EnumBeeChromosome.FLOWER_PROVIDER);
 		FlowerTypeWater = AlleleManager.alleleFactory.createFlowers(MOD_ID, FlowerType, FlowerWater, Flowers.WATER.getValue(), true, EnumBeeChromosome.FLOWER_PROVIDER);
 		FlowerTypeTNT = AlleleManager.alleleFactory.createFlowers(MOD_ID, FlowerType, FlowerTNT, Flowers.TNT.getValue(), true, EnumBeeChromosome.FLOWER_PROVIDER);
 		FlowerTypeUranium = AlleleManager.alleleFactory.createFlowers(MOD_ID, FlowerType, FlowerUranium, Flowers.URANIUM.getValue(), true, EnumBeeChromosome.FLOWER_PROVIDER);
 		FlowerTypeSlime = AlleleManager.alleleFactory.createFlowers(MOD_ID, FlowerType, FlowerSlime, Flowers.SLIME.getValue(), true, EnumBeeChromosome.FLOWER_PROVIDER);
-		effectWither = new AlleleEffectPotion("wither", true, MobEffects.WITHER, 400);
+		effectWither = new AlleleEffectPotion("Wither", true, MobEffects.WITHER, 400);
 		AlleleManager.alleleRegistry.registerAllele(effectWither, EnumBeeChromosome.EFFECT );
 		effectRadiation = new AlleleEffectPotion("Radiation", true, MobEffects.HUNGER, 400);
 		AlleleManager.alleleRegistry.registerAllele(effectRadiation,  EnumBeeChromosome.EFFECT );
@@ -133,6 +133,6 @@ public class Register
 					new HiveDrop(0.8, BeeSpecies.ROCK, new ItemStack[] { rockComb }).setIgnobleShare(0.7),
 					new HiveDrop(0.03, BeeDefinition.VALIANT, new ItemStack[] { honeyComb }) });
 		}
-		
+
 	}
 }

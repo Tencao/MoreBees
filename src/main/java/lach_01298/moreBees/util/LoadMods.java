@@ -22,6 +22,9 @@ public class LoadMods
 	public static boolean enableSapphire = false;
 	public static boolean enableTinkers = false;
 	public static boolean enableIC2Classic = false;
+	public static boolean enableResonating = false;
+	public static boolean enableOsmium = false;
+	public static boolean enableDraconium = false;
 
 	public static void loadMods()
 	{
@@ -69,6 +72,16 @@ public class LoadMods
 		{
 			enableSapphire = true;
 		}
+		if(!OreDictionary.getOres((String) "oreResonating").isEmpty())
+		{
+			enableResonating = true;
+			Log.log((Level) Level.INFO, (String) "Loaded Deep Resonance fetures");
+		}
+		if(!OreDictionary.getOres((String) "dustDraconium").isEmpty())
+		{
+			enableDraconium = true;
+			Log.log((Level) Level.INFO, (String) "Loaded Draconic Evolution fetures");
+		}
 		if(Loader.isModLoaded((String) "IC2"))
 		{
 			try
@@ -109,5 +122,14 @@ public class LoadMods
 			}
 		}
 		Log.log((Level) Level.INFO, (String) "Loaded More Bees modCompat fetures");
+	}
+
+	public static void loadLateMods() {
+		if(!OreDictionary.getOres((String) "dustOsmium").isEmpty())
+		{
+			enableOsmium = true;
+			Log.log((Level) Level.INFO, (String) "Loaded Mekanism fetures");
+		}
+		Log.log((Level) Level.INFO, (String) "Loaded More Bees modCompat fetures for late registering mods");
 	}
 }

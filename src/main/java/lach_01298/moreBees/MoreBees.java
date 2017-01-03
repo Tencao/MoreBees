@@ -16,11 +16,12 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = MoreBees.MOD_ID, name = "More Bees", version = MoreBees.VERSION, acceptedMinecraftVersions = MoreBees.MCVERSION , dependencies = "required-after:forestry;after:IndustrialCraft2;")
+@Mod(modid = MoreBees.MOD_ID, name = "More Bees", version = MoreBees.VERSION, acceptedMinecraftVersions = MoreBees.MCVERSION ,
+	dependencies = "required-after:forestry;after:IndustrialCraft2;after:Mekanism;after:draconicevolution")
 public class MoreBees
 {
 	public static final String MOD_ID = "morebees";
-	public static final String VERSION = "1.10.2-1.2";
+	public static final String VERSION = "1.10.2-1.2.1";
 	public static final String MCVERSION = "1.10.2";
 	@Mod.Instance(value = "morebees")
 	public static MoreBees instance;
@@ -39,6 +40,7 @@ public class MoreBees
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent event)
 	{
+		LoadMods.loadLateMods();
 		RecipesCrafting.registerRecipes();
 		RecipesSmelting.registerRecipes();
 		RecipesCentrifuge.registerRecipes();

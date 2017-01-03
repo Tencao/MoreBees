@@ -15,7 +15,7 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 
 
 
-version = "1.10.2-1.2"
+version = "1.10.2-1.2.1"
 group= "lach_01298.morebees" 
 archivesBaseName = "morebees"
 
