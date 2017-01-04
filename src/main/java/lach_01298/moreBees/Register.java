@@ -54,11 +54,16 @@ public class Register
 	public static final String FlowerTNT = "TNT";
 	public static final String FlowerType = "flowers";
 	public static final String FlowerSlime = "Slime";
+	public static final String FlowerDiamond = "Diamond";
+	public static final String FlowerEmerald = "Emerald";
 	public static IAlleleBeeEffect effectWither;
 	public static IAlleleBeeEffect effectRadiation;
 	public static IAlleleBeeEffect effectSlimey;
 	public static IAlleleFlowers FlowerTypeOre;
+
 	public static IAlleleFlowers FlowerTypeRedstone;
+	public static IAlleleFlowers FlowerTypeDiamond;
+	public static IAlleleFlowers FlowerTypeEmerald;
 	public static IAlleleFlowers FlowerTypeUranium;
 	public static IAlleleFlowers FlowerTypeWater;
 	public static IAlleleFlowers FlowerTypeTNT;
@@ -76,6 +81,8 @@ public class Register
 		flowerRegistry.registerAcceptableFlower(OreDicPreferences.getBlock("oreCopper"), FlowerOre);
 		flowerRegistry.registerAcceptableFlower(OreDicPreferences.getBlock("oreTin"), FlowerOre);
 		flowerRegistry.registerAcceptableFlower(Blocks.REDSTONE_ORE, FlowerRedstone);
+		flowerRegistry.registerAcceptableFlower(Blocks.DIAMOND_ORE, FlowerDiamond);
+		flowerRegistry.registerAcceptableFlower(Blocks.EMERALD_ORE, FlowerEmerald);
 		flowerRegistry.registerAcceptableFlower(Blocks.WATERLILY, FlowerWater);
 		flowerRegistry.registerAcceptableFlower(Blocks.TNT, FlowerTNT);
 		flowerRegistry.registerAcceptableFlower(Blocks.SLIME_BLOCK, FlowerSlime);
@@ -110,6 +117,8 @@ public class Register
 	{
 		FlowerTypeOre = AlleleManager.alleleFactory.createFlowers(MOD_ID, FlowerType, FlowerOre, Flowers.ORE.getValue(), true, EnumBeeChromosome.FLOWER_PROVIDER);
 		FlowerTypeRedstone = AlleleManager.alleleFactory.createFlowers(MOD_ID, FlowerType, FlowerRedstone, Flowers.REDSTONE.getValue(), true, EnumBeeChromosome.FLOWER_PROVIDER);
+		FlowerTypeDiamond = AlleleManager.alleleFactory.createFlowers(MOD_ID, FlowerType, FlowerDiamond, Flowers.DIAMOND.getValue(), true, EnumBeeChromosome.FLOWER_PROVIDER);
+		FlowerTypeEmerald = AlleleManager.alleleFactory.createFlowers(MOD_ID, FlowerType, FlowerEmerald, Flowers.EMERALD.getValue(), true, EnumBeeChromosome.FLOWER_PROVIDER);
 		FlowerTypeWater = AlleleManager.alleleFactory.createFlowers(MOD_ID, FlowerType, FlowerWater, Flowers.WATER.getValue(), true, EnumBeeChromosome.FLOWER_PROVIDER);
 		FlowerTypeTNT = AlleleManager.alleleFactory.createFlowers(MOD_ID, FlowerType, FlowerTNT, Flowers.TNT.getValue(), true, EnumBeeChromosome.FLOWER_PROVIDER);
 		FlowerTypeUranium = AlleleManager.alleleFactory.createFlowers(MOD_ID, FlowerType, FlowerUranium, Flowers.URANIUM.getValue(), true, EnumBeeChromosome.FLOWER_PROVIDER);
