@@ -25,6 +25,7 @@ for.bees.species.netherstar=Wither
 for.bees.species.quartz=Quartz
 for.bees.species.osmium=Osmium
 for.bees.species.draconic=Draconic
+for.bees.species.resonating=Resonating
 
 for.bees.species.aluminium=Aluminium
 for.bees.species.ruby=Ruby
@@ -121,6 +122,7 @@ morebees.description.speciesDraconic=These bees can conquer the end.
 
 morebees.description.speciesOsmium=These bees are very technical and industrious
 
+morebees.description.speciesResonating=These bees resonate in the earth to generate power
 
 
 //tool tips
@@ -135,7 +137,7 @@ for.flowers.ore=Ore
 for.flowers.tnt=TNT
 for.flowers.water=Water Plant
 for.flowers.redstone=Redstone
-for.flowers.emerald=Emerald
+for.flowers.emerald=Emerald		
 for.flowers.diamond=Diamond
 for.flowers.uranium=Uranium
 for.flowers.slime=Slime
