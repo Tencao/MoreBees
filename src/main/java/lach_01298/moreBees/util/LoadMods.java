@@ -64,14 +64,6 @@ public class LoadMods
 		{
 			enableAluminium = true;
 		}
-		if(!OreDictionary.getOres((String) "gemRuby").isEmpty())
-		{
-			enableRuby = true;
-		}
-		if(!OreDictionary.getOres((String) "gemSapphire").isEmpty())
-		{
-			enableSapphire = true;
-		}
 		if(!OreDictionary.getOres((String) "oreResonating").isEmpty())
 		{
 			enableResonating = true;
@@ -129,6 +121,14 @@ public class LoadMods
 		{
 			enableOsmium = true;
 			Log.log((Level) Level.INFO, (String) "Loaded Mekanism fetures");
+		}
+		if(!OreDictionary.getOres((String) "gemRuby").isEmpty())
+		{
+			enableRuby = true;
+		}
+		if(!OreDictionary.getOres((String) "gemSapphire").isEmpty())
+		{
+			enableSapphire = true;
 		}
 		Log.log((Level) Level.INFO, (String) "Loaded More Bees modCompat fetures for late registering mods");
 	}

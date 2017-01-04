@@ -196,7 +196,11 @@ public enum BeeSpecies implements IBeeDefinition
 		{
 
 			beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombDirt), 0.30f)
-			          .addProduct(new ItemStack(Items.CLAY_BALL), 1.0f).addProduct(new ItemStack(Items.CLAY_BALL), 0.5f).addProduct(new ItemStack(Items.CLAY_BALL), 0.5f).addProduct(new ItemStack(Items.CLAY_BALL), 0.5f).setTemperature(EnumTemperature.NORMAL).setHumidity(EnumHumidity.DAMP);
+			          .addProduct(new ItemStack(Items.CLAY_BALL), 1.0f)
+			          .addProduct(new ItemStack(Items.CLAY_BALL), 0.5f)
+			          .addProduct(new ItemStack(Items.CLAY_BALL), 0.5f)
+			          .addProduct(new ItemStack(Items.CLAY_BALL), 0.5f)
+			          .setTemperature(EnumTemperature.NORMAL).setHumidity(EnumHumidity.DAMP);
 		}
 
 		@Override
@@ -833,26 +837,17 @@ public enum BeeSpecies implements IBeeDefinition
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies)
 		{
+			beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombRock), 0.30f)
+					  .setTemperature(EnumTemperature.HOT).setHumidity(EnumHumidity.NORMAL);
 			if(LoadMods.enableUranium && !LoadMods.enableIC2Classic)
 			{
-				beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombRock), 0.30f)
-				          .addProduct(OreDicPreferences.get("oreUranium", 1), 0.05f)
-				          .setTemperature(EnumTemperature.HOT).setHumidity(EnumHumidity.NORMAL);
+			    beeSpecies.addProduct(OreDicPreferences.get("oreUranium", 1), 0.05f);
 			}
 			else if(LoadMods.enableIC2Classic)
 			{
-				beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombRock), 0.30f)
-				          .addProduct(OreDicPreferences.get("dropUranium", 1), 0.05f)
-				          .setTemperature(EnumTemperature.HOT).setHumidity(EnumHumidity.NORMAL);
+				beeSpecies.addProduct(OreDicPreferences.get("dropUranium", 1), 0.05f);
 
 			}
-			else if (LoadMods.enableResonating)
-			{
-				beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombRock), 0.30f)
-				          .addProduct(OreDicPreferences.get("oreResonating", 1), 0.05f)
-				          .setTemperature(EnumTemperature.HOT).setHumidity(EnumHumidity.NORMAL);
-			}
-
 		}
 
 		@Override
@@ -896,9 +891,37 @@ public enum BeeSpecies implements IBeeDefinition
 				          .setTemperature(EnumTemperature.HELLISH).setHumidity(EnumHumidity.ARID);
 
 			}
-			else if (LoadMods.enableResonating)
+		}
+
+		@Override
+		protected void setAlleles(IAllele[] template)
+		{
+			AlleleHelper.instance.set(template, EnumBeeChromosome.FERTILITY, EnumAllele.Fertility.LOW);
+			AlleleHelper.instance.set(template, EnumBeeChromosome.CAVE_DWELLING, true);
+			AlleleHelper.instance.set(template, EnumBeeChromosome.NEVER_SLEEPS, true);
+			AlleleHelper.instance.set(template, EnumBeeChromosome.HUMIDITY_TOLERANCE, EnumAllele.Tolerance.BOTH_1);
+			AlleleHelper.instance.set(template, EnumBeeChromosome.SPEED, EnumAllele.Speed.NORMAL);
+
+		}
+
+		@Override
+		protected void registerMutations()
+		{
+
+			BeeManager.beeMutationFactory.createMutation(RadioactiveBee, ApocalypticBee, getTemplate(), MathUtil.maxInt((int)(5*Config.mutationMultipler),100)).restrictBiomeType(BiomeDictionary.Type.NETHER);
+
+		}
+	},
+	RESONATING(BeeBranches.RADIOACTIVE, "Resonating", false, new Color(0xf74f6b), new Color(0x999999))
+	{
+		@Override
+		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies)
+		{
+			if (LoadMods.enableResonating)
 			{
-				beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombRock), 0.30f).addProduct(OreDicPreferences.get("oreResonating", 1), 0.15f).setTemperature(EnumTemperature.HOT).setHumidity(EnumHumidity.NORMAL);
+				beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombRock), 0.30f)
+				          .addProduct(OreDicPreferences.get("oreResonating", 1), 0.15f)
+				          .setTemperature(EnumTemperature.HOT).setHumidity(EnumHumidity.NORMAL);
 			}
 		}
 
@@ -1023,8 +1046,7 @@ public enum BeeSpecies implements IBeeDefinition
 		{
 			beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombWither), 0.30f)
 			          .addSpecialty(new ItemStack(Items.SKULL, 1, 1), 0.02f)
-			          // needs custom provider to determine if the skull is a wither skull
-			          .setJubilanceProvider(BeeManager.jubilanceFactory.getRequiresResource(Blocks.SKULL.getDefaultState()))
+			          .setJubilanceProvider(new WitherSkullJubilance())
 			          .setTemperature(EnumTemperature.HELLISH).setHumidity(EnumHumidity.ARID);
 
 		}
@@ -1054,7 +1076,7 @@ public enum BeeSpecies implements IBeeDefinition
 		{
 			beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombWither), 0.35f)
 			          .addSpecialty(new ItemStack(MoreBeesItems.NetherFrag), 0.05f)
-			          .setJubilanceProvider(BeeManager.jubilanceFactory.getRequiresResource(Blocks.SKULL.getDefaultState()))
+			          .setJubilanceProvider(new WitherSkullJubilance())
 			          .setHasEffect()
 			          .setTemperature(EnumTemperature.HELLISH).setHumidity(EnumHumidity.ARID);
 		}
@@ -1346,14 +1368,21 @@ public enum BeeSpecies implements IBeeDefinition
 					}
 					break;
 				case RADIOACTIVE:
-					if((LoadMods.enableUranium || LoadMods.enableResonating) && Config.radioactiveBees)
+					if(Config.radioactiveBees)
 					{
 						bee.init();
 						bee.registerMutations();
 					}
 					break;
 				case URANIUM:
-					if((LoadMods.enableIC2 || LoadMods.enableResonating) && Config.uranicBees)
+					if(LoadMods.enableIC2 && Config.uranicBees)
+					{
+						bee.init();
+						bee.registerMutations();
+					}
+					break;
+				case RESONATING:
+					if(LoadMods.enableResonating && Config.uranicBees)
 					{
 						bee.init();
 						bee.registerMutations();
