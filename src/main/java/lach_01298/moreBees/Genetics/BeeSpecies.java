@@ -322,7 +322,7 @@ public enum BeeSpecies implements IBeeDefinition
 		{
 			beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombRock), 0.30f)
 			          .addSpecialty(new ItemStack(MoreBeesItems.EmeraldFrag), 0.15f)
-			          .setJubilanceProvider(BeeManager.jubilanceFactory.getRequiresResource(Blocks.EMERALD_BLOCK.getDefaultState()))
+			          .setJubilanceProvider(BeeManager.jubilanceFactory.getRequiresResource(Blocks.EMERALD_ORE.getDefaultState()))
 			          .setTemperature(EnumTemperature.WARM).setHumidity(EnumHumidity.NORMAL);
 
 		}
@@ -335,6 +335,7 @@ public enum BeeSpecies implements IBeeDefinition
 			AlleleHelper.instance.set(template, EnumBeeChromosome.HUMIDITY_TOLERANCE, EnumAllele.Tolerance.BOTH_2);
 			AlleleHelper.instance.set(template, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.UP_1);
 			AlleleHelper.instance.set(template, EnumBeeChromosome.SPEED, EnumAllele.Speed.SLOWER);
+			AlleleHelper.instance.set(template, EnumBeeChromosome.FLOWER_PROVIDER, Register.FlowerTypeEmerald);
 		}
 
 		@Override
@@ -352,7 +353,7 @@ public enum BeeSpecies implements IBeeDefinition
 		{
 			beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombRock), 0.30f)
 			          .addSpecialty(new ItemStack(MoreBeesItems.DiamondFrag), 0.15f)
-			          .setJubilanceProvider(BeeManager.jubilanceFactory.getRequiresResource(Blocks.DIAMOND_BLOCK.getDefaultState()))
+			          .setJubilanceProvider(BeeManager.jubilanceFactory.getRequiresResource(Blocks.DIAMOND_ORE.getDefaultState()))
 			          .setHasEffect()
 			          .setTemperature(EnumTemperature.WARM).setHumidity(EnumHumidity.NORMAL);
 
@@ -366,6 +367,7 @@ public enum BeeSpecies implements IBeeDefinition
 			AlleleHelper.instance.set(template, EnumBeeChromosome.HUMIDITY_TOLERANCE, EnumAllele.Tolerance.UP_1);
 			AlleleHelper.instance.set(template, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.UP_1);
 			AlleleHelper.instance.set(template, EnumBeeChromosome.SPEED, EnumAllele.Speed.SLOWEST);
+			AlleleHelper.instance.set(template, EnumBeeChromosome.FLOWER_PROVIDER, Register.FlowerTypeDiamond);
 		}
 
 		@Override
@@ -800,7 +802,7 @@ public enum BeeSpecies implements IBeeDefinition
 
 		}
 	},
-	OSMIUM(BeeBranches.METAL, "Osmium", false, new Color(0x33caff), new Color(0x999999))
+	OSMIUM(BeeBranches.METAL, "Osmium", false, new Color(0x95a5b4), new Color(0x999999))
 	{
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies)
@@ -871,6 +873,41 @@ public enum BeeSpecies implements IBeeDefinition
 
 		}
 	},
+	RESONATING(BeeBranches.RADIOACTIVE, "Resonating", true, new Color(0xff6565), new Color(0x999999))
+	{
+		@Override
+		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies)
+		{
+			if(LoadMods.enableResonating)
+			{
+				beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombRock), 0.30f)
+				          .addProduct(OreDicPreferences.get("oreResonating", 1), 0.05f)
+				          .setTemperature(EnumTemperature.HOT).setHumidity(EnumHumidity.NORMAL);
+			}
+
+		}
+
+		@Override
+		protected void setAlleles(IAllele[] template)
+		{
+			AlleleHelper.instance.set(template, EnumBeeChromosome.FERTILITY, EnumAllele.Fertility.LOW);
+			AlleleHelper.instance.set(template, EnumBeeChromosome.CAVE_DWELLING, true);
+			AlleleHelper.instance.set(template, EnumBeeChromosome.HUMIDITY_TOLERANCE, EnumAllele.Tolerance.BOTH_2);
+			AlleleHelper.instance.set(template, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.UP_1);
+			AlleleHelper.instance.set(template, EnumBeeChromosome.SPEED, EnumAllele.Speed.SLOWER);
+			AlleleHelper.instance.set(template, EnumBeeChromosome.FLOWER_PROVIDER, Register.FlowerTypeUranium);
+			AlleleHelper.instance.set(template, EnumBeeChromosome.NEVER_SLEEPS, true);
+
+		}
+
+		@Override
+		protected void registerMutations()
+		{
+
+			BeeManager.beeMutationFactory.createMutation(RadioactiveBee, RedstoneBee, getTemplate(), MathUtil.maxInt((int)(8*Config.mutationMultipler),100));
+
+		}
+	},
 	URANIUM(BeeBranches.RADIOACTIVE, "Uranium", false, new Color(0x6ac013), new Color(0x999999))
 	{
 		@Override
@@ -890,38 +927,6 @@ public enum BeeSpecies implements IBeeDefinition
 				          .setHasEffect()
 				          .setTemperature(EnumTemperature.HELLISH).setHumidity(EnumHumidity.ARID);
 
-			}
-		}
-
-		@Override
-		protected void setAlleles(IAllele[] template)
-		{
-			AlleleHelper.instance.set(template, EnumBeeChromosome.FERTILITY, EnumAllele.Fertility.LOW);
-			AlleleHelper.instance.set(template, EnumBeeChromosome.CAVE_DWELLING, true);
-			AlleleHelper.instance.set(template, EnumBeeChromosome.NEVER_SLEEPS, true);
-			AlleleHelper.instance.set(template, EnumBeeChromosome.HUMIDITY_TOLERANCE, EnumAllele.Tolerance.BOTH_1);
-			AlleleHelper.instance.set(template, EnumBeeChromosome.SPEED, EnumAllele.Speed.NORMAL);
-
-		}
-
-		@Override
-		protected void registerMutations()
-		{
-
-			BeeManager.beeMutationFactory.createMutation(RadioactiveBee, ApocalypticBee, getTemplate(), MathUtil.maxInt((int)(5*Config.mutationMultipler),100)).restrictBiomeType(BiomeDictionary.Type.NETHER);
-
-		}
-	},
-	RESONATING(BeeBranches.RADIOACTIVE, "Resonating", false, new Color(0xf74f6b), new Color(0x999999))
-	{
-		@Override
-		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies)
-		{
-			if (LoadMods.enableResonating)
-			{
-				beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombRock), 0.30f)
-				          .addProduct(OreDicPreferences.get("oreResonating", 1), 0.15f)
-				          .setTemperature(EnumTemperature.HOT).setHumidity(EnumHumidity.NORMAL);
 			}
 		}
 
@@ -1374,15 +1379,14 @@ public enum BeeSpecies implements IBeeDefinition
 						bee.registerMutations();
 					}
 					break;
-				case URANIUM:
-					if(LoadMods.enableIC2 && Config.uranicBees)
+				case RESONATING:
+					if((LoadMods.enableResonating))
 					{
 						bee.init();
 						bee.registerMutations();
 					}
 					break;
-				case RESONATING:
-					if(LoadMods.enableResonating && Config.uranicBees)
+				case URANIUM:
 					{
 						bee.init();
 						bee.registerMutations();

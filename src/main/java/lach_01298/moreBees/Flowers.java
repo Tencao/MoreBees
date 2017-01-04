@@ -9,6 +9,8 @@ import forestry.core.genetics.alleles.IAlleleValue;
 public enum Flowers implements IAlleleValue<FlowerProvider>
 {
 	ORE(Register.FlowerOre, true),
+	DIAMOND(Register.FlowerDiamond,true),
+	EMERALD(Register.FlowerEmerald,true),
 	REDSTONE(Register.FlowerRedstone,true),
 	URANIUM(Register.FlowerUranium,true),
 	WATER(Register.FlowerWater),
