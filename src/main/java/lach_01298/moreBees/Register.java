@@ -110,6 +110,15 @@ public class Register
 				flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(block.getItem()),FlowerUranium);
 			}
 		}
+		if(LoadMods.enableYellorite)
+		{
+			List<ItemStack> list = OreDictionary.getOres("oreYellorite");
+			for(ItemStack block : list)
+			{
+				flowerRegistry.registerAcceptableFlower(Block.getBlockFromItem(block.getItem()),FlowerUranium);
+			}
+		}
+
 		flowerRegistry.registerAcceptableFlower(Blocks.CHORUS_FLOWER, FlowerManager.FlowerTypeEnd);
 	}
 
