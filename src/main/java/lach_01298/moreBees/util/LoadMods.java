@@ -25,6 +25,8 @@ public class LoadMods
 	public static boolean enableResonating = false;
 	public static boolean enableOsmium = false;
 	public static boolean enableDraconium = false;
+	public static boolean enableCertusQuartz = false;
+	public static boolean enableYellorite;
 
 	public static void loadMods()
 	{
@@ -68,6 +70,16 @@ public class LoadMods
 		{
 			enableResonating = true;
 			Log.log((Level) Level.INFO, (String) "Loaded Deep Resonance fetures");
+		}
+		if(!OreDictionary.getOres((String) "oreYellorite").isEmpty())
+		{
+			enableYellorite = true;
+			Log.log((Level) Level.INFO, (String) "Loaded Extreme Reactors fetures");
+		}
+		if(!OreDictionary.getOres((String) "dustCertusQuartz").isEmpty())
+		{
+			enableCertusQuartz = true;
+			Log.log((Level) Level.INFO, (String) "Loaded Applied Energistics fetures");
 		}
 		if(!OreDictionary.getOres((String) "dustDraconium").isEmpty())
 		{

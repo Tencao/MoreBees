@@ -26,6 +26,10 @@ public class Config
 
 	public static boolean uranicBees = true;
 	public static boolean radioactiveBees = true;
+	public static boolean yelloriteBees = true;
+	public static boolean resonatingBees = true;
+	public static boolean certusQuartzBees = true;
+	public static boolean draconicBees = true;
 
 	public static boolean tinkersSlimeBees = true;
 	public static boolean tinkersMetalBees = true;
@@ -79,9 +83,13 @@ public class Config
 		witherBees = cfg.getBoolean("witherBees", CATEGORY_BEES, witherBees, "Set to false to disable Withering Bees."+beeNote);
 		diamondBees = cfg.getBoolean("diamondBees", CATEGORY_BEES, diamondBees, "Set to false to disable Diamond Bees.");
 		apocalypticBees = cfg.getBoolean("apocalypticBees", CATEGORY_BEES, apocalypticBees, "Set to false to disable Apocalyptic Bees."+beeNote);
-		uranicBees = cfg.getBoolean("uranicBees", CATEGORY_BEES, uranicBees, "Set to false to disable Uranic and Resonating Bees.");
+		uranicBees = cfg.getBoolean("uranicBees", CATEGORY_BEES, uranicBees, "Set to false to disable Uranic Bees.");
+		yelloriteBees = cfg.getBoolean("yelloriteBees", CATEGORY_BEES, yelloriteBees, "Set to false to disable Yellorite Bees.");
+		resonatingBees = cfg.getBoolean("resonatingBees", CATEGORY_BEES, resonatingBees, "Set to false to disable Resonating Bees.");
 		radioactiveBees = cfg.getBoolean("radioactiveBees", CATEGORY_BEES, radioactiveBees, "Set to false to disable Radioactive Bees."+beeNote);
-		tinkersSlimeBees = cfg.getBoolean("tinkersSlimeBees", CATEGORY_BEES, tinkersSlimeBees, "Set to false to disable TinkersConstructs slime Bees. i.e. blue, purple, magma");
+		certusQuartzBees = cfg.getBoolean("certzBees", CATEGORY_BEES, certusQuartzBees, "Set to false to disable Certus Quartz Bees.");
+		draconicBees = cfg.getBoolean("draconicBees", CATEGORY_BEES, draconicBees, "Set to false to disable Draconic Bees.");
+		tinkersSlimeBees = cfg.getBoolean("tinkersSlimeBees", CATEGORY_BEES, tinkersSlimeBees, "Set to false to disable TinkersConstructs Slime Bees. i.e. blue, purple, magma");
 		tinkersMetalBees = cfg.getBoolean("tinkersMetalBees", CATEGORY_BEES, tinkersMetalBees, "Set to false to disable TinkersConstructs Metal Bees. i.e. cobalt, ardite");
 		mutationMultipler = cfg.getFloat("mutationMultipler", CATEGORY_BEES, mutationMultipler, 0.0f, 100.0f, "The Multipler for the chance of mutation e.g. 0.5 is half as likely 2.0 is twice as likely");
 
