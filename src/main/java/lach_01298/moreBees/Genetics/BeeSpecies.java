@@ -289,9 +289,11 @@ public enum BeeSpecies implements IBeeDefinition
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies)
 		{
-			beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombCrystal), 0.30f)
-			          .addProduct(OreDicPreferences.get("dustCertusQuartz", 1), 0.20f)
-			          .setTemperature(EnumTemperature.WARM).setHumidity(EnumHumidity.NORMAL);
+			if (LoadMods.enableCertusQuartz) {
+				beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombCrystal), 0.30f)
+						  .addProduct(OreDicPreferences.get("dustCertusQuartz", 1), 0.20f)
+						  .setTemperature(EnumTemperature.WARM).setHumidity(EnumHumidity.NORMAL);
+		    }
 
 		}
 
