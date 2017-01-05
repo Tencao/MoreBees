@@ -322,7 +322,7 @@ public enum BeeSpecies implements IBeeDefinition
 		{
 			beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombRock), 0.30f)
 			          .addSpecialty(new ItemStack(MoreBeesItems.EmeraldFrag), 0.15f)
-			          .setJubilanceProvider(BeeManager.jubilanceFactory.getRequiresResource(Blocks.EMERALD_ORE.getDefaultState()))
+			          .setJubilanceProvider(BeeManager.jubilanceFactory.getRequiresResource(Blocks.EMERALD_BLOCK.getDefaultState()))
 			          .setTemperature(EnumTemperature.WARM).setHumidity(EnumHumidity.NORMAL);
 
 		}
@@ -353,7 +353,7 @@ public enum BeeSpecies implements IBeeDefinition
 		{
 			beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombRock), 0.30f)
 			          .addSpecialty(new ItemStack(MoreBeesItems.DiamondFrag), 0.15f)
-			          .setJubilanceProvider(BeeManager.jubilanceFactory.getRequiresResource(Blocks.DIAMOND_ORE.getDefaultState()))
+			          .setJubilanceProvider(BeeManager.jubilanceFactory.getRequiresResource(Blocks.DIAMOND_BLOCK.getDefaultState()))
 			          .setHasEffect()
 			          .setTemperature(EnumTemperature.WARM).setHumidity(EnumHumidity.NORMAL);
 
@@ -1387,6 +1387,7 @@ public enum BeeSpecies implements IBeeDefinition
 					}
 					break;
 				case URANIUM:
+					if(LoadMods.enableIC2 && Config.uranicBees)
 					{
 						bee.init();
 						bee.registerMutations();
