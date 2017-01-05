@@ -71,10 +71,12 @@ public class RecipesCentrifuge
 
 		RecipeManagers.centrifugeManager.addRecipe(20, new ItemStack(MBI.PropolisCrystal), ImmutableMap.of(
 				PluginApiculture.items.propolis.getItemStack(), 0.3f,
-				new ItemStack(MBI.GrainsCrystal), 0.6f));
+				new ItemStack(MBI.GrainsCrystal), 0.6f,
+				new ItemStack(MBI.GrainsCrystal), 0.3f));
 
 		RecipeManagers.centrifugeManager.addRecipe(20, new ItemStack(MBI.PropolisMetallic), ImmutableMap.of(
 				PluginApiculture.items.propolis.getItemStack(), 0.3f,
-				new ItemStack(MBI.GrainsMetallic), 0.6f));
+				new ItemStack(MBI.GrainsMetallic), 0.6f,
+				new ItemStack(MBI.GrainsMetallic), 0.3f));
 	}
 }

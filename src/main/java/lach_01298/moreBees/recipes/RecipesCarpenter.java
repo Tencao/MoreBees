@@ -71,16 +71,16 @@ public class RecipesCarpenter
 					'G',MBI.GrainsCrystal);
 	    }
 
-		RecipeManagers.carpenterManager.addRecipe(100, new FluidStack(FluidRegistry.WATER, 500), null, new ItemStack(MBI.DustIron),
+		RecipeManagers.carpenterManager.addRecipe(100, new FluidStack(FluidRegistry.WATER, 500), null, OreDicPreferences.get("dustIron", 1),
 				" G ", "G G", "   ",
 				'G',MBI.GrainsMetallic);
-		RecipeManagers.carpenterManager.addRecipe(100, new FluidStack(FluidRegistry.WATER, 500), null, new ItemStack(MBI.DustCopper),
+		RecipeManagers.carpenterManager.addRecipe(100, new FluidStack(FluidRegistry.WATER, 500), null, OreDicPreferences.get("dustCopper", 1),
 				"   ", "G G", " G ",
 				'G',MBI.GrainsMetallic);
-		RecipeManagers.carpenterManager.addRecipe(100, new FluidStack(FluidRegistry.WATER, 500), null, new ItemStack(MBI.DustTin),
+		RecipeManagers.carpenterManager.addRecipe(100, new FluidStack(FluidRegistry.WATER, 500), null, OreDicPreferences.get("dustTin", 1),
 				" G ", "G G", " G ",
 				'G',MBI.GrainsMetallic);
-		RecipeManagers.carpenterManager.addRecipe(100, new FluidStack(FluidRegistry.WATER, 1000), null, new ItemStack(MBI.DustGold),
+		RecipeManagers.carpenterManager.addRecipe(100, new FluidStack(FluidRegistry.WATER, 1000), null, OreDicPreferences.get("dustGold", 1),
 				"G G", "GGG", "G G",
 				'G',MBI.GrainsMetallic);
 		if (LoadMods.enableSilver)
