@@ -9,16 +9,23 @@ import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 
-public class MoreBeesItems 
+public class MoreBeesItems
 {
 
 	public static BasicItem CombRock;
 	public static BasicItem CombDirt;
 	public static BasicItem CombWither;
 	public static BasicItem CombSlime;
+	public static BasicItem CombMetallic;
+	public static BasicItem CombCrystal;
 	public static BasicItem DiamondFrag;
 	public static BasicItem EmeraldFrag;
 	public static ShinyItem NetherFrag;
+	public static BasicItem PropolisMetallic;
+	public static BasicItem PropolisCrystal;
+	public static BasicItem GrainsMetallic;
+	public static BasicItem GrainsCrystal;
+
 	//ore dic items
 	public static BasicItem DustIron;
 	public static BasicItem DustCopper;
@@ -27,16 +34,16 @@ public class MoreBeesItems
 	public static BasicItem DustSilver;
 	public static BasicItem DustLead;
 	public static BasicItem DustAluminium;
-	
+
 	//frames
 	public static ItemFrame frameSweet;
 	public static ItemFrame frameCooled;
 	public static ItemFrame frameMutating;
 
-	
-	public static void initItems() 
+
+	public static void initItems()
 	{
-		
+
 		if(Config.enableFrames)
 		{
 			frameSweet = register(new ItemFrame(120, 1.1f, 2.5f, 1.0f, 0.5f, "frameSweet"));
@@ -47,11 +54,18 @@ public class MoreBeesItems
 		CombDirt = register(new BasicItem("CombDirt").setCreativeTab(Tabs.tabApiculture));
 		CombWither = register(new BasicItem("CombWither").setCreativeTab(Tabs.tabApiculture));
 		CombSlime = register(new BasicItem("CombSlime").setCreativeTab(Tabs.tabApiculture));
-		
+		CombMetallic = register(new BasicItem("CombMetallic").setCreativeTab(Tabs.tabApiculture));
+		CombCrystal = register(new BasicItem("CombCrystal").setCreativeTab(Tabs.tabApiculture));
+
 		DiamondFrag = registerOreItem(new BasicItem("diamondFragment").setCreativeTab(Tabs.tabApiculture),"nuggetDiamond");
 		EmeraldFrag = registerOreItem(new BasicItem("emeraldFragment").setCreativeTab(Tabs.tabApiculture),"nuggetEmerald");
 		NetherFrag = register(new ShinyItem("nether_starFragment").setCreativeTab(Tabs.tabApiculture));
-		
+
+		PropolisMetallic = register(new BasicItem("propolisMetallic").setCreativeTab(Tabs.tabApiculture));
+		PropolisCrystal = register(new BasicItem("propolisCrystal").setCreativeTab(Tabs.tabApiculture));
+		GrainsMetallic = register(new BasicItem("grainMetallic").setCreativeTab(Tabs.tabApiculture));
+		GrainsCrystal = register(new BasicItem("grainCrystal").setCreativeTab(Tabs.tabApiculture));
+
 		//ore dic items
 		if(LoadMods.enableIronDust)
 		{
@@ -82,33 +96,28 @@ public class MoreBeesItems
 		{
 			DustAluminium = registerOreItem(new BasicItem("dustAluminium").setCreativeTab(CreativeTabs.MATERIALS),"dustAluminum");
 		}
-		
-		
-		
+
 	}
 
-	
-	
 
-
-	private static <T extends Item> T register(T item) 
+	private static <T extends Item> T register(T item)
 	{
 		GameRegistry.register(item);
 
-		if (item instanceof ItemModelProvider) 
+		if (item instanceof ItemModelProvider)
 		{
 			((ItemModelProvider) item).registerItemModel(item);
 		}
 
 		return  item;
 	}
-	
-	private static <T extends Item> T registerOreItem(T item,String oreDicName) 
+
+	private static <T extends Item> T registerOreItem(T item,String oreDicName)
 	{
 		GameRegistry.register(item);
 		OreDictionary.registerOre(oreDicName, item);
 
-		if (item instanceof ItemModelProvider) 
+		if (item instanceof ItemModelProvider)
 		{
 			((ItemModelProvider) item).registerItemModel(item);
 		}

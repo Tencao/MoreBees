@@ -259,8 +259,8 @@ public enum BeeSpecies implements IBeeDefinition
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies)
 		{
-			beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombRock), 0.30f)
-			          .addProduct(new ItemStack(Items.QUARTZ), 0.30f)
+			beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombCrystal), 0.30f)
+			          .addProduct(new ItemStack(Items.QUARTZ), 0.20f)
 			          .setTemperature(EnumTemperature.WARM).setHumidity(EnumHumidity.NORMAL);
 
 		}
@@ -289,9 +289,9 @@ public enum BeeSpecies implements IBeeDefinition
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies)
 		{
-			beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombRock), 0.30f)
-			          .addProduct(new ItemStack(Items.REDSTONE), 0.30f)
+			beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombCrystal), 0.30f)
 			          .addProduct(new ItemStack(Items.REDSTONE), 0.20f)
+			          .addProduct(new ItemStack(Items.REDSTONE), 0.15f)
 			          .setTemperature(EnumTemperature.WARM).setHumidity(EnumHumidity.NORMAL);
 
 		}
@@ -320,7 +320,7 @@ public enum BeeSpecies implements IBeeDefinition
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies)
 		{
-			beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombRock), 0.30f)
+			beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombCrystal), 0.30f)
 			          .addSpecialty(new ItemStack(MoreBeesItems.EmeraldFrag), 0.15f)
 			          .setJubilanceProvider(BeeManager.jubilanceFactory.getRequiresResource(Blocks.EMERALD_ORE.getDefaultState()))
 			          .setTemperature(EnumTemperature.WARM).setHumidity(EnumHumidity.NORMAL);
@@ -351,7 +351,7 @@ public enum BeeSpecies implements IBeeDefinition
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies)
 		{
-			beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombRock), 0.30f)
+			beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombCrystal), 0.30f)
 			          .addSpecialty(new ItemStack(MoreBeesItems.DiamondFrag), 0.15f)
 			          .setJubilanceProvider(BeeManager.jubilanceFactory.getRequiresResource(Blocks.DIAMOND_ORE.getDefaultState()))
 			          .setHasEffect()
@@ -374,7 +374,7 @@ public enum BeeSpecies implements IBeeDefinition
 		protected void registerMutations()
 		{
 
-			BeeManager.beeMutationFactory.createMutation(EmeraldBee, LapisBee, getTemplate(), MathUtil.maxInt((int)(2*Config.mutationMultipler),100));
+			BeeManager.beeMutationFactory.createMutation(EmeraldBee, QuartzBee, getTemplate(), MathUtil.maxInt((int)(2*Config.mutationMultipler),100));
 
 		}
 	},
@@ -385,8 +385,8 @@ public enum BeeSpecies implements IBeeDefinition
 		{
 			if(LoadMods.enableRuby)
 			{
-				beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombRock), 0.30f)
-				          .addProduct(OreDicPreferences.get("gemRuby", 1), 0.15f)
+				beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombCrystal), 0.30f)
+				          .addProduct(OreDicPreferences.get("gemRuby", 1), 0.10f)
 				          .setTemperature(EnumTemperature.WARM).setHumidity(EnumHumidity.NORMAL);
 			}
 		}
@@ -416,8 +416,8 @@ public enum BeeSpecies implements IBeeDefinition
 		{
 			if(LoadMods.enableSapphire)
 			{
-				beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombRock), 0.30f)
-				          .addProduct(OreDicPreferences.get("gemSapphire", 1), 0.15f)
+				beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombCrystal), 0.30f)
+				          .addProduct(OreDicPreferences.get("gemSapphire", 1), 0.10f)
 				          .setTemperature(EnumTemperature.WARM).setHumidity(EnumHumidity.NORMAL);
 			}
 		}
@@ -477,7 +477,7 @@ public enum BeeSpecies implements IBeeDefinition
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies)
 		{
 
-		        beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombRock),0.3f)
+		        beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombCrystal),0.3f)
 		                  .addProduct(new ItemStack(PluginCore.items.apatite),0.1f)
 		                  .setTemperature(EnumTemperature.WARM).setHumidity(EnumHumidity.NORMAL);
 		}
@@ -507,8 +507,7 @@ public enum BeeSpecies implements IBeeDefinition
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies)
 		{
-			beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombRock), 0.30f)
-			          .addProduct(OreDicPreferences.get("dustIron", 1), 0.05f)
+			beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombMetallic), 0.25f)
 			          .setTemperature(EnumTemperature.WARM).setHumidity(EnumHumidity.NORMAL);
 
 		}
@@ -538,7 +537,7 @@ public enum BeeSpecies implements IBeeDefinition
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies)
 		{
-			beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombRock), 0.30f)
+			beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombMetallic), 0.30f)
 			          .addProduct(OreDicPreferences.get("dustIron", 1), 0.15f)
 			          .setTemperature(EnumTemperature.WARM).setHumidity(EnumHumidity.NORMAL);
 
@@ -567,7 +566,7 @@ public enum BeeSpecies implements IBeeDefinition
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies)
 		{
-			beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombRock), 0.30f)
+			beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombMetallic), 0.30f)
 			          .addProduct(OreDicPreferences.get("dustCopper", 1), 0.15f)
 			          .setTemperature(EnumTemperature.WARM).setHumidity(EnumHumidity.NORMAL);
 		}
@@ -595,7 +594,7 @@ public enum BeeSpecies implements IBeeDefinition
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies)
 		{
-			beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombRock), 0.30f)
+			beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombMetallic), 0.30f)
 			          .addProduct(OreDicPreferences.get("dustTin", 1), 0.15f)
 			          .setTemperature(EnumTemperature.WARM).setHumidity(EnumHumidity.NORMAL);
 		}
@@ -625,7 +624,7 @@ public enum BeeSpecies implements IBeeDefinition
 		{
 			if(LoadMods.enableAluminium)
 			{
-				beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombRock), 0.30f)
+				beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombMetallic), 0.30f)
 				          .addProduct(OreDicPreferences.get("dustAluminum", 1), 0.15f)
 				          .setTemperature(EnumTemperature.WARM).setHumidity(EnumHumidity.NORMAL);
 			}
@@ -654,8 +653,8 @@ public enum BeeSpecies implements IBeeDefinition
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies)
 		{
-			beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombRock), 0.30f)
-			          .addProduct(OreDicPreferences.get("dustGold", 1), 0.15f)
+			beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombMetallic), 0.30f)
+			          .addProduct(OreDicPreferences.get("dustGold", 1), 0.10f)
 			          .setTemperature(EnumTemperature.WARM).setHumidity(EnumHumidity.NORMAL);
 
 		}
@@ -685,8 +684,8 @@ public enum BeeSpecies implements IBeeDefinition
 		{
 			if(LoadMods.enableSilver)
 			{
-				beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombRock), 0.30f)
-				          .addProduct(OreDicPreferences.get("dustSilver", 1), 0.15f)
+				beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombMetallic), 0.30f)
+				          .addProduct(OreDicPreferences.get("dustSilver", 1), 0.12f)
 				          .setTemperature(EnumTemperature.WARM).setHumidity(EnumHumidity.NORMAL);
 			}
 		}
@@ -716,7 +715,7 @@ public enum BeeSpecies implements IBeeDefinition
 		{
 			if(LoadMods.enableLead)
 			{
-				beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombRock), 0.30f)
+				beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombMetallic), 0.30f)
 				          .addProduct(OreDicPreferences.get("dustLead", 1), 0.15f)
 				          .setTemperature(EnumTemperature.WARM).setHumidity(EnumHumidity.NORMAL);
 			}
@@ -747,7 +746,7 @@ public enum BeeSpecies implements IBeeDefinition
 		{
 			if(LoadMods.enableTinkers)
 			{
-				beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombRock), 0.30f)
+				beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombMetallic), 0.30f)
 				          .addProduct(OreDicPreferences.get("nuggetCobalt", 1), 0.15f)
 				          .setTemperature(EnumTemperature.HELLISH).setHumidity(EnumHumidity.ARID);
 			}
@@ -778,7 +777,7 @@ public enum BeeSpecies implements IBeeDefinition
 		{
 			if(LoadMods.enableTinkers)
 			{
-				beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombRock), 0.30f)
+				beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombMetallic), 0.30f)
 				          .addProduct(OreDicPreferences.get("nuggetArdite", 1), 0.15f)
 				          .setTemperature(EnumTemperature.HELLISH).setHumidity(EnumHumidity.ARID);
 			}
@@ -809,7 +808,7 @@ public enum BeeSpecies implements IBeeDefinition
 		{
 			if(LoadMods.enableOsmium)
 			{
-				beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombRock), 0.30f)
+				beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombMetallic), 0.30f)
 				          .addProduct(OreDicPreferences.get("dustOsmium", 1), 0.15f)
 				          .setTemperature(EnumTemperature.WARM).setHumidity(EnumHumidity.NORMAL);
 			}
