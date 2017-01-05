@@ -284,6 +284,36 @@ public enum BeeSpecies implements IBeeDefinition
 
 		}
 	},
+	CERTUS(BeeBranches.CRYSTAL, "Certus", false, new Color(0xf6feff), new Color(0xffdc16))
+	{
+		@Override
+		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies)
+		{
+			beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombCrystal), 0.30f)
+			          .addProduct(OreDicPreferences.get("dustCertusQuartz", 1), 0.20f)
+			          .setTemperature(EnumTemperature.WARM).setHumidity(EnumHumidity.NORMAL);
+
+		}
+
+		@Override
+		protected void setAlleles(IAllele[] template)
+		{
+			AlleleHelper.instance.set(template, EnumBeeChromosome.FERTILITY, EnumAllele.Fertility.LOW);
+			AlleleHelper.instance.set(template, EnumBeeChromosome.CAVE_DWELLING, true);
+			AlleleHelper.instance.set(template, EnumBeeChromosome.HUMIDITY_TOLERANCE, EnumAllele.Tolerance.BOTH_2);
+			AlleleHelper.instance.set(template, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.UP_1);
+			AlleleHelper.instance.set(template, EnumBeeChromosome.FLOWER_PROVIDER, Register.FlowerTypeRedstone);
+			AlleleHelper.instance.set(template, EnumBeeChromosome.SPEED, EnumAllele.Speed.SLOW);
+		}
+
+		@Override
+		protected void registerMutations()
+		{
+
+			BeeManager.beeMutationFactory.createMutation(QuartzBee, IndustriousBee, getTemplate(), MathUtil.maxInt((int)(10*Config.mutationMultipler),100));
+
+		}
+	},
 	REDSTONE(BeeBranches.CRYSTAL, "Redstone", false, new Color(0xaa0404), new Color(0xffdc16))
 	{
 		@Override
@@ -436,7 +466,7 @@ public enum BeeSpecies implements IBeeDefinition
 		protected void registerMutations()
 		{
 
-			BeeManager.beeMutationFactory.createMutation(RedstoneBee, ImperialBee, getTemplate(), MathUtil.maxInt((int)(7*Config.mutationMultipler),100));
+			BeeManager.beeMutationFactory.createMutation(LapisBee, ImperialBee, getTemplate(), MathUtil.maxInt((int)(7*Config.mutationMultipler),100));
 
 		}
 	},
@@ -838,7 +868,7 @@ public enum BeeSpecies implements IBeeDefinition
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies)
 		{
-			beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombRock), 0.30f)
+			beeSpecies.addProduct(PluginApiculture.items.beeComb.get(EnumHoneyComb.SIMMERING, 1), 0.30f)
 					  .setTemperature(EnumTemperature.HOT).setHumidity(EnumHumidity.NORMAL);
 			if(LoadMods.enableUranium && !LoadMods.enableIC2Classic)
 			{
@@ -879,8 +909,43 @@ public enum BeeSpecies implements IBeeDefinition
 		{
 			if(LoadMods.enableResonating)
 			{
-				beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombRock), 0.30f)
+				beeSpecies.addProduct(PluginApiculture.items.beeComb.get(EnumHoneyComb.SIMMERING, 1), 0.30f)
 				          .addProduct(OreDicPreferences.get("oreResonating", 1), 0.05f)
+				          .setTemperature(EnumTemperature.HOT).setHumidity(EnumHumidity.NORMAL);
+			}
+
+		}
+
+		@Override
+		protected void setAlleles(IAllele[] template)
+		{
+			AlleleHelper.instance.set(template, EnumBeeChromosome.FERTILITY, EnumAllele.Fertility.LOW);
+			AlleleHelper.instance.set(template, EnumBeeChromosome.CAVE_DWELLING, true);
+			AlleleHelper.instance.set(template, EnumBeeChromosome.HUMIDITY_TOLERANCE, EnumAllele.Tolerance.BOTH_2);
+			AlleleHelper.instance.set(template, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.UP_1);
+			AlleleHelper.instance.set(template, EnumBeeChromosome.SPEED, EnumAllele.Speed.SLOWER);
+			AlleleHelper.instance.set(template, EnumBeeChromosome.FLOWER_PROVIDER, Register.FlowerTypeUranium);
+			AlleleHelper.instance.set(template, EnumBeeChromosome.NEVER_SLEEPS, true);
+
+		}
+
+		@Override
+		protected void registerMutations()
+		{
+
+			BeeManager.beeMutationFactory.createMutation(RadioactiveBee, RedstoneBee, getTemplate(), MathUtil.maxInt((int)(8*Config.mutationMultipler),100));
+
+		}
+	},
+	YELLORITE(BeeBranches.RADIOACTIVE, "Yellorite", true, new Color(0xfaf159), new Color(0x999999))
+	{
+		@Override
+		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies)
+		{
+			if(LoadMods.enableYellorite)
+			{
+				beeSpecies.addProduct(PluginApiculture.items.beeComb.get(EnumHoneyComb.SIMMERING, 1), 0.30f)
+				          .addProduct(OreDicPreferences.get("oreYellorite", 1), 0.05f)
 				          .setTemperature(EnumTemperature.HOT).setHumidity(EnumHumidity.NORMAL);
 			}
 
@@ -914,7 +979,7 @@ public enum BeeSpecies implements IBeeDefinition
 		{
 			if(LoadMods.enableIC2 && !LoadMods.enableIC2Classic)
 			{
-				beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombRock), 0.30f)
+				beeSpecies.addProduct(PluginApiculture.items.beeComb.get(EnumHoneyComb.SIMMERING, 1), 0.30f)
 				          .addProduct(OreDicPreferences.get("crushedUranium", 1), 0.15f)
 				          .setHasEffect()
 				          .setTemperature(EnumTemperature.HELLISH).setHumidity(EnumHumidity.ARID);
@@ -1267,6 +1332,7 @@ public enum BeeSpecies implements IBeeDefinition
 	private static IAlleleBeeSpecies ObsidianBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesObsidian");
 	private static IAlleleBeeSpecies LapisBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesLapis");
 	private static IAlleleBeeSpecies QuartzBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesQuartz");
+	private static IAlleleBeeSpecies CertusBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesCertus");
 	private static IAlleleBeeSpecies RedstoneBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesRedstone");
 	private static IAlleleBeeSpecies EmeraldBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesEmerald");
 	private static IAlleleBeeSpecies DirtBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesDirt");
@@ -1276,6 +1342,8 @@ public enum BeeSpecies implements IBeeDefinition
 	private static IAlleleBeeSpecies GoldBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesGold");
 	private static IAlleleBeeSpecies TinBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesTin");
 	private static IAlleleBeeSpecies RadioactiveBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesRadioactive");
+	private static IAlleleBeeSpecies ResonatingBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesResonating");
+	private static IAlleleBeeSpecies YelloriteBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesYellorite");
 	private static IAlleleBeeSpecies UraniumBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesUranium");
 	private static IAlleleBeeSpecies ApocalypticBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesApocalyptic");
 	private static IAlleleBeeSpecies WitherBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesWither");
@@ -1379,7 +1447,14 @@ public enum BeeSpecies implements IBeeDefinition
 					}
 					break;
 				case RESONATING:
-					if((LoadMods.enableResonating))
+					if((LoadMods.enableResonating && Config.resonatingBees))
+					{
+						bee.init();
+						bee.registerMutations();
+					}
+					break;
+				case YELLORITE:
+					if((LoadMods.enableYellorite && Config.yelloriteBees))
 					{
 						bee.init();
 						bee.registerMutations();
@@ -1419,6 +1494,13 @@ public enum BeeSpecies implements IBeeDefinition
 						bee.registerMutations();
 					}
 					break;
+				case CERTUS:
+					if(LoadMods.enableCertusQuartz && Config.certusQuartzBees)
+					{
+						bee.init();
+						bee.registerMutations();
+					}
+					break;
 				case COBALT:
 					if(LoadMods.enableTinkers && Config.tinkersMetalBees)
 					{
@@ -1441,7 +1523,7 @@ public enum BeeSpecies implements IBeeDefinition
 					}
 					break;
 				case DRACONIC:
-					if(LoadMods.enableDraconium)
+					if(LoadMods.enableDraconium && Config.draconicBees)
 					{
 						bee.init();
 						bee.registerMutations();

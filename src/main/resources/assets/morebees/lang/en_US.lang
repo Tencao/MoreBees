@@ -26,6 +26,8 @@ for.bees.species.quartz=Quartz
 for.bees.species.osmium=Osmium
 for.bees.species.draconic=Draconic
 for.bees.species.resonating=Resonating
+for.bees.species.yellorite=Yellorite
+for.bees.species.certus=Certus
 
 for.bees.species.aluminium=Aluminium
 for.bees.species.ruby=Ruby
@@ -123,6 +125,10 @@ morebees.description.speciesDraconic=These bees can conquer the end.
 morebees.description.speciesOsmium=These bees are very technical and industrious
 
 morebees.description.speciesResonating=These bees resonate in the earth to generate power
+
+morebees.description.speciesYellorite=These bees build on extreme scale
+
+morebees.description.speciesCertus=A bees for a digital age
 
 
 //tool tips
