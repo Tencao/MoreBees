@@ -15,6 +15,7 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.oredict.OreDictionary;
 
 @Mod(modid = MoreBees.MOD_ID, name = "More Bees", version = MoreBees.VERSION, acceptedMinecraftVersions = MoreBees.MCVERSION ,
 	dependencies = "required-after:forestry;after:IndustrialCraft2;after:Mekanism;after:draconicevolution")
@@ -35,11 +36,13 @@ public class MoreBees
 		LoadMods.loadMods();
 		MoreBeesItems.initItems();
 		MoreBeesBlocks.init();
+
 	}
 
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent event)
 	{
+	
 		LoadMods.loadLateMods();
 		RecipesCrafting.registerRecipes();
 		RecipesSmelting.registerRecipes();
@@ -49,11 +52,13 @@ public class MoreBees
 		Register.RegisterFlowers();
 		BeeSpecies.initBees();
 		Register.RegisterHives();
+		
 	}
 
 	@Mod.EventHandler
 	public void postInit(FMLPostInitializationEvent event)
 	{
 		proxy.postInit(event);
+
 	}
 }

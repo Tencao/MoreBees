@@ -1,9 +1,11 @@
 package lach_01298.moreBees.util;
 
 import java.io.PrintStream;
+
 import lach_01298.moreBees.util.Log;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.oredict.OreDictionary;
+
 import org.apache.logging.log4j.Level;
 
 public class LoadMods
@@ -30,118 +32,122 @@ public class LoadMods
 
 	public static void loadMods()
 	{
-		if(OreDictionary.getOres((String) "dustIron").isEmpty())
+
+		
+		if(OreDictionary.getOres("dustIron").isEmpty())
 		{
 			enableIronDust = true;
 		}
-		if(OreDictionary.getOres((String) "dustGold").isEmpty())
+		if(OreDictionary.getOres("dustGold").isEmpty())
 		{
 			enableGoldDust = true;
 		}
-		if(OreDictionary.getOres((String) "dustCopper").isEmpty())
+		if(OreDictionary.getOres("dustCopper").isEmpty())
 		{
 			enableCopperDust = true;
 		}
-		if(OreDictionary.getOres((String) "dustTin").isEmpty())
+		if(OreDictionary.getOres("dustTin").isEmpty())
 		{
 			enableTinDust = true;
 		}
-		if(!OreDictionary.getOres((String) "dustSulfur").isEmpty())
+		if(!OreDictionary.getOres("dustSulfur").isEmpty())
 		{
 			enableSulfur = true;
 		}
-		if(!OreDictionary.getOres((String) "ingotLead").isEmpty())
+		if(!OreDictionary.getOres("ingotLead").isEmpty())
 		{
 			enableLead = true;
 		}
-		if(!OreDictionary.getOres((String) "ingotSilver").isEmpty())
+		if(!OreDictionary.getOres("ingotSilver").isEmpty())
 		{
 			enableSilver = true;
 		}
-		if(!OreDictionary.getOres((String) "oreUranium").isEmpty())
+		if(!OreDictionary.getOres("oreUranium").isEmpty())
 		{
 			enableUranium = true;
 		}
-		if(!OreDictionary.getOres((String) "ingotAluminum").isEmpty())
+		if(!OreDictionary.getOres("ingotAluminum").isEmpty())
 		{
 			enableAluminium = true;
 		}
-		if(!OreDictionary.getOres((String) "oreResonating").isEmpty())
+		if(Loader.isModLoaded("deepresonance"))
 		{
 			enableResonating = true;
-			Log.log((Level) Level.INFO, (String) "Loaded Deep Resonance fetures");
+			Log.log(Level.INFO,"Loaded Deep Resonance fetures");
 		}
-		if(!OreDictionary.getOres((String) "oreYellorite").isEmpty())
+		if(Loader.isModLoaded("bigreactors"))
 		{
-			enableYellorite = true;
-			Log.log((Level) Level.INFO, (String) "Loaded Extreme Reactors fetures");
+			//enableYellorite = true;
+			Log.log( Level.INFO,  "Loaded Extreme Reactors fetures");
 		}
-		if(!OreDictionary.getOres((String) "dustCertusQuartz").isEmpty())
+		if(!OreDictionary.getOres( "dustCertusQuartz").isEmpty())
 		{
 			enableCertusQuartz = true;
-			Log.log((Level) Level.INFO, (String) "Loaded Applied Energistics fetures");
+			Log.log( Level.INFO, "Loaded Applied Energistics fetures");
 		}
-		if(!OreDictionary.getOres((String) "dustDraconium").isEmpty())
+		if(!OreDictionary.getOres("dustDraconium").isEmpty())
 		{
 			enableDraconium = true;
-			Log.log((Level) Level.INFO, (String) "Loaded Draconic Evolution fetures");
+			Log.log((Level) Level.INFO, "Loaded Draconic Evolution fetures");
 		}
-		if(Loader.isModLoaded((String) "IC2"))
+		if(Loader.isModLoaded("IC2"))
 		{
 			try
 			{
 				enableIC2 = true;
-				Log.log((Level) Level.INFO, (String) "Loaded Industrialcraft2 fetures");
+				Log.log(Level.INFO, "Loaded Industrialcraft2 fetures");
 			}
 			catch(Exception e)
 			{
-				Log.log((Level) Level.INFO, (String) "Could not load Industrialcraft2 fetures");
+				Log.log(Level.INFO, "Could not load Industrialcraft2 fetures");
 				e.printStackTrace(System.err);
 			}
 		}
-		if(Loader.isModLoaded((String) "IC2-Classic-Spmod"))
+		if(Loader.isModLoaded("IC2-Classic-Spmod"))
 		{
 			try
 			{
 				enableIC2Classic = true;
-				Log.log((Level) Level.INFO, (String) "Loaded Industrialcraft2 classic fetures");
+				Log.log(Level.INFO, "Loaded Industrialcraft2 classic fetures");
 			}
 			catch(Exception e)
 			{
-				Log.log((Level) Level.INFO, (String) "Could not load Industrialcraft2 classic fetures");
+				Log.log(Level.INFO, "Could not load Industrialcraft2 classic fetures");
 				e.printStackTrace(System.err);
 			}
 		}
-		if(Loader.isModLoaded((String) "tconstruct"))
+		if(Loader.isModLoaded("tconstruct"))
 		{
 			try
 			{
 				enableTinkers = true;
-				Log.log((Level) Level.INFO, (String) "Loaded tinkers construct fetures");
+				Log.log(Level.INFO, "Loaded tinkers construct fetures");
 			}
 			catch(Exception e)
 			{
-				Log.log((Level) Level.INFO, (String) "Could not load tinkers construct fetures");
+				Log.log(Level.INFO, "Could not load tinkers construct fetures");
 				e.printStackTrace(System.err);
 			}
 		}
-		Log.log((Level) Level.INFO, (String) "Loaded More Bees modCompat fetures");
+		Log.log(Level.INFO, "Loaded More Bees modCompat fetures");
 	}
 
-	public static void loadLateMods() {
-		if(!OreDictionary.getOres((String) "dustOsmium").isEmpty())
+	public static void loadLateMods() 
+	{
+		
+		if(!OreDictionary.getOres("dustOsmium").isEmpty())
 		{
 			enableOsmium = true;
-			Log.log((Level) Level.INFO, (String) "Loaded Mekanism fetures");
+			Log.log(Level.INFO, "Loaded Mekanism fetures");
 		}
-		if(!OreDictionary.getOres((String) "gemRuby").isEmpty())
+		if(!OreDictionary.getOres("gemRuby").isEmpty())
 		{
 			enableRuby = true;
 		}
-		if(!OreDictionary.getOres((String) "gemSapphire").isEmpty())
+		if(!OreDictionary.getOres("gemSapphire").isEmpty())
 		{
 			enableSapphire = true;
 		}
-		Log.log((Level) Level.INFO, (String) "Loaded More Bees modCompat fetures for late registering mods");
+		Log.log(Level.INFO, "Loaded More Bees modCompat fetures for late registering mods");
 	}
 }

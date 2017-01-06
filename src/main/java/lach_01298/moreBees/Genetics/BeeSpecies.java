@@ -1015,34 +1015,6 @@ public enum BeeSpecies implements IBeeDefinition
 
 		}
 	},
-	DRACONIC(BeeBranchDefinition.END, "Draconic", true, new Color(0xd088e4), new Color(0x830d0d))
-	{
-		@Override
-		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies)
-		{
-			if (LoadMods.enableDraconium)
-			{
-				beeSpecies.addProduct(PluginApiculture.items.beeComb.get(EnumHoneyComb.MYSTERIOUS, 1), 0.30f)
-				          .addProduct(OreDicPreferences.get("dustDraconium", 1), 0.15f)
-				          .setTemperature(EnumTemperature.COLD).setHumidity(EnumHumidity.ARID);
-			}
-		}
-
-		@Override
-		protected void setAlleles(IAllele[] template)
-		{
-			AlleleHelper.instance.set(template, EnumBeeChromosome.SPEED, EnumAllele.Speed.SLOW);
-		}
-
-		@Override
-		protected void registerMutations()
-		{
-
-			BeeManager.beeMutationFactory.createMutation(AustereBee, EnderBee, getTemplate(), MathUtil.maxInt((int)(5*Config.mutationMultipler),100)).restrictBiomeType(BiomeDictionary.Type.NETHER);
-
-		}
-	},
-
 	// Aquatic branch
 	PRISMARINE(BeeBranches.AQUATIC, "Prismarine", true, new Color(0x63ab9d), new Color(0xffdc16))
 	{
@@ -1084,7 +1056,7 @@ public enum BeeSpecies implements IBeeDefinition
 			          .addSpecialty(new ItemStack(Items.BLAZE_POWDER), 0.2f)
 			          .addSpecialty(new ItemStack(Items.GUNPOWDER), 0.2f)
 			          .addSpecialty(new ItemStack(Items.GHAST_TEAR), 0.05f)
-			          .setJubilanceProvider(BeeManager.jubilanceFactory.getRequiresResource(Blocks.LAVA.getDefaultState()))
+			          .setJubilanceProvider(BeeManager.jubilanceFactory.getRequiresResource(Blocks.TNT.getDefaultState()))
 			          .setTemperature(EnumTemperature.HELLISH).setHumidity(EnumHumidity.ARID);
 		}
 
@@ -1304,6 +1276,33 @@ public enum BeeSpecies implements IBeeDefinition
 		{
 			BeeManager.beeMutationFactory.createMutation(TropicalBee, DiligentBee, getTemplate(), MathUtil.maxInt((int)(10*Config.mutationMultipler),100));
 		}
+	},
+	DRACONIC(BeeBranchDefinition.END, "Draconic", true, new Color(0x4c0e80), new Color(0x830d0d))
+	{
+		@Override
+		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies)
+		{
+			if (LoadMods.enableDraconium)
+			{
+				beeSpecies.addProduct(PluginApiculture.items.beeComb.get(EnumHoneyComb.MYSTERIOUS, 1), 0.30f)
+				          .addProduct(OreDicPreferences.get("dustDraconium", 1), 0.15f)
+				          .setTemperature(EnumTemperature.COLD).setHumidity(EnumHumidity.ARID);
+			}
+		}
+
+		@Override
+		protected void setAlleles(IAllele[] template)
+		{
+			AlleleHelper.instance.set(template, EnumBeeChromosome.SPEED, EnumAllele.Speed.SLOW);
+		}
+
+		@Override
+		protected void registerMutations()
+		{
+
+			BeeManager.beeMutationFactory.createMutation(AustereBee, EnderBee, getTemplate(), MathUtil.maxInt((int)(5*Config.mutationMultipler),100)).restrictBiomeType(BiomeDictionary.Type.NETHER);
+
+		}
 	};
 
 
@@ -1328,13 +1327,12 @@ public enum BeeSpecies implements IBeeDefinition
 	private static IAlleleBeeSpecies DiligentBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele("forestry.speciesDiligent");
 	private static IAlleleBeeSpecies TropicalBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele("forestry.speciesTropical");
 
-	// moreBees Bees
+	// moreBees Bees that have daughters
 	private static IAlleleBeeSpecies RockBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesRock");
 	private static IAlleleBeeSpecies HardenedBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesHardened");
 	private static IAlleleBeeSpecies ObsidianBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesObsidian");
 	private static IAlleleBeeSpecies LapisBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesLapis");
 	private static IAlleleBeeSpecies QuartzBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesQuartz");
-	private static IAlleleBeeSpecies CertusBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesCertus");
 	private static IAlleleBeeSpecies RedstoneBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesRedstone");
 	private static IAlleleBeeSpecies EmeraldBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesEmerald");
 	private static IAlleleBeeSpecies DirtBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesDirt");
@@ -1344,17 +1342,12 @@ public enum BeeSpecies implements IBeeDefinition
 	private static IAlleleBeeSpecies GoldBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesGold");
 	private static IAlleleBeeSpecies TinBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesTin");
 	private static IAlleleBeeSpecies RadioactiveBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesRadioactive");
-	private static IAlleleBeeSpecies ResonatingBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesResonating");
-	private static IAlleleBeeSpecies YelloriteBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesYellorite");
-	private static IAlleleBeeSpecies UraniumBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesUranium");
 	private static IAlleleBeeSpecies ApocalypticBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesApocalyptic");
 	private static IAlleleBeeSpecies WitherBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesWither");
 	private static IAlleleBeeSpecies SlimeyBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesSlimey");
 	private static IAlleleBeeSpecies BlueSlimeyBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesBlueslimey");
 	private static IAlleleBeeSpecies PrismarineBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesPrismarine");
 	private static IAlleleBeeSpecies CopperBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesCopper");
-	private static IAlleleBeeSpecies OsmiumBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesOsmium");
-	private static IAlleleBeeSpecies DraconicBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesDraconic");
 
 	private final IBranchDefinition branch;
 	private final IAlleleBeeSpecies species;
