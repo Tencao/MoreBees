@@ -126,7 +126,6 @@ public class RecipesCarpenter
 			RecipeManagers.carpenterManager.addRecipe(600, new FluidStack(FluidRegistry.LAVA, 4000), null, new ItemStack(Items.NETHER_STAR),
 					"FF", "FF",
 					'F',MBI.NetherFrag);
-	
 	}
 	
 }
