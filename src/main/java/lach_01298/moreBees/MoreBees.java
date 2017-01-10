@@ -18,7 +18,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.oredict.OreDictionary;
 
 @Mod(modid = MoreBees.MOD_ID, name = "More Bees", version = MoreBees.VERSION, acceptedMinecraftVersions = MoreBees.MCVERSION ,
-	dependencies = "required-after:forestry;after:IndustrialCraft2;after:Mekanism;after:draconicevolution")
+	dependencies = "required-after:forestry;after:IndustrialCraft2;after:Mekanism;after:draconicevolution;after:bigreactors")
 public class MoreBees
 {
 	public static final String MOD_ID = "morebees";
@@ -43,7 +43,7 @@ public class MoreBees
 	public void init(FMLInitializationEvent event)
 	{
 	
-		LoadMods.loadLateMods();
+		LoadMods.loadMods();
 		RecipesCrafting.registerRecipes();
 		RecipesSmelting.registerRecipes();
 		RecipesCentrifuge.registerRecipes();

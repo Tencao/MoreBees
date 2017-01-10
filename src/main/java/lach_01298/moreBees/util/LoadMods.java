@@ -33,7 +33,6 @@ public class LoadMods
 	public static void loadMods()
 	{
 
-		
 		if(OreDictionary.getOres("dustIron").isEmpty())
 		{
 			enableIronDust = true;
@@ -73,17 +72,17 @@ public class LoadMods
 		if(Loader.isModLoaded("deepresonance"))
 		{
 			enableResonating = true;
-			Log.log(Level.INFO,"Loaded Deep Resonance fetures");
+			Log.log(Level.INFO, "Loaded Deep Resonance fetures");
 		}
 		if(Loader.isModLoaded("bigreactors"))
 		{
-			//enableYellorite = true;
-			Log.log( Level.INFO,  "Loaded Extreme Reactors fetures");
+			enableYellorite = true;
+			Log.log(Level.INFO, "Loaded Extreme Reactors fetures");
 		}
-		if(!OreDictionary.getOres( "dustCertusQuartz").isEmpty())
+		if(!OreDictionary.getOres("dustCertusQuartz").isEmpty())
 		{
 			enableCertusQuartz = true;
-			Log.log( Level.INFO, "Loaded Applied Energistics fetures");
+			Log.log(Level.INFO, "Loaded Applied Energistics fetures");
 		}
 		if(!OreDictionary.getOres("dustDraconium").isEmpty())
 		{
@@ -129,12 +128,7 @@ public class LoadMods
 				e.printStackTrace(System.err);
 			}
 		}
-		Log.log(Level.INFO, "Loaded More Bees modCompat fetures");
-	}
 
-	public static void loadLateMods() 
-	{
-		
 		if(!OreDictionary.getOres("dustOsmium").isEmpty())
 		{
 			enableOsmium = true;
@@ -148,6 +142,7 @@ public class LoadMods
 		{
 			enableSapphire = true;
 		}
-		Log.log(Level.INFO, "Loaded More Bees modCompat fetures for late registering mods");
+
+		Log.log(Level.INFO, "Loaded More Bees modCompat fetures");
 	}
 }

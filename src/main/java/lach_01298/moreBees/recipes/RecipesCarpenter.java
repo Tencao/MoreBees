@@ -26,6 +26,7 @@ public class RecipesCarpenter
 
 	public static void registerRecipes()
 	{
+		//frames
 		RecipeManagers.carpenterManager.addRecipe(50, Fluids.FOR_HONEY.getFluid(1000), null, new ItemStack(MoreBeesItems.frameSweet),
 				"SSS", "SFS", "SSS",
 				'F', PluginApiculture.items.frameUntreated,
@@ -43,6 +44,7 @@ public class RecipesCarpenter
 				'S', Blocks.SOUL_SAND,
 				'R',PluginApiculture.items.royalJelly);
 
+		//grains
 		RecipeManagers.carpenterManager.addRecipe(50, new FluidStack(FluidRegistry.WATER, 500), null, new ItemStack(Items.QUARTZ),
 				" G ", "G G", " G ",
 				'G',MBI.GrainsCrystal);
@@ -116,7 +118,7 @@ public class RecipesCarpenter
 					"G G", "GGG", "GGG",
 					'G',MBI.GrainsMetallic);
 		}
-
+		//fragments
 		RecipeManagers.carpenterManager.addRecipe(1000, new FluidStack(FluidRegistry.LAVA, 4000), null, new ItemStack(Items.NETHER_STAR),
 				"FF", "FF",
 				'F',MBI.NetherFrag);

@@ -939,7 +939,7 @@ public enum BeeSpecies implements IBeeDefinition
 
 		}
 	},
-	YELLORITE(BeeBranches.RADIOACTIVE, "Yellorite", true, new Color(0xfaf159), new Color(0x999999))
+	YELLORITE(BeeBranches.RADIOACTIVE, "Yellorite", true, new Color(0xd7ef00), new Color(0x999999))
 	{
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies)
@@ -1088,7 +1088,7 @@ public enum BeeSpecies implements IBeeDefinition
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies)
 		{
 			beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombWither), 0.30f)
-			          .addSpecialty(new ItemStack(Items.SKULL, 1, 1), 0.02f)
+			          .addSpecialty(new ItemStack(Items.SKULL, 1, 1), 0.05f)
 			          .setJubilanceProvider(new WitherSkullJubilance())
 			          .setTemperature(EnumTemperature.HELLISH).setHumidity(EnumHumidity.ARID);
 
@@ -1118,7 +1118,7 @@ public enum BeeSpecies implements IBeeDefinition
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies)
 		{
 			beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombWither), 0.35f)
-			          .addSpecialty(new ItemStack(MoreBeesItems.NetherFrag), 0.05f)
+			          .addSpecialty(new ItemStack(MoreBeesItems.NetherFrag), 0.03f)
 			          .setJubilanceProvider(new WitherSkullJubilance())
 			          .setHasEffect()
 			          .setTemperature(EnumTemperature.HELLISH).setHumidity(EnumHumidity.ARID);
