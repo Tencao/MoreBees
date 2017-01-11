@@ -102,7 +102,7 @@ public class RecipesCarpenter
 	    }
 		if (LoadMods.enableAluminium)
 		{
-			RecipeManagers.carpenterManager.addRecipe(30, new FluidStack(FluidRegistry.WATER, 750), null, OreDicPreferences.get("dustAluminium", 1),
+			RecipeManagers.carpenterManager.addRecipe(30, new FluidStack(FluidRegistry.WATER, 750), null, OreDicPreferences.get("dustAluminum", 1),
 					"G G", "   ", "G G",
 					'G',MBI.GrainsMetallic);
 	    }

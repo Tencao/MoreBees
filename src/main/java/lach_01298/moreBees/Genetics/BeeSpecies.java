@@ -499,7 +499,7 @@ public enum BeeSpecies implements IBeeDefinition
 		protected void registerMutations()
 		{
 
-			BeeManager.beeMutationFactory.createMutation(RedstoneBee, LapisBee, getTemplate(), MathUtil.maxInt((int)(15*Config.mutationMultipler),100));
+			BeeManager.beeMutationFactory.createMutation(RedstoneBee, FiendishBee, getTemplate(), MathUtil.maxInt((int)(15*Config.mutationMultipler),100));
 
 		}
 	},
@@ -528,7 +528,7 @@ public enum BeeSpecies implements IBeeDefinition
 		protected void registerMutations()
 		{
 
-			BeeManager.beeMutationFactory.createMutation(RedstoneBee, FiendishBee, getTemplate(), MathUtil.maxInt((int)(10*Config.mutationMultipler),100));
+			BeeManager.beeMutationFactory.createMutation(RedstoneBee, LapisBee, getTemplate(), MathUtil.maxInt((int)(10*Config.mutationMultipler),100));
 
 		}
 	},
