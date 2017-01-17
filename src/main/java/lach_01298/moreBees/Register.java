@@ -81,8 +81,11 @@ public class Register
 		flowerRegistry.registerAcceptableFlower(OreDicPreferences.getBlock("oreCopper"), FlowerOre);
 		flowerRegistry.registerAcceptableFlower(OreDicPreferences.getBlock("oreTin"), FlowerOre);
 		flowerRegistry.registerAcceptableFlower(Blocks.REDSTONE_ORE, FlowerRedstone);
+		flowerRegistry.registerAcceptableFlower(Blocks.REDSTONE_BLOCK, FlowerRedstone);
 		flowerRegistry.registerAcceptableFlower(Blocks.DIAMOND_ORE, FlowerDiamond);
+		flowerRegistry.registerAcceptableFlower(Blocks.DIAMOND_BLOCK, FlowerDiamond);
 		flowerRegistry.registerAcceptableFlower(Blocks.EMERALD_ORE, FlowerEmerald);
+		flowerRegistry.registerAcceptableFlower(Blocks.EMERALD_BLOCK, FlowerEmerald);
 		flowerRegistry.registerAcceptableFlower(Blocks.WATERLILY, FlowerWater);
 		flowerRegistry.registerAcceptableFlower(Blocks.TNT, FlowerTNT);
 		flowerRegistry.registerAcceptableFlower(Blocks.SLIME_BLOCK, FlowerSlime);

@@ -354,7 +354,7 @@ public enum BeeSpecies implements IBeeDefinition
 		{
 			beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombCrystal), 0.30f)
 			          .addSpecialty(new ItemStack(MoreBeesItems.EmeraldFrag), 0.15f)
-			          .setJubilanceProvider(BeeManager.jubilanceFactory.getRequiresResource(Blocks.EMERALD_BLOCK.getDefaultState()))
+			          .setJubilanceProvider(BeeManager.jubilanceFactory.getRequiresResource(Blocks.EMERALD_BLOCK.getDefaultState(),Blocks.EMERALD_ORE.getDefaultState()))
 			          .setTemperature(EnumTemperature.WARM).setHumidity(EnumHumidity.NORMAL);
 
 		}
@@ -385,7 +385,7 @@ public enum BeeSpecies implements IBeeDefinition
 		{
 			beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombCrystal), 0.30f)
 			          .addSpecialty(new ItemStack(MoreBeesItems.DiamondFrag), 0.15f)
-			          .setJubilanceProvider(BeeManager.jubilanceFactory.getRequiresResource(Blocks.DIAMOND_BLOCK.getDefaultState()))
+			          .setJubilanceProvider(BeeManager.jubilanceFactory.getRequiresResource(Blocks.DIAMOND_BLOCK.getDefaultState(),Blocks.DIAMOND_ORE.getDefaultState()))
 			          .setHasEffect()
 			          .setTemperature(EnumTemperature.WARM).setHumidity(EnumHumidity.NORMAL);
 
