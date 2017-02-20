@@ -32,15 +32,16 @@ public class RecipesSmelting
 			GameRegistry.addSmelting(MBI.DustTin,OreDicPreferences.get("ingotTin", 1), 0.7f);
 		}
 		
-		if(LoadMods.enableLead &&(OreDictionary.getOres("dustLead").isEmpty()))
+		if(LoadMods.enableLead && MBI.MBILead)
 		{
 			GameRegistry.addSmelting(MBI.DustLead, OreDicPreferences.get("ingotLead",1), 0.7f);
 		}
-		if(LoadMods.enableSilver &&(OreDictionary.getOres("dustSilver").isEmpty()))
+		if(LoadMods.enableSilver && MBI.MBISilver)
 		{
-		GameRegistry.addSmelting(MBI.DustSilver, OreDicPreferences.get("ingotSilver",1), 0.7f);
+			
+			GameRegistry.addSmelting(MBI.DustSilver, OreDicPreferences.get("ingotSilver",1), 0.7f);
 		}
-		if(LoadMods.enableAluminium &&(OreDictionary.getOres("dustAluminum").isEmpty()))
+		if(LoadMods.enableAluminium && MBI.MBIAluminium)
 		{
 		GameRegistry.addSmelting(MBI.DustAluminium, OreDicPreferences.get("ingotAluminum",1), 0.7f);
 		}

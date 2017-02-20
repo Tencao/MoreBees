@@ -34,6 +34,12 @@ public class MoreBeesItems
 	public static BasicItem DustSilver;
 	public static BasicItem DustLead;
 	public static BasicItem DustAluminium;
+	
+	
+	public static boolean MBIGold = false;
+	public static boolean MBISilver = false;
+	public static boolean MBILead = false;
+	public static boolean MBIAluminium = false;
 
 	//frames
 	public static ItemFrame frameSweet;
@@ -87,14 +93,17 @@ public class MoreBeesItems
 		if((OreDictionary.getOres("dustLead").isEmpty()) && LoadMods.enableLead)
 		{
 			DustLead = registerOreItem(new BasicItem("dustLead").setCreativeTab(CreativeTabs.MATERIALS),"dustLead");
+			MBILead = true;
 		}
 		if((OreDictionary.getOres("dustSilver").isEmpty()) && LoadMods.enableSilver)
 		{
 			DustSilver = registerOreItem(new BasicItem("dustSilver").setCreativeTab(CreativeTabs.MATERIALS),"dustSilver");
+			MBISilver = true;
 		}
 		if((OreDictionary.getOres("dustAluminum").isEmpty()) && LoadMods.enableAluminium)
 		{
 			DustAluminium = registerOreItem(new BasicItem("dustAluminium").setCreativeTab(CreativeTabs.MATERIALS),"dustAluminum");
+			MBIAluminium = true;
 		}
 
 	}
