@@ -34,17 +34,23 @@ public class MoreBeesItems
 	public static BasicItem DustSilver;
 	public static BasicItem DustLead;
 	public static BasicItem DustAluminium;
-	
+	public static BasicItem DustNickel;
+	public static BasicItem DustPlatinum;
+	public static BasicItem DustIridium;
 	
 	public static boolean MBIGold = false;
 	public static boolean MBISilver = false;
 	public static boolean MBILead = false;
 	public static boolean MBIAluminium = false;
-
+	public static boolean MBINickel = false;
+	public static boolean MBIPlatinum = false;
+	public static boolean MBIIridium = false;
+	
 	//frames
 	public static ItemFrame frameSweet;
 	public static ItemFrame frameCooled;
 	public static ItemFrame frameMutating;
+	
 
 
 	public static void initItems()
@@ -56,12 +62,12 @@ public class MoreBeesItems
 			frameCooled = register(new ItemFrame(300, 2.0f, 3.5f, 0.8f, 0.25f, "frameCooled"));
 			frameMutating = register(new ItemFrame(240, 1.5f, 0.9f, 1.0f, 3.0f, "frameMutating"));
 		}
-		CombRock = register(new BasicItem("CombRock").setCreativeTab(Tabs.tabApiculture));
-		CombDirt = register(new BasicItem("CombDirt").setCreativeTab(Tabs.tabApiculture));
-		CombWither = register(new BasicItem("CombWither").setCreativeTab(Tabs.tabApiculture));
-		CombSlime = register(new BasicItem("CombSlime").setCreativeTab(Tabs.tabApiculture));
-		CombMetallic = register(new BasicItem("CombMetallic").setCreativeTab(Tabs.tabApiculture));
-		CombCrystal = register(new BasicItem("CombCrystal").setCreativeTab(Tabs.tabApiculture));
+		CombRock = registerOreItem(new BasicItem("CombRock").setCreativeTab(Tabs.tabApiculture),"beeComb");
+		CombDirt = registerOreItem(new BasicItem("CombDirt").setCreativeTab(Tabs.tabApiculture),"beeComb");
+		CombWither = registerOreItem(new BasicItem("CombWither").setCreativeTab(Tabs.tabApiculture),"beeComb");
+		CombSlime = registerOreItem(new BasicItem("CombSlime").setCreativeTab(Tabs.tabApiculture),"beeComb");
+		CombMetallic = registerOreItem(new BasicItem("CombMetallic").setCreativeTab(Tabs.tabApiculture),"beeComb");
+		CombCrystal = registerOreItem(new BasicItem("CombCrystal").setCreativeTab(Tabs.tabApiculture),"beeComb");
 
 		DiamondFrag = registerOreItem(new BasicItem("diamondFragment").setCreativeTab(Tabs.tabApiculture),"nuggetDiamond");
 		EmeraldFrag = registerOreItem(new BasicItem("emeraldFragment").setCreativeTab(Tabs.tabApiculture),"nuggetEmerald");
@@ -104,6 +110,21 @@ public class MoreBeesItems
 		{
 			DustAluminium = registerOreItem(new BasicItem("dustAluminium").setCreativeTab(CreativeTabs.MATERIALS),"dustAluminum");
 			MBIAluminium = true;
+		}
+		if((OreDictionary.getOres("dustNickel").isEmpty()) && LoadMods.enableNickel)
+		{
+			DustNickel = registerOreItem(new BasicItem("dustNickel").setCreativeTab(CreativeTabs.MATERIALS),"dustNickel");
+			MBINickel = true;
+		}
+		if((OreDictionary.getOres("dustPlatinum").isEmpty()) && LoadMods.enablePlatinum)
+		{
+			DustPlatinum = registerOreItem(new BasicItem("dustPlatinum").setCreativeTab(CreativeTabs.MATERIALS),"dustPlatinum");
+			MBIPlatinum = true;
+		}
+		if((OreDictionary.getOres("dustIridium").isEmpty()) && LoadMods.enableIridium)
+		{
+			DustIridium = registerOreItem(new BasicItem("dustIridium").setCreativeTab(CreativeTabs.MATERIALS),"dustIridium");
+			MBIIridium = true;
 		}
 
 	}

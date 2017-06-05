@@ -56,24 +56,11 @@ public class RecipesCarpenter
 		RecipeManagers.carpenterManager.addRecipe(60, new FluidStack(FluidRegistry.WATER, 1000), null, new ItemStack(MBI.EmeraldFrag),
 				"G G", "GGG", "G G",
 				'G',MBI.GrainsCrystal);
-		RecipeManagers.carpenterManager.addRecipe(60, new FluidStack(FluidRegistry.WATER, 1000), null, new ItemStack(MBI.DiamondFrag),
-				"GGG", "G G", "GGG",
-				'G',MBI.GrainsCrystal);
+
 		RecipeManagers.carpenterManager.addRecipe(40, new FluidStack(FluidRegistry.WATER, 1000), null, new ItemStack(PluginCore.items.apatite),
 				"G G", " G ", "G G",
 				'G',MBI.GrainsCrystal);
-		if (LoadMods.enableRuby)
-		{
-			RecipeManagers.carpenterManager.addRecipe(75, new FluidStack(FluidRegistry.WATER, 1000), null, OreDicPreferences.get("gemRuby", 1),
-					"G G", "GGG", "GGG",
-					'G',MBI.GrainsCrystal);
-	    }
-		if (LoadMods.enableSapphire)
-		{
-			RecipeManagers.carpenterManager.addRecipe(75, new FluidStack(FluidRegistry.WATER, 1000), null, OreDicPreferences.get("gemSapphire", 1),
-					"GGG", "GGG", "G G",
-					'G',MBI.GrainsCrystal);
-	    }
+	
 			
 		//metal
 		RecipeManagers.carpenterManager.addRecipe(25, new FluidStack(FluidRegistry.WATER, 500), null, OreDicPreferences.get("dustIron", 1),
@@ -112,15 +99,13 @@ public class RecipesCarpenter
 					"GGG", "   ", "G G",
 					'G',MBI.GrainsMetallic);
 		}
-		if(LoadMods.enableTinkers)
+		if (LoadMods.enableNickel)
 		{
-			RecipeManagers.carpenterManager.addRecipe(25, new FluidStack(FluidRegistry.WATER, 1500), null, OreDicPreferences.get("nuggetCobalt", 1),
-					"GGG", "GGG", "G G",
-					'G',MBI.GrainsMetallic);
-			RecipeManagers.carpenterManager.addRecipe(25, new FluidStack(FluidRegistry.WATER, 1500), null, OreDicPreferences.get("nuggetArdite", 1),
-					"G G", "GGG", "GGG",
+			RecipeManagers.carpenterManager.addRecipe(30, new FluidStack(FluidRegistry.WATER, 750), null, OreDicPreferences.get("dustNickel", 1),
+					"G G", "G G", "G G",
 					'G',MBI.GrainsMetallic);
 		}
+		
 
 		//fragments
 			RecipeManagers.carpenterManager.addRecipe(600, new FluidStack(FluidRegistry.LAVA, 4000), null, new ItemStack(Items.NETHER_STAR),

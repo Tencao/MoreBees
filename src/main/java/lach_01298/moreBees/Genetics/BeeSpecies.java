@@ -210,6 +210,7 @@ public enum BeeSpecies implements IBeeDefinition
 			AlleleHelper.instance.set(template, EnumBeeChromosome.CAVE_DWELLING, true);
 			AlleleHelper.instance.set(template, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.BOTH_1);
 			AlleleHelper.instance.set(template, EnumBeeChromosome.SPEED, EnumAllele.Speed.FAST);
+			AlleleHelper.instance.set(template, EnumBeeChromosome.TOLERATES_RAIN, true);
 		}
 
 		@Override
@@ -864,6 +865,99 @@ public enum BeeSpecies implements IBeeDefinition
 
 		}
 	},
+	NICKEL(BeeBranches.METAL, "Nickel", false, new Color(0xa3a998), new Color(0x999999))
+	{
+		@Override
+		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies)
+		{
+			if(LoadMods.enableNickel)
+			{
+				beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombMetallic), 0.30f)
+				          .addProduct(OreDicPreferences.get("dustNickel", 1), 0.15f)
+				          .setTemperature(EnumTemperature.WARM).setHumidity(EnumHumidity.NORMAL);
+			}
+		}
+
+		@Override
+		protected void setAlleles(IAllele[] template)
+		{
+			AlleleHelper.instance.set(template, EnumBeeChromosome.FERTILITY, EnumAllele.Fertility.NORMAL);
+			AlleleHelper.instance.set(template, EnumBeeChromosome.CAVE_DWELLING, true);
+			AlleleHelper.instance.set(template, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.UP_1);
+			AlleleHelper.instance.set(template, EnumBeeChromosome.HUMIDITY_TOLERANCE, EnumAllele.Tolerance.BOTH_2);
+			AlleleHelper.instance.set(template, EnumBeeChromosome.SPEED, EnumAllele.Speed.NORMAL);
+		}
+
+		@Override
+		protected void registerMutations()
+		{
+
+			BeeManager.beeMutationFactory.createMutation(IronBee, IndustriousBee, getTemplate(), MathUtil.maxInt((int)(8*Config.mutationMultipler),100));
+
+		}
+	},
+	PLATINUM(BeeBranches.METAL, "Platinum", false, new Color(0x6fe5f3), new Color(0x999999))
+	{
+		@Override
+		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies)
+		{
+			if(LoadMods.enablePlatinum)
+			{
+				beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombMetallic), 0.30f)
+				          .addProduct(OreDicPreferences.get("dustPlatinum", 1), 0.10f)
+				          .setTemperature(EnumTemperature.WARM).setHumidity(EnumHumidity.NORMAL);
+			}
+		}
+
+		@Override
+		protected void setAlleles(IAllele[] template)
+		{
+			AlleleHelper.instance.set(template, EnumBeeChromosome.FERTILITY, EnumAllele.Fertility.NORMAL);
+			AlleleHelper.instance.set(template, EnumBeeChromosome.CAVE_DWELLING, true);
+			AlleleHelper.instance.set(template, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.UP_1);
+			AlleleHelper.instance.set(template, EnumBeeChromosome.HUMIDITY_TOLERANCE, EnumAllele.Tolerance.BOTH_2);
+			AlleleHelper.instance.set(template, EnumBeeChromosome.SPEED, EnumAllele.Speed.SLOW);
+		}
+
+		@Override
+		protected void registerMutations()
+		{
+
+			BeeManager.beeMutationFactory.createMutation(ImperialBee, GoldBee, getTemplate(), MathUtil.maxInt((int)(5*Config.mutationMultipler),100));
+
+		}
+	},
+	IRIDIUM(BeeBranches.METAL, "Iridium", false, new Color(0xe4e2eb), new Color(0x999999))
+	{
+		@Override
+		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies)
+		{
+			if(LoadMods.enableIridium)
+			{
+				beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombMetallic), 0.30f)
+				          .addProduct(OreDicPreferences.get("dustIridium", 1), 0.05f)
+				          .setTemperature(EnumTemperature.HOT).setHumidity(EnumHumidity.ARID);
+			}
+		}
+
+		@Override
+		protected void setAlleles(IAllele[] template)
+		{
+			AlleleHelper.instance.set(template, EnumBeeChromosome.FERTILITY, EnumAllele.Fertility.LOW);
+			AlleleHelper.instance.set(template, EnumBeeChromosome.CAVE_DWELLING, true);
+			AlleleHelper.instance.set(template, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.UP_1);
+			AlleleHelper.instance.set(template, EnumBeeChromosome.HUMIDITY_TOLERANCE, EnumAllele.Tolerance.BOTH_2);
+			AlleleHelper.instance.set(template, EnumBeeChromosome.SPEED, EnumAllele.Speed.SLOW);
+		}
+
+		@Override
+		protected void registerMutations()
+		{
+
+			BeeManager.beeMutationFactory.createMutation(ApocalypticBee, GoldBee, getTemplate(), MathUtil.maxInt((int)(4*Config.mutationMultipler),100));
+
+		}
+	},
 	// RadioActive branch
 	RADIOACTIVE(BeeBranches.RADIOACTIVE, "Radioactive", true, new Color(0x3e720c), new Color(0x999999))
 	{
@@ -1348,6 +1442,7 @@ public enum BeeSpecies implements IBeeDefinition
 	private static IAlleleBeeSpecies BlueSlimeyBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesBlueslimey");
 	private static IAlleleBeeSpecies PrismarineBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesPrismarine");
 	private static IAlleleBeeSpecies CopperBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesCopper");
+	private static IAlleleBeeSpecies IronBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesIron");
 
 	private final IBranchDefinition branch;
 	private final IAlleleBeeSpecies species;

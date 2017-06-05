@@ -119,7 +119,7 @@ public enum BeeBranches implements IBranchDefinition
 			AlleleHelper.instance.set(alleles, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.DOWN_1);
 			AlleleHelper.instance.set(alleles, EnumBeeChromosome.CAVE_DWELLING, false);
 			AlleleHelper.instance.set(alleles, EnumBeeChromosome.TERRITORY, EnumAllele.Territory.AVERAGE);
-			
+			AlleleHelper.instance.set(alleles, EnumBeeChromosome.TOLERATES_RAIN, true);
 		}
 	},
 	WITHER("Witherris") 

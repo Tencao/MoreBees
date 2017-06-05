@@ -43,6 +43,10 @@ for.bees.species.ardite=Ardite
 for.bees.species.sulfur=Sulfur
 for.bees.species.apatite=Apatite
 
+for.bees.species.nickel=Nickel
+for.bees.species.platinum=Platinum
+for.bees.species.iridium=Iridium
+
 
 //species descriptions
 morebees.description.speciesRock=Can be found on large expansives of exposed stone; commonly mountains.
@@ -130,6 +134,11 @@ morebees.description.speciesYellorite=These bees build on extreme scale
 
 morebees.description.speciesCertus=A bees for a digital age
 
+morebees.description.speciesNickel=These bees create a metal which would make good coins
+
+morebees.description.speciesPlatinum=OOO Shiny!
+
+morebees.description.speciesIridium=These Bees are quite dense like the metal they make
 
 //tool tips
 item.for.bee.modifier.mutationModifier=Mutation Rate: %.2fx
@@ -177,6 +186,10 @@ item.morebees.dustTin.name=Tin Dust
 item.morebees.dustSilver.name=Silver Dust
 item.morebees.dustLead.name=Lead Dust
 item.morebees.dustAluminium.name=Aluminium Dust
+item.morebees.dustNickel.name=Nickel Dust
+item.morebees.dustPlatinum.name=Platinum Dust
+item.morebees.dustIridium.name=Iridium Dust
+
 
 item.morebees.frameSweet.name=Sweet Frame
 item.morebees.frameCooled.name=Super Cooled Frame
