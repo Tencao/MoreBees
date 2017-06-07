@@ -54,6 +54,10 @@ public class RecipesSmelting
 		{
 		GameRegistry.addSmelting(MBI.DustPlatinum, OreDicPreferences.get("ingotPlatinum",1), 0.7f);
 		}
+		if(LoadMods.enableIridium && MBI.MBIIridium)
+		{
+		GameRegistry.addSmelting(MBI.DustIridium, OreDicPreferences.get("ingotIridium",1), 0.7f);
+		}
 	}
 	
 	

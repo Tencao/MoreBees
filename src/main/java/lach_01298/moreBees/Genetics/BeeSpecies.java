@@ -1564,6 +1564,27 @@ public enum BeeSpecies implements IBeeDefinition
 						bee.registerMutations();
 					}
 					break;
+				case NICKEL:
+					if(LoadMods.enableNickel)
+					{
+						bee.init();
+						bee.registerMutations();
+					}
+					break;
+				case PLATINUM:
+					if(LoadMods.enablePlatinum)
+					{
+						bee.init();
+						bee.registerMutations();
+					}
+					break;
+				case IRIDIUM:
+					if(LoadMods.enableNickel)
+					{
+						bee.init();
+						bee.registerMutations();
+					}
+					break;
 				case RUBY:
 					if(LoadMods.enableRuby)
 					{
