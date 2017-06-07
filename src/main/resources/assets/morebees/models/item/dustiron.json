@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "moreBees:items/dustSilver"
+        "layer0": "moreBees:items/dust_Iron"
     }
 }

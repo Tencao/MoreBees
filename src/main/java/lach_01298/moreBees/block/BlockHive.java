@@ -167,7 +167,7 @@ public class BlockHive extends BlockContainer implements ItemModelProvider
 		if (hiveName == null) {
 			return Collections.emptyList();
 		}
-		return PluginApiculture.hiveRegistry.getDrops(hiveName);
+		return PluginApiculture.getHiveRegistry().getDrops(hiveName);
 	}
 	
 	private static String getHiveNameForMeta(int meta) {

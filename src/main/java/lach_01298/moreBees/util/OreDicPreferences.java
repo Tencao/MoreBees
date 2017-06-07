@@ -7,18 +7,22 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
-public final class OreDicPreferences {
-    public static ItemStack get(String oreName, int amount) {
-        List items = OreDictionary.getOres((String)oreName);
-        ItemStack item = (ItemStack)items.get(0);
-        item.stackSize = amount;
-        return item;
-    }
+public final class OreDicPreferences
+{
 
-    public static Block getBlock(String oreName) {
-        List items = OreDictionary.getOres((String)oreName);
-        ItemBlock blockItem = (ItemBlock)((ItemStack)items.get(0)).getItem();
-        Block block = blockItem.getBlock();
-        return block;
-    }
+	public static ItemStack get(String oreName, int amount)
+	{
+		List items = OreDictionary.getOres((String) oreName);
+		ItemStack item = (ItemStack) items.get(0);
+		item.setCount(amount);
+		return item;
+	}
+
+	public static Block getBlock(String oreName)
+	{
+		List items = OreDictionary.getOres((String) oreName);
+		ItemBlock blockItem = (ItemBlock) ((ItemStack) items.get(0)).getItem();
+		Block block = blockItem.getBlock();
+		return block;
+	}
 }

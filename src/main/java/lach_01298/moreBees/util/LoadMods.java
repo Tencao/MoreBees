@@ -28,8 +28,11 @@ public class LoadMods
 	public static boolean enableOsmium = false;
 	public static boolean enableDraconium = false;
 	public static boolean enableCertusQuartz = false;
-	public static boolean enableYellorite;
-
+	public static boolean enableYellorite = false;
+	public static boolean enableNickel = false;
+	public static boolean enablePlatinum = false;
+	public static boolean enableIridium = false;
+	
 	public static void loadMods()
 	{
 
@@ -60,6 +63,18 @@ public class LoadMods
 		if(!OreDictionary.getOres("ingotSilver").isEmpty())
 		{
 			enableSilver = true;
+		}
+		if(!OreDictionary.getOres("ingotNickel").isEmpty())
+		{
+			enableNickel = true;
+		}
+		if(!OreDictionary.getOres("ingotPlatinum").isEmpty())
+		{
+			enablePlatinum = true;
+		}
+		if(!OreDictionary.getOres("ingotIridium").isEmpty())
+		{
+			enableIridium = true;
 		}
 		if(!OreDictionary.getOres("oreUranium").isEmpty())
 		{

@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "moreBees:items/dustGold"
+        "layer0": "moreBees:items/Comb_Wither"
     }
 }

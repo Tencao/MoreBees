@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "moreBees:items/CombRock"
+        "layer0": "moreBees:items/emerald_Fragment"
     }
 }

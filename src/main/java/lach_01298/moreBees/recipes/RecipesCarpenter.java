@@ -28,102 +28,88 @@ public class RecipesCarpenter
 	public static void registerRecipes()
 	{
 		//frames
-		RecipeManagers.carpenterManager.addRecipe(50, Fluids.FOR_HONEY.getFluid(1000), null, new ItemStack(MoreBeesItems.frameSweet),
+		RecipeManagers.carpenterManager.addRecipe(50, Fluids.FOR_HONEY.getFluid(1000), ItemStack.EMPTY, new ItemStack(MoreBeesItems.frameSweet),
 				"SSS", "SFS", "SSS",
-				'F', PluginApiculture.items.frameUntreated,
+				'F', PluginApiculture.getItems().frameUntreated,
 				'S', Items.STICK);
 
-		RecipeManagers.carpenterManager.addRecipe(100, Fluids.ICE.getFluid(1000), null, new ItemStack(MoreBeesItems.frameCooled),
+		RecipeManagers.carpenterManager.addRecipe(100, Fluids.ICE.getFluid(1000), ItemStack.EMPTY, new ItemStack(MoreBeesItems.frameCooled),
 				"SCS", "CFC", "SCS",
-				'F', PluginApiculture.items.frameImpregnated,
+				'F', PluginApiculture.getItems().frameImpregnated,
 				'S', Items.STICK,
 				'C',OreDictUtil.INGOT_COPPER);
 
-		RecipeManagers.carpenterManager.addRecipe(100, Fluids.SHORT_MEAD.getFluid(1000), null, new ItemStack(MoreBeesItems.frameMutating),
+		RecipeManagers.carpenterManager.addRecipe(100, Fluids.SHORT_MEAD.getFluid(1000), ItemStack.EMPTY, new ItemStack(MoreBeesItems.frameMutating),
 				"RSR", "SFS", "RSR",
-				'F', PluginApiculture.items.frameImpregnated,
+				'F', PluginApiculture.getItems().frameImpregnated,
 				'S', Blocks.SOUL_SAND,
-				'R',PluginApiculture.items.royalJelly);
+				'R',PluginApiculture.getItems().royalJelly);
 
 		//grains
 			//crystal
-		RecipeManagers.carpenterManager.addRecipe(20, new FluidStack(FluidRegistry.WATER, 500), null, new ItemStack(Items.QUARTZ),
+		RecipeManagers.carpenterManager.addRecipe(20, new FluidStack(FluidRegistry.WATER, 500), ItemStack.EMPTY, new ItemStack(Items.QUARTZ),
 				" G ", "G G", " G ",
 				'G',MBI.GrainsCrystal);
-		RecipeManagers.carpenterManager.addRecipe(20, new FluidStack(FluidRegistry.WATER, 500), null, new ItemStack(Items.REDSTONE),
+		RecipeManagers.carpenterManager.addRecipe(20, new FluidStack(FluidRegistry.WATER, 500), ItemStack.EMPTY, new ItemStack(Items.REDSTONE),
 				"G G", "   ", "G G",
 				'G',MBI.GrainsCrystal);
-		RecipeManagers.carpenterManager.addRecipe(60, new FluidStack(FluidRegistry.WATER, 1000), null, new ItemStack(MBI.EmeraldFrag),
+		RecipeManagers.carpenterManager.addRecipe(60, new FluidStack(FluidRegistry.WATER, 1000), ItemStack.EMPTY, new ItemStack(MBI.EmeraldFrag),
 				"G G", "GGG", "G G",
 				'G',MBI.GrainsCrystal);
-		RecipeManagers.carpenterManager.addRecipe(60, new FluidStack(FluidRegistry.WATER, 1000), null, new ItemStack(MBI.DiamondFrag),
-				"GGG", "G G", "GGG",
-				'G',MBI.GrainsCrystal);
-		RecipeManagers.carpenterManager.addRecipe(40, new FluidStack(FluidRegistry.WATER, 1000), null, new ItemStack(PluginCore.items.apatite),
+
+		RecipeManagers.carpenterManager.addRecipe(40, new FluidStack(FluidRegistry.WATER, 1000), ItemStack.EMPTY, new ItemStack(PluginCore.items.apatite),
 				"G G", " G ", "G G",
 				'G',MBI.GrainsCrystal);
-		if (LoadMods.enableRuby)
-		{
-			RecipeManagers.carpenterManager.addRecipe(75, new FluidStack(FluidRegistry.WATER, 1000), null, OreDicPreferences.get("gemRuby", 1),
-					"G G", "GGG", "GGG",
-					'G',MBI.GrainsCrystal);
-	    }
-		if (LoadMods.enableSapphire)
-		{
-			RecipeManagers.carpenterManager.addRecipe(75, new FluidStack(FluidRegistry.WATER, 1000), null, OreDicPreferences.get("gemSapphire", 1),
-					"GGG", "GGG", "G G",
-					'G',MBI.GrainsCrystal);
-	    }
+		
 			
 		//metal
-		RecipeManagers.carpenterManager.addRecipe(25, new FluidStack(FluidRegistry.WATER, 500), null, OreDicPreferences.get("dustIron", 1),
+		RecipeManagers.carpenterManager.addRecipe(25, new FluidStack(FluidRegistry.WATER, 500), ItemStack.EMPTY, OreDicPreferences.get("dustIron", 1),
 				" G ", "G G", "   ",
 				'G',MBI.GrainsMetallic);
-		RecipeManagers.carpenterManager.addRecipe(25, new FluidStack(FluidRegistry.WATER, 500), null, OreDicPreferences.get("dustCopper", 1),
+		RecipeManagers.carpenterManager.addRecipe(25, new FluidStack(FluidRegistry.WATER, 500), ItemStack.EMPTY, OreDicPreferences.get("dustCopper", 1),
 				"   ", "G G", " G ",
 				'G',MBI.GrainsMetallic);
-		RecipeManagers.carpenterManager.addRecipe(30, new FluidStack(FluidRegistry.WATER, 500), null, OreDicPreferences.get("dustTin", 1),
+		RecipeManagers.carpenterManager.addRecipe(30, new FluidStack(FluidRegistry.WATER, 500), ItemStack.EMPTY, OreDicPreferences.get("dustTin", 1),
 				" G ", "G G", " G ",
 				'G',MBI.GrainsMetallic);
-		RecipeManagers.carpenterManager.addRecipe(40, new FluidStack(FluidRegistry.WATER, 1000), null, OreDicPreferences.get("dustGold", 1),
+		RecipeManagers.carpenterManager.addRecipe(40, new FluidStack(FluidRegistry.WATER, 1000), ItemStack.EMPTY, OreDicPreferences.get("dustGold", 1),
 				"G G", "GGG", "G G",
 				'G',MBI.GrainsMetallic);
 		if (LoadMods.enableSilver)
 		{
-			RecipeManagers.carpenterManager.addRecipe(35, new FluidStack(FluidRegistry.WATER, 1000), null, OreDicPreferences.get("dustSilver", 1),
+			RecipeManagers.carpenterManager.addRecipe(35, new FluidStack(FluidRegistry.WATER, 1000), ItemStack.EMPTY, OreDicPreferences.get("dustSilver", 1),
 					"G G", " G ", "G G",
 					'G',MBI.GrainsMetallic);
 		}
 		if (LoadMods.enableLead)
 		{
-			RecipeManagers.carpenterManager.addRecipe(30, new FluidStack(FluidRegistry.WATER, 750), null, OreDicPreferences.get("dustLead", 1),
+			RecipeManagers.carpenterManager.addRecipe(30, new FluidStack(FluidRegistry.WATER, 750), ItemStack.EMPTY, OreDicPreferences.get("dustLead", 1),
 					" G ", "GGG", " G ",
 					'G',MBI.GrainsMetallic);
 	    }
 		if (LoadMods.enableAluminium)
 		{
-			RecipeManagers.carpenterManager.addRecipe(30, new FluidStack(FluidRegistry.WATER, 750), null, OreDicPreferences.get("dustAluminum", 1),
+			RecipeManagers.carpenterManager.addRecipe(30, new FluidStack(FluidRegistry.WATER, 750), ItemStack.EMPTY, OreDicPreferences.get("dustAluminum", 1),
 					"G G", "   ", "G G",
 					'G',MBI.GrainsMetallic);
 	    }
 		if (LoadMods.enableOsmium)
 		{
-			RecipeManagers.carpenterManager.addRecipe(30, new FluidStack(FluidRegistry.WATER, 750), null, OreDicPreferences.get("dustOsmium", 1),
+			RecipeManagers.carpenterManager.addRecipe(30, new FluidStack(FluidRegistry.WATER, 750), ItemStack.EMPTY, OreDicPreferences.get("dustOsmium", 1),
 					"GGG", "   ", "G G",
 					'G',MBI.GrainsMetallic);
 		}
-		if(LoadMods.enableTinkers)
+	
+		if (LoadMods.enableNickel)
 		{
-			RecipeManagers.carpenterManager.addRecipe(25, new FluidStack(FluidRegistry.WATER, 1500), null, OreDicPreferences.get("nuggetCobalt", 1),
-					"GGG", "GGG", "G G",
-					'G',MBI.GrainsMetallic);
-			RecipeManagers.carpenterManager.addRecipe(25, new FluidStack(FluidRegistry.WATER, 1500), null, OreDicPreferences.get("nuggetArdite", 1),
-					"G G", "GGG", "GGG",
+			RecipeManagers.carpenterManager.addRecipe(30, new FluidStack(FluidRegistry.WATER, 750), null, OreDicPreferences.get("dustNickel", 1),
+					"G G", "G G", "G G",
 					'G',MBI.GrainsMetallic);
 		}
+		
 
 		//fragments
-			RecipeManagers.carpenterManager.addRecipe(600, new FluidStack(FluidRegistry.LAVA, 4000), null, new ItemStack(Items.NETHER_STAR),
+			RecipeManagers.carpenterManager.addRecipe(600, new FluidStack(FluidRegistry.LAVA, 4000), ItemStack.EMPTY, new ItemStack(Items.NETHER_STAR),
 					"FF", "FF",
 					'F',MBI.NetherFrag);
 	}

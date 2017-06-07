@@ -1,12 +1,12 @@
 {
     "parent": "block/cube",
     "textures": {
-        "particle": "morebees:blocks/hiveRockSide",
-        "down": "morebees:blocks/hiveRockTop",
-        "up": "morebees:blocks/hiveRockTop",
-        "north": "morebees:blocks/hiveRockSide",
-        "east": "morebees:blocks/hiveRockSide",
-        "south": "morebees:blocks/hiveRockSide",
-        "west": "morebees:blocks/hiveRockSide"
+        "particle": "morebees:blocks/hive_Rock_Side",
+        "down": "morebees:blocks/hive_Rock_Top",
+        "up": "morebees:blocks/hive_Rock_Top",
+        "north": "morebees:blocks/hive_Rock_Side",
+        "east": "morebees:blocks/hive_Rock_Side",
+        "south": "morebees:blocks/hive_Rock_Side",
+        "west": "morebees:blocks/hive_Rock_Side"
     }
 }

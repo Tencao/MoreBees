@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "moreBees:items/CombMetallic"
+        "layer0": "moreBees:items/grain_Crystal"
     }
 }

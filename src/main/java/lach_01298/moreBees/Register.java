@@ -147,10 +147,10 @@ public class Register
 	{
 		if(Config.genHives)
 		{
-			PluginApiculture.hiveRegistry.registerHive(MoreBeesHiveType.ROCK.getHiveUid(), MoreBeesHiveDescription.ROCK);
-			ItemStack honeyComb = PluginApiculture.items.beeComb.get(EnumHoneyComb.HONEY, 1);
+			PluginApiculture.getHiveRegistry().registerHive(MoreBeesHiveType.ROCK.getHiveUid(), MoreBeesHiveDescription.ROCK);
+			ItemStack honeyComb = PluginApiculture.getItems().beeComb.get(EnumHoneyComb.HONEY, 1);
 			ItemStack rockComb = new ItemStack(MoreBeesItems.CombRock);
-			PluginApiculture.hiveRegistry.addDrops(MoreBeesHiveType.ROCK.getHiveUid(), new IHiveDrop[] {
+			PluginApiculture.getHiveRegistry().addDrops(MoreBeesHiveType.ROCK.getHiveUid(), new IHiveDrop[] {
 					new HiveDrop(0.8, BeeSpecies.ROCK, new ItemStack[] { rockComb }).setIgnobleShare(0.7),
 					new HiveDrop(0.03, BeeDefinition.VALIANT, new ItemStack[] { honeyComb }) });
 		}

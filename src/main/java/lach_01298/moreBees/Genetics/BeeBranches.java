@@ -14,6 +14,7 @@ import forestry.api.genetics.AlleleManager;
 import forestry.api.genetics.IAllele;
 import forestry.api.genetics.IClassification;
 import forestry.apiculture.genetics.alleles.AlleleEffect;
+import forestry.apiculture.genetics.alleles.AlleleEffects;
 import forestry.core.genetics.IBranchDefinition;
 import forestry.core.genetics.alleles.AlleleHelper;
 import forestry.core.genetics.alleles.EnumAllele;
@@ -27,11 +28,11 @@ public enum BeeBranches implements IBranchDefinition
 		{
 			
 			
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.FLOWER_PROVIDER, Register.FlowerTypeOre);			
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.NEVER_SLEEPS, true);
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.CAVE_DWELLING, true);
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.HUMIDITY_TOLERANCE, EnumAllele.Tolerance.BOTH_1);
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.BOTH_1);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.FLOWER_PROVIDER, Register.FlowerTypeOre);			
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.NEVER_SLEEPS, true);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.CAVE_DWELLING, true);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.HUMIDITY_TOLERANCE, EnumAllele.Tolerance.BOTH_1);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.BOTH_1);
 			
 			
 			
@@ -43,10 +44,10 @@ public enum BeeBranches implements IBranchDefinition
 		protected void setBranchProperties(IAllele[] alleles) 
 		{
 			
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.FLOWER_PROVIDER, Register.FlowerTypeOre);			
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.CAVE_DWELLING, true);
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.HUMIDITY_TOLERANCE, EnumAllele.Tolerance.BOTH_1);
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.UP_1);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.FLOWER_PROVIDER, Register.FlowerTypeOre);			
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.CAVE_DWELLING, true);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.HUMIDITY_TOLERANCE, EnumAllele.Tolerance.BOTH_1);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.UP_1);
 		}
 	},
 	CRYSTAL("Crystalis") 
@@ -56,12 +57,12 @@ public enum BeeBranches implements IBranchDefinition
 		{
 			
 			
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.FLOWER_PROVIDER, Register.FlowerTypeOre);
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.CAVE_DWELLING, true);
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.LIFESPAN, EnumAllele.Lifespan.LONG);
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.HUMIDITY_TOLERANCE, EnumAllele.Tolerance.BOTH_1);
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.UP_1);
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.FERTILITY, EnumAllele.Fertility.LOW);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.FLOWER_PROVIDER, Register.FlowerTypeOre);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.CAVE_DWELLING, true);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.LIFESPAN, EnumAllele.Lifespan.LONG);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.HUMIDITY_TOLERANCE, EnumAllele.Tolerance.BOTH_1);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.UP_1);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.FERTILITY, EnumAllele.Fertility.LOW);
 		
 		}
 	},
@@ -71,9 +72,9 @@ public enum BeeBranches implements IBranchDefinition
 		protected void setBranchProperties(IAllele[] alleles) 
 		{
 			
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.FLOWER_PROVIDER, EnumAllele.Flowers.VANILLA);
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.HUMIDITY_TOLERANCE, EnumAllele.Tolerance.BOTH_1);
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.BOTH_1);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.FLOWER_PROVIDER, EnumAllele.Flowers.VANILLA);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.HUMIDITY_TOLERANCE, EnumAllele.Tolerance.BOTH_1);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.BOTH_1);
 		}
 	},
 	RADIOACTIVE("Radioactivis") 
@@ -82,13 +83,13 @@ public enum BeeBranches implements IBranchDefinition
 		protected void setBranchProperties(IAllele[] alleles) 
 		{
 			
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.FLOWER_PROVIDER, Register.FlowerTypeUranium);			
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.CAVE_DWELLING, true);
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.TERRITORY, EnumAllele.Territory.LARGE);
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.LIFESPAN, EnumAllele.Lifespan.LONG);
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.HUMIDITY_TOLERANCE, EnumAllele.Tolerance.BOTH_1);
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.UP_1);
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.EFFECT, Register.effectRadiation);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.FLOWER_PROVIDER, Register.FlowerTypeUranium);			
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.CAVE_DWELLING, true);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.TERRITORY, EnumAllele.Territory.LARGE);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.LIFESPAN, EnumAllele.Lifespan.LONG);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.HUMIDITY_TOLERANCE, EnumAllele.Tolerance.BOTH_1);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.UP_1);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.EFFECT, Register.effectRadiation);
 		}
 	},
 	APOCALYTIC("Apocalytus") 
@@ -97,15 +98,15 @@ public enum BeeBranches implements IBranchDefinition
 		protected void setBranchProperties(IAllele[] alleles) 
 		{
 			
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.FLOWER_PROVIDER, Register.FlowerTypeTNT);			
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.NEVER_SLEEPS, true);
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.CAVE_DWELLING, true);
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.TERRITORY, EnumAllele.Territory.LARGER);
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.LIFESPAN, EnumAllele.Lifespan.LONG);
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.HUMIDITY_TOLERANCE, EnumAllele.Tolerance.DOWN_2);
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.UP_4);
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.EFFECT, AlleleEffect.effectCreeper);
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.EFFECT, AlleleEffect.effectIgnition);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.FLOWER_PROVIDER, Register.FlowerTypeTNT);			
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.NEVER_SLEEPS, true);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.CAVE_DWELLING, true);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.TERRITORY, EnumAllele.Territory.LARGER);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.LIFESPAN, EnumAllele.Lifespan.LONG);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.HUMIDITY_TOLERANCE, EnumAllele.Tolerance.DOWN_2);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.UP_4);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.EFFECT, AlleleEffects.effectCreeper);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.EFFECT, AlleleEffects.effectIgnition);
 		}
 	},
 	AQUATIC("Aqus") 
@@ -113,13 +114,13 @@ public enum BeeBranches implements IBranchDefinition
 		@Override
 		protected void setBranchProperties(IAllele[] alleles) 
 		{
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.FLOWER_PROVIDER, Register.FlowerTypeWater);			
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.NEVER_SLEEPS, false);
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.HUMIDITY_TOLERANCE, EnumAllele.Tolerance.UP_3);
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.DOWN_1);
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.CAVE_DWELLING, false);
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.TERRITORY, EnumAllele.Territory.AVERAGE);
-			
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.FLOWER_PROVIDER, Register.FlowerTypeWater);			
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.NEVER_SLEEPS, false);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.HUMIDITY_TOLERANCE, EnumAllele.Tolerance.UP_3);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.DOWN_1);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.CAVE_DWELLING, false);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.TERRITORY, EnumAllele.Territory.AVERAGE);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.TOLERATES_RAIN, true);
 		}
 	},
 	WITHER("Witherris") 
@@ -127,15 +128,15 @@ public enum BeeBranches implements IBranchDefinition
 		@Override
 		protected void setBranchProperties(IAllele[] alleles) 
 		{
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.NEVER_SLEEPS, true);
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.FLOWER_PROVIDER, EnumAllele.Flowers.NETHER);
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.CAVE_DWELLING, true);
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.TERRITORY, EnumAllele.Territory.LARGEST);
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.LIFESPAN, EnumAllele.Lifespan.LONGER);
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.HUMIDITY_TOLERANCE, EnumAllele.Tolerance.DOWN_3);
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.UP_5);
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.FERTILITY, EnumAllele.Fertility.LOW);
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.EFFECT, Register.effectWither);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.NEVER_SLEEPS, true);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.FLOWER_PROVIDER, EnumAllele.Flowers.NETHER);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.CAVE_DWELLING, true);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.TERRITORY, EnumAllele.Territory.LARGEST);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.LIFESPAN, EnumAllele.Lifespan.LONGER);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.HUMIDITY_TOLERANCE, EnumAllele.Tolerance.DOWN_3);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.UP_5);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.FERTILITY, EnumAllele.Fertility.LOW);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.EFFECT, Register.effectWither);
 		}
 	},
 	Slime("Slimeus") 
@@ -144,14 +145,14 @@ public enum BeeBranches implements IBranchDefinition
 		protected void setBranchProperties(IAllele[] alleles) 
 		{
 			
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.FLOWER_PROVIDER, Register.FlowerTypeSlime);
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.CAVE_DWELLING, false);
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.TERRITORY, EnumAllele.Territory.AVERAGE);
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.LIFESPAN, EnumAllele.Lifespan.NORMAL);
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.HUMIDITY_TOLERANCE, EnumAllele.Tolerance.DOWN_1);
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.BOTH_1);
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.FERTILITY, EnumAllele.Fertility.NORMAL);
-			AlleleHelper.instance.set(alleles, EnumBeeChromosome.EFFECT, Register.effectSlimey);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.FLOWER_PROVIDER, Register.FlowerTypeSlime);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.CAVE_DWELLING, false);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.TERRITORY, EnumAllele.Territory.AVERAGE);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.LIFESPAN, EnumAllele.Lifespan.NORMAL);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.HUMIDITY_TOLERANCE, EnumAllele.Tolerance.DOWN_1);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.BOTH_1);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.FERTILITY, EnumAllele.Fertility.NORMAL);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.EFFECT, Register.effectSlimey);
 		}
 	};
 	
@@ -186,18 +187,18 @@ public enum BeeBranches implements IBranchDefinition
 		if (defaultTemplate == null) {
 			defaultTemplate = new IAllele[EnumBeeChromosome.values().length];
 
-			AlleleHelper.instance.set(defaultTemplate, EnumBeeChromosome.SPEED, EnumAllele.Speed.SLOWEST);
-			AlleleHelper.instance.set(defaultTemplate, EnumBeeChromosome.LIFESPAN, EnumAllele.Lifespan.SHORTER);
-			AlleleHelper.instance.set(defaultTemplate, EnumBeeChromosome.FERTILITY, EnumAllele.Fertility.NORMAL);
-			AlleleHelper.instance.set(defaultTemplate, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.NONE);
-			AlleleHelper.instance.set(defaultTemplate, EnumBeeChromosome.NEVER_SLEEPS, false);
-			AlleleHelper.instance.set(defaultTemplate, EnumBeeChromosome.HUMIDITY_TOLERANCE, EnumAllele.Tolerance.NONE);
-			AlleleHelper.instance.set(defaultTemplate, EnumBeeChromosome.TOLERATES_RAIN, false);
-			AlleleHelper.instance.set(defaultTemplate, EnumBeeChromosome.CAVE_DWELLING, false);
-			AlleleHelper.instance.set(defaultTemplate, EnumBeeChromosome.FLOWER_PROVIDER, EnumAllele.Flowers.VANILLA);
-			AlleleHelper.instance.set(defaultTemplate, EnumBeeChromosome.FLOWERING, EnumAllele.Flowering.SLOWEST);
-			AlleleHelper.instance.set(defaultTemplate, EnumBeeChromosome.TERRITORY, EnumAllele.Territory.AVERAGE);
-			AlleleHelper.instance.set(defaultTemplate, EnumBeeChromosome.EFFECT, AlleleEffect.effectNone);
+			AlleleHelper.getInstance().set(defaultTemplate, EnumBeeChromosome.SPEED, EnumAllele.Speed.SLOWEST);
+			AlleleHelper.getInstance().set(defaultTemplate, EnumBeeChromosome.LIFESPAN, EnumAllele.Lifespan.SHORTER);
+			AlleleHelper.getInstance().set(defaultTemplate, EnumBeeChromosome.FERTILITY, EnumAllele.Fertility.NORMAL);
+			AlleleHelper.getInstance().set(defaultTemplate, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.NONE);
+			AlleleHelper.getInstance().set(defaultTemplate, EnumBeeChromosome.NEVER_SLEEPS, false);
+			AlleleHelper.getInstance().set(defaultTemplate, EnumBeeChromosome.HUMIDITY_TOLERANCE, EnumAllele.Tolerance.NONE);
+			AlleleHelper.getInstance().set(defaultTemplate, EnumBeeChromosome.TOLERATES_RAIN, false);
+			AlleleHelper.getInstance().set(defaultTemplate, EnumBeeChromosome.CAVE_DWELLING, false);
+			AlleleHelper.getInstance().set(defaultTemplate, EnumBeeChromosome.FLOWER_PROVIDER, EnumAllele.Flowers.VANILLA);
+			AlleleHelper.getInstance().set(defaultTemplate, EnumBeeChromosome.FLOWERING, EnumAllele.Flowering.SLOWEST);
+			AlleleHelper.getInstance().set(defaultTemplate, EnumBeeChromosome.TERRITORY, EnumAllele.Territory.AVERAGE);
+			AlleleHelper.getInstance().set(defaultTemplate, EnumBeeChromosome.EFFECT, AlleleEffects.effectNone);
 		}
 		return Arrays.copyOf(defaultTemplate, defaultTemplate.length);
 	}

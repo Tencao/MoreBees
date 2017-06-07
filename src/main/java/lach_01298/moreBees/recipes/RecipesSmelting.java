@@ -45,6 +45,19 @@ public class RecipesSmelting
 		{
 		GameRegistry.addSmelting(MBI.DustAluminium, OreDicPreferences.get("ingotAluminum",1), 0.7f);
 		}
+		
+		if(LoadMods.enableNickel && MBI.MBINickel)
+		{
+		GameRegistry.addSmelting(MBI.DustNickel, OreDicPreferences.get("ingotNickel",1), 0.7f);
+		}
+		if(LoadMods.enablePlatinum && MBI.MBIPlatinum)
+		{
+		GameRegistry.addSmelting(MBI.DustPlatinum, OreDicPreferences.get("ingotPlatinum",1), 0.7f);
+		}
+		if(LoadMods.enableIridium && MBI.MBIIridium)
+		{
+		GameRegistry.addSmelting(MBI.DustIridium, OreDicPreferences.get("ingotIridium",1), 0.7f);
+		}
 	}
 	
 	

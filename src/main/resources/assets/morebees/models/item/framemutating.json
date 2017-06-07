@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "moreBees:items/frameSweet"
+        "layer0": "moreBees:items/frame_Mutating"
     }
 }

@@ -41,7 +41,7 @@ public enum MoreBeesHiveDescription implements IHiveDescription
 		public boolean isGoodBiome(Biome biome) 
 		{
 			
-			return !BiomeHelper.isBiomeHellish(biome)&&!BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.END);
+			return !BiomeHelper.isBiomeHellish(biome)&&!BiomeDictionary.hasType(biome, BiomeDictionary.Type.END);
 		}
 
 		@Override

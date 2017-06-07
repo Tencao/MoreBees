@@ -60,22 +60,22 @@ public class RecipesCentrifuge
 
 		RecipeManagers.centrifugeManager.addRecipe(20, new ItemStack(MBI.CombMetallic), ImmutableMap.of(
 				PluginCore.items.beeswax.getItemStack(), 0.8f,
-				PluginApiculture.items.honeyDrop.getItemStack(), 0.5f,
+				PluginApiculture.getItems().honeyDrop.getItemStack(), 0.5f,
 				new ItemStack(MBI.PropolisMetallic), 0.5f));
 
 		RecipeManagers.centrifugeManager.addRecipe(20, new ItemStack(MBI.CombCrystal), ImmutableMap.of(
 				PluginCore.items.beeswax.getItemStack(), 0.8f,
-				PluginApiculture.items.honeyDrop.getItemStack(), 0.5f,
+				PluginApiculture.getItems().honeyDrop.getItemStack(), 0.5f,
 				new ItemStack(MBI.PropolisCrystal), 0.5f));
 
 
 		RecipeManagers.centrifugeManager.addRecipe(10, new ItemStack(MBI.PropolisCrystal), ImmutableMap.of(
-				PluginApiculture.items.propolis.getItemStack(), 0.3f,
+				PluginApiculture.getItems().propolis.getItemStack(), 0.3f,
 				new ItemStack(MBI.GrainsCrystal), 0.6f,
 				new ItemStack(MBI.GrainsCrystal), 0.3f));
 
 		RecipeManagers.centrifugeManager.addRecipe(10, new ItemStack(MBI.PropolisMetallic), ImmutableMap.of(
-				PluginApiculture.items.propolis.getItemStack(), 0.3f,
+				PluginApiculture.getItems().propolis.getItemStack(), 0.3f,
 				new ItemStack(MBI.GrainsMetallic), 0.6f,
 				new ItemStack(MBI.GrainsMetallic), 0.3f));
 	}
