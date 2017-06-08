@@ -25,6 +25,7 @@ public class Config
 	public static boolean apocalypticBees = true;
 
 	public static boolean uranicBees = true;
+	public static boolean iridiumBees = true;
 	public static boolean radioactiveBees = true;
 	public static boolean yelloriteBees = true;
 	public static boolean resonatingBees = true;
@@ -84,6 +85,7 @@ public class Config
 		diamondBees = cfg.getBoolean("diamondBees", CATEGORY_BEES, diamondBees, "Set to false to disable Diamond Bees.");
 		apocalypticBees = cfg.getBoolean("apocalypticBees", CATEGORY_BEES, apocalypticBees, "Set to false to disable Apocalyptic Bees."+beeNote);
 		uranicBees = cfg.getBoolean("uranicBees", CATEGORY_BEES, uranicBees, "Set to false to disable Uranic Bees.");
+		iridiumBees = cfg.getBoolean("iridiumBees", CATEGORY_BEES, iridiumBees, "Set to false to disable Irdium Bees.");
 		yelloriteBees = cfg.getBoolean("yelloriteBees", CATEGORY_BEES, yelloriteBees, "Set to false to disable Yellorite Bees.");
 		resonatingBees = cfg.getBoolean("resonatingBees", CATEGORY_BEES, resonatingBees, "Set to false to disable Resonating Bees.");
 		radioactiveBees = cfg.getBoolean("radioactiveBees", CATEGORY_BEES, radioactiveBees, "Set to false to disable Radioactive Bees."+beeNote);
