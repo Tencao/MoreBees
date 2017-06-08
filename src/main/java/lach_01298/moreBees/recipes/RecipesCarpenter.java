@@ -102,7 +102,7 @@ public class RecipesCarpenter
 	
 		if (LoadMods.enableNickel)
 		{
-			RecipeManagers.carpenterManager.addRecipe(30, new FluidStack(FluidRegistry.WATER, 750), null, OreDicPreferences.get("dustNickel", 1),
+			RecipeManagers.carpenterManager.addRecipe(30, new FluidStack(FluidRegistry.WATER, 750), ItemStack.EMPTY, OreDicPreferences.get("dustNickel", 1),
 					"G G", "G G", "G G",
 					'G',MBI.GrainsMetallic);
 		}
