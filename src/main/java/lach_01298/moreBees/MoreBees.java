@@ -1,8 +1,6 @@
 package lach_01298.moreBees;
 
-import lach_01298.moreBees.CommonProxy;
 import lach_01298.moreBees.Genetics.BeeSpecies;
-import lach_01298.moreBees.Register;
 import lach_01298.moreBees.block.MoreBeesBlocks;
 import lach_01298.moreBees.item.MoreBeesItems;
 import lach_01298.moreBees.recipes.RecipesCarpenter;
@@ -10,34 +8,38 @@ import lach_01298.moreBees.recipes.RecipesCentrifuge;
 import lach_01298.moreBees.recipes.RecipesCrafting;
 import lach_01298.moreBees.recipes.RecipesSmelting;
 import lach_01298.moreBees.util.LoadMods;
+
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.oredict.OreDictionary;
 
 @Mod(modid = MoreBees.MOD_ID, name = "More Bees", version = MoreBees.VERSION, acceptedMinecraftVersions = MoreBees.MCVERSION ,
-	dependencies = "required-after:forestry;after:IndustrialCraft2;after:Mekanism;after:draconicevolution;after:bigreactors;after:railcraft;after:techreborn")
+	dependencies = "required-after:forestry;after:IndustrialCraft2;after:mekanism;after:draconicevolution;after:bigreactors;after:railcraft;after:techreborn")
 public class MoreBees
 {
 	public static final String MOD_ID = "morebees";
-	public static final String VERSION = "1.11.2-1.4.1";
-	public static final String MCVERSION = "1.11.2";
+	public static final String VERSION = "1.12.1-1.4.2";
+	public static final String MCVERSION = "1.12.1";
 	@Mod.Instance(value = "morebees")
 	public static MoreBees instance;
 	@SidedProxy(clientSide = "lach_01298.moreBees.ClientProxy", serverSide = "lach_01298.moreBees.CommonProxy")
 	public static CommonProxy proxy;
 
+	public static Registry registry = new Registry();
+	
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
+		MinecraftForge.EVENT_BUS.register(registry);
 		proxy.preInit(event);
 		LoadMods.loadMods();
 		System.out.println(event.getEventType());
-		MoreBeesItems.initItems();
-		MoreBeesBlocks.init();
-		
+		MoreBeesItems.initItems(registry);
+		MoreBeesBlocks.init(registry);
+		RecipesCrafting.registerRecipes(registry);
 		
 	}
 
@@ -47,7 +49,6 @@ public class MoreBees
 	
 		LoadMods.loadMods();
 		System.out.println(event.getEventType());
-		RecipesCrafting.registerRecipes();
 		RecipesSmelting.registerRecipes();
 		RecipesCentrifuge.registerRecipes();
 		RecipesCarpenter.registerRecipes();
