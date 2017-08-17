@@ -162,7 +162,16 @@ public enum BeeBranches implements IBranchDefinition
 	private final IClassification branch;
 
 	BeeBranches(String scientific) {
-		branch = BeeManager.beeFactory.createBranch(this.name().toLowerCase(Locale.ENGLISH), scientific);
+		branch = getOrCreateBranch(this.name().toLowerCase(Locale.ENGLISH), scientific);
+	}
+	
+	private IClassification getOrCreateBranch(String uid, String scientific){
+		IClassification newBranch = AlleleManager.alleleRegistry.getClassification(IClassification.EnumClassLevel.GENUS.name().toLowerCase(Locale.ENGLISH) + ".bees." + uid);
+		if(newBranch != null){
+			return newBranch;
+		}else{
+			return BeeManager.beeFactory.createBranch(uid, scientific);
+		}
 	}
 
 	protected void setBranchProperties(IAllele[] template) {
