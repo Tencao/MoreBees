@@ -6,7 +6,6 @@ import lach_01298.moreBees.util.OreDicPreferences;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.oredict.OreDictionary;
 
 public class RecipesSmelting 
 {

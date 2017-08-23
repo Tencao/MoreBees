@@ -1,12 +1,10 @@
 package lach_01298.moreBees.item;
 
 
+import lach_01298.moreBees.Registry;
 import lach_01298.moreBees.util.*;
 import forestry.api.core.Tabs;
-import forestry.apiculture.items.ItemHiveFrame;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 
 public class MoreBeesItems
@@ -52,104 +50,78 @@ public class MoreBeesItems
 	public static ItemFrame frameMutating;
 
 
-	public static void initItems()
+	public static void initItems(Registry registry)
 	{
 
 		if(Config.enableFrames)
 		{
-			frameSweet = register(new ItemFrame(120, 1.1f, 2.5f, 1.0f, 0.5f, "frameSweet"));
-			frameCooled = register(new ItemFrame(300, 2.0f, 3.5f, 0.8f, 0.25f, "frameCooled"));
-			frameMutating = register(new ItemFrame(240, 1.5f, 0.9f, 1.0f, 3.0f, "frameMutating"));
+			frameSweet = registry.register(new ItemFrame(120, 1.1f, 2.5f, 1.0f, 0.5f, "frameSweet"));
+			frameCooled = registry.register(new ItemFrame(300, 2.0f, 3.5f, 0.8f, 0.25f, "frameCooled"));
+			frameMutating = registry.register(new ItemFrame(240, 1.5f, 0.9f, 1.0f, 3.0f, "frameMutating"));
 		}
-		CombRock = registerOreItem(new BasicItem("CombRock").setCreativeTab(Tabs.tabApiculture),"beeComb");
-		CombDirt = registerOreItem(new BasicItem("CombDirt").setCreativeTab(Tabs.tabApiculture),"beeComb");
-		CombWither = registerOreItem(new BasicItem("CombWither").setCreativeTab(Tabs.tabApiculture),"beeComb");
-		CombSlime = registerOreItem(new BasicItem("CombSlime").setCreativeTab(Tabs.tabApiculture),"beeComb");
-		CombMetallic = registerOreItem(new BasicItem("CombMetallic").setCreativeTab(Tabs.tabApiculture),"beeComb");
-		CombCrystal = registerOreItem(new BasicItem("CombCrystal").setCreativeTab(Tabs.tabApiculture),"beeComb");
+		CombRock = registry.registerOreItem(new BasicItem("CombRock").setCreativeTab(Tabs.tabApiculture),"beeComb");
+		CombDirt = registry.registerOreItem(new BasicItem("CombDirt").setCreativeTab(Tabs.tabApiculture),"beeComb");
+		CombWither = registry.registerOreItem(new BasicItem("CombWither").setCreativeTab(Tabs.tabApiculture),"beeComb");
+		CombSlime = registry.registerOreItem(new BasicItem("CombSlime").setCreativeTab(Tabs.tabApiculture),"beeComb");
+		CombMetallic = registry.registerOreItem(new BasicItem("CombMetallic").setCreativeTab(Tabs.tabApiculture),"beeComb");
+		CombCrystal = registry.registerOreItem(new BasicItem("CombCrystal").setCreativeTab(Tabs.tabApiculture),"beeComb");
 
-		DiamondFrag = registerOreItem(new BasicItem("diamondFragment").setCreativeTab(Tabs.tabApiculture),"nuggetDiamond");
-		EmeraldFrag = registerOreItem(new BasicItem("emeraldFragment").setCreativeTab(Tabs.tabApiculture),"nuggetEmerald");
-		NetherFrag = register(new ShinyItem("nether_starFragment").setCreativeTab(Tabs.tabApiculture));
+		DiamondFrag = registry.registerOreItem(new BasicItem("diamondFragment").setCreativeTab(Tabs.tabApiculture),"nuggetDiamond");
+		EmeraldFrag = registry.registerOreItem(new BasicItem("emeraldFragment").setCreativeTab(Tabs.tabApiculture),"nuggetEmerald");
+		NetherFrag = registry.register(new ShinyItem("nether_starFragment").setCreativeTab(Tabs.tabApiculture));
 
-		PropolisMetallic = register(new BasicItem("propolisMetallic").setCreativeTab(Tabs.tabApiculture));
-		PropolisCrystal = register(new BasicItem("propolisCrystal").setCreativeTab(Tabs.tabApiculture));
-		GrainsMetallic = register(new BasicItem("grainMetallic").setCreativeTab(Tabs.tabApiculture));
-		GrainsCrystal = register(new BasicItem("grainCrystal").setCreativeTab(Tabs.tabApiculture));
+		PropolisMetallic = registry.register(new BasicItem("propolisMetallic").setCreativeTab(Tabs.tabApiculture));
+		PropolisCrystal = registry.register(new BasicItem("propolisCrystal").setCreativeTab(Tabs.tabApiculture));
+		GrainsMetallic = registry.register(new BasicItem("grainMetallic").setCreativeTab(Tabs.tabApiculture));
+		GrainsCrystal = registry.register(new BasicItem("grainCrystal").setCreativeTab(Tabs.tabApiculture));
 
 		//ore dic items
 		if(LoadMods.enableIronDust)
 		{
-			DustIron = registerOreItem(new BasicItem("dustIron").setCreativeTab(CreativeTabs.MATERIALS),"dustIron");
+			DustIron = registry.registerOreItem(new BasicItem("dustIron").setCreativeTab(CreativeTabs.MATERIALS),"dustIron");
 		}
 		if(LoadMods.enableCopperDust)
 		{
-			DustCopper = registerOreItem(new BasicItem("dustCopper").setCreativeTab(CreativeTabs.MATERIALS),"dustCopper");
+			DustCopper = registry.registerOreItem(new BasicItem("dustCopper").setCreativeTab(CreativeTabs.MATERIALS),"dustCopper");
 		}
 		if(LoadMods.enableTinDust)
 		{
-			DustTin = registerOreItem(new BasicItem("dustTin").setCreativeTab(CreativeTabs.MATERIALS),"dustTin");
+			DustTin = registry.registerOreItem(new BasicItem("dustTin").setCreativeTab(CreativeTabs.MATERIALS),"dustTin");
 		}
 		if(LoadMods.enableGoldDust)
 		{
-			DustGold = registerOreItem(new BasicItem("dustGold").setCreativeTab(CreativeTabs.MATERIALS),"dustGold");
+			DustGold = registry.registerOreItem(new BasicItem("dustGold").setCreativeTab(CreativeTabs.MATERIALS),"dustGold");
 		}
 		//addon ore dic items
 		if((OreDictionary.getOres("dustLead").isEmpty()) && LoadMods.enableLead)
 		{
-			DustLead = registerOreItem(new BasicItem("dustLead").setCreativeTab(CreativeTabs.MATERIALS),"dustLead");
+			DustLead = registry.registerOreItem(new BasicItem("dustLead").setCreativeTab(CreativeTabs.MATERIALS),"dustLead");
 			MBILead = true;
 		}
 		if((OreDictionary.getOres("dustSilver").isEmpty()) && LoadMods.enableSilver)
 		{
-			DustSilver = registerOreItem(new BasicItem("dustSilver").setCreativeTab(CreativeTabs.MATERIALS),"dustSilver");
+			DustSilver = registry.registerOreItem(new BasicItem("dustSilver").setCreativeTab(CreativeTabs.MATERIALS),"dustSilver");
 			MBISilver = true;
 		}
 		if((OreDictionary.getOres("dustAluminum").isEmpty()) && LoadMods.enableAluminium)
 		{
-			DustAluminium = registerOreItem(new BasicItem("dustAluminium").setCreativeTab(CreativeTabs.MATERIALS),"dustAluminum");
+			DustAluminium = registry.registerOreItem(new BasicItem("dustAluminium").setCreativeTab(CreativeTabs.MATERIALS),"dustAluminum");
 			MBIAluminium = true;
 		}
 		if((OreDictionary.getOres("dustNickel").isEmpty()) && LoadMods.enableNickel)
 		{
-			DustNickel = registerOreItem(new BasicItem("dustNickel").setCreativeTab(CreativeTabs.MATERIALS),"dustNickel");
+			DustNickel = registry.registerOreItem(new BasicItem("dustNickel").setCreativeTab(CreativeTabs.MATERIALS),"dustNickel");
 			MBINickel = true;
 		}
 		if((OreDictionary.getOres("dustPlatinum").isEmpty()) && LoadMods.enablePlatinum)
 		{
-			DustPlatinum = registerOreItem(new BasicItem("dustPlatinum").setCreativeTab(CreativeTabs.MATERIALS),"dustPlatinum");
+			DustPlatinum = registry.registerOreItem(new BasicItem("dustPlatinum").setCreativeTab(CreativeTabs.MATERIALS),"dustPlatinum");
 			MBIPlatinum = true;
 		}
 		if((OreDictionary.getOres("dustIridium").isEmpty()) && LoadMods.enableIridium)
 		{
-			DustIridium = registerOreItem(new BasicItem("dustIridium").setCreativeTab(CreativeTabs.MATERIALS),"dustIridium");
+			DustIridium = registry.registerOreItem(new BasicItem("dustIridium").setCreativeTab(CreativeTabs.MATERIALS),"dustIridium");
 			MBIIridium = true;
 		}
-	}
-
-
-	private static <T extends Item> T register(T item)
-	{
-		GameRegistry.register(item);
-
-		if (item instanceof ItemModelProvider)
-		{
-			((ItemModelProvider) item).registerItemModel(item);
-		}
-
-		return  item;
-	}
-
-	private static <T extends Item> T registerOreItem(T item,String oreDicName)
-	{
-		GameRegistry.register(item);
-		OreDictionary.registerOre(oreDicName, item);
-
-		if (item instanceof ItemModelProvider)
-		{
-			((ItemModelProvider) item).registerItemModel(item);
-		}
-
-		return  item;
 	}
 }
