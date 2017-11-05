@@ -11,7 +11,7 @@ import forestry.api.apiculture.IHiveTile;
 import forestry.api.apiculture.hives.IHiveRegistry.HiveType;
 import forestry.api.core.Tabs;
 import forestry.apiculture.MaterialBeehive;
-import forestry.apiculture.PluginApiculture;
+import forestry.apiculture.ModuleApiculture;
 import forestry.apiculture.tiles.TileHive;
 
 import java.util.ArrayList;
@@ -167,7 +167,7 @@ public class BlockHive extends BlockContainer implements ItemModelProvider
 		if (hiveName == null) {
 			return Collections.emptyList();
 		}
-		return PluginApiculture.getHiveRegistry().getDrops(hiveName);
+		return ModuleApiculture.getHiveRegistry().getDrops(hiveName);
 	}
 	
 	private static String getHiveNameForMeta(int meta) {

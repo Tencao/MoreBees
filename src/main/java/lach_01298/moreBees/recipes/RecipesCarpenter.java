@@ -3,10 +3,10 @@ package lach_01298.moreBees.recipes;
 import com.google.common.collect.ImmutableMap;
 
 import forestry.api.recipes.RecipeManagers;
-import forestry.apiculture.PluginApiculture;
+import forestry.apiculture.ModuleApiculture;
 import forestry.apiculture.items.EnumHoneyComb;
 import forestry.apiculture.items.EnumPollenCluster;
-import forestry.core.PluginCore;
+import forestry.core.ModuleCore;
 import forestry.core.fluids.Fluids;
 import forestry.core.utils.OreDictUtil;
 import lach_01298.moreBees.item.MoreBeesItems;
@@ -30,20 +30,20 @@ public class RecipesCarpenter
 		//frames
 		RecipeManagers.carpenterManager.addRecipe(50, Fluids.FOR_HONEY.getFluid(1000), ItemStack.EMPTY, new ItemStack(MoreBeesItems.frameSweet),
 				"SSS", "SFS", "SSS",
-				'F', PluginApiculture.getItems().frameUntreated,
+				'F', ModuleApiculture.getItems().frameUntreated,
 				'S', Items.STICK);
 
 		RecipeManagers.carpenterManager.addRecipe(100, Fluids.ICE.getFluid(1000), ItemStack.EMPTY, new ItemStack(MoreBeesItems.frameCooled),
 				"SCS", "CFC", "SCS",
-				'F', PluginApiculture.getItems().frameImpregnated,
+				'F', ModuleApiculture.getItems().frameImpregnated,
 				'S', Items.STICK,
 				'C',OreDictUtil.INGOT_COPPER);
 
 		RecipeManagers.carpenterManager.addRecipe(100, Fluids.SHORT_MEAD.getFluid(1000), ItemStack.EMPTY, new ItemStack(MoreBeesItems.frameMutating),
 				"RSR", "SFS", "RSR",
-				'F', PluginApiculture.getItems().frameImpregnated,
+				'F', ModuleApiculture.getItems().frameImpregnated,
 				'S', Blocks.SOUL_SAND,
-				'R',PluginApiculture.getItems().royalJelly);
+				'R', ModuleApiculture.getItems().royalJelly);
 
 		//grains
 			//crystal
@@ -57,7 +57,7 @@ public class RecipesCarpenter
 				"G G", "GGG", "G G",
 				'G',MBI.GrainsCrystal);
 
-		RecipeManagers.carpenterManager.addRecipe(40, new FluidStack(FluidRegistry.WATER, 1000), ItemStack.EMPTY, new ItemStack(PluginCore.items.apatite),
+		RecipeManagers.carpenterManager.addRecipe(40, new FluidStack(FluidRegistry.WATER, 1000), ItemStack.EMPTY, new ItemStack(ModuleCore.items.apatite),
 				"G G", " G ", "G G",
 				'G',MBI.GrainsCrystal);
 		

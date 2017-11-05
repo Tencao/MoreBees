@@ -15,16 +15,16 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 
 
 
-version = "1.12.2-1.4.2"
+version = "1.12.2-1.4.3"
 group= "lach_01298.morebees" 
 archivesBaseName = "morebees"
 
 minecraft {
-    version = "14.22.0.2453"
+    version = "14.23.0.2529"
     runDir = "run"
     
     
-    mappings = "snapshot_20170806"
+    mappings = "snapshot_20171104"
     
 }
 
@@ -35,8 +35,8 @@ repositories {
 }
 
 dependencies {
-    deobfCompile("net.sengir.forestry:forestry_1.12:5.5.0.161") {
-		exclude module: "jei_1.12"
+    deobfCompile("net.sengir.forestry:forestry_1.12.2:5.7.+") {
+		exclude module: "jei_1.12.2"
     }
 }
 
