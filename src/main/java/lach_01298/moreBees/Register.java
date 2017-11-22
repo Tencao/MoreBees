@@ -13,7 +13,7 @@ import forestry.api.genetics.IAlleleRegistry;
 import forestry.api.genetics.IChromosomeType;
 import forestry.api.genetics.IFlowerProvider;
 import forestry.api.genetics.IFlowerRegistry;
-import forestry.apiculture.PluginApiculture;
+import forestry.apiculture.ModuleApiculture;
 import forestry.apiculture.flowers.FlowerProvider;
 import forestry.apiculture.flowers.FlowerRegistry;
 import forestry.apiculture.genetics.BeeDefinition;
@@ -147,10 +147,10 @@ public class Register
 	{
 		if(Config.genHives)
 		{
-			PluginApiculture.getHiveRegistry().registerHive(MoreBeesHiveType.ROCK.getHiveUid(), MoreBeesHiveDescription.ROCK);
-			ItemStack honeyComb = PluginApiculture.getItems().beeComb.get(EnumHoneyComb.HONEY, 1);
+			ModuleApiculture.getHiveRegistry().registerHive(MoreBeesHiveType.ROCK.getHiveUid(), MoreBeesHiveDescription.ROCK);
+			ItemStack honeyComb = ModuleApiculture.getItems().beeComb.get(EnumHoneyComb.HONEY, 1);
 			ItemStack rockComb = new ItemStack(MoreBeesItems.CombRock);
-			PluginApiculture.getHiveRegistry().addDrops(MoreBeesHiveType.ROCK.getHiveUid(), new IHiveDrop[] {
+			ModuleApiculture.getHiveRegistry().addDrops(MoreBeesHiveType.ROCK.getHiveUid(), new IHiveDrop[] {
 					new HiveDrop(0.8, BeeSpecies.ROCK, new ItemStack[] { rockComb }).setIgnobleShare(0.7),
 					new HiveDrop(0.03, BeeDefinition.VALIANT, new ItemStack[] { honeyComb }) });
 		}

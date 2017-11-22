@@ -7,6 +7,8 @@ import java.util.Locale;
 import java.util.Random;
 import java.util.Set;
 
+import forestry.apiculture.ModuleApiculture;
+import forestry.core.ModuleCore;
 import lach_01298.moreBees.MoreBees;
 import lach_01298.moreBees.Register;
 import lach_01298.moreBees.item.MoreBeesItems;
@@ -25,13 +27,11 @@ import forestry.api.core.EnumHumidity;
 import forestry.api.core.EnumTemperature;
 import forestry.api.genetics.AlleleManager;
 import forestry.api.genetics.IAllele;
-import forestry.apiculture.PluginApiculture;
 import forestry.apiculture.genetics.*;
 import forestry.apiculture.genetics.alleles.AlleleEffect;
 import forestry.apiculture.genetics.alleles.AlleleEffects;
 import forestry.apiculture.items.EnumHoneyComb;
 import forestry.apiculture.items.EnumPollenCluster;
-import forestry.core.PluginCore;
 import forestry.core.config.Constants;
 import forestry.core.genetics.IBranchDefinition;
 import forestry.core.genetics.alleles.AlleleHelper;
@@ -481,7 +481,7 @@ public enum BeeSpecies implements IBeeDefinition
 		{
 			if(LoadMods.enableSulfur)
 			{
-				 beeSpecies.addProduct(PluginApiculture.getItems().beeComb.get(EnumHoneyComb.SIMMERING, 1), 0.3f)
+				 beeSpecies.addProduct(ModuleApiculture.getItems().beeComb.get(EnumHoneyComb.SIMMERING, 1), 0.3f)
 				           .addProduct(OreDicPreferences.get("dustSulfur", 1), 0.15f)
 				           .setTemperature(EnumTemperature.WARM).setHumidity(EnumHumidity.NORMAL);
 			}
@@ -512,7 +512,7 @@ public enum BeeSpecies implements IBeeDefinition
 		{
 
 		        beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombCrystal),0.3f)
-		                  .addProduct(new ItemStack(PluginCore.items.apatite),0.1f)
+		                  .addProduct(new ItemStack(ModuleCore.items.apatite),0.1f)
 		                  .setTemperature(EnumTemperature.WARM).setHumidity(EnumHumidity.NORMAL);
 		}
 
@@ -965,7 +965,7 @@ public enum BeeSpecies implements IBeeDefinition
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies)
 		{
-			beeSpecies.addProduct(PluginApiculture.getItems().beeComb.get(EnumHoneyComb.SIMMERING, 1), 0.30f)
+			beeSpecies.addProduct(ModuleApiculture.getItems().beeComb.get(EnumHoneyComb.SIMMERING, 1), 0.30f)
 					  .setTemperature(EnumTemperature.HOT).setHumidity(EnumHumidity.NORMAL);
 			if(LoadMods.enableUranium && !LoadMods.enableIC2Classic)
 			{
@@ -1006,7 +1006,7 @@ public enum BeeSpecies implements IBeeDefinition
 		{
 			if(LoadMods.enableResonating)
 			{
-				beeSpecies.addProduct(PluginApiculture.getItems().beeComb.get(EnumHoneyComb.SIMMERING, 1), 0.30f)
+				beeSpecies.addProduct(ModuleApiculture.getItems().beeComb.get(EnumHoneyComb.SIMMERING, 1), 0.30f)
 				          .addProduct(OreDicPreferences.get("oreResonating", 1), 0.05f)
 				          .setTemperature(EnumTemperature.HOT).setHumidity(EnumHumidity.NORMAL);
 			}
@@ -1041,7 +1041,7 @@ public enum BeeSpecies implements IBeeDefinition
 		{
 			if(LoadMods.enableYellorite)
 			{
-				beeSpecies.addProduct(PluginApiculture.getItems().beeComb.get(EnumHoneyComb.SIMMERING, 1), 0.30f)
+				beeSpecies.addProduct(ModuleApiculture.getItems().beeComb.get(EnumHoneyComb.SIMMERING, 1), 0.30f)
 				          .addProduct(OreDicPreferences.get("oreYellorite", 1), 0.05f)
 				          .setTemperature(EnumTemperature.HOT).setHumidity(EnumHumidity.NORMAL);
 			}
@@ -1076,7 +1076,7 @@ public enum BeeSpecies implements IBeeDefinition
 		{
 			if(LoadMods.enableIC2 && !LoadMods.enableIC2Classic)
 			{
-				beeSpecies.addProduct(PluginApiculture.getItems().beeComb.get(EnumHoneyComb.SIMMERING, 1), 0.30f)
+				beeSpecies.addProduct(ModuleApiculture.getItems().beeComb.get(EnumHoneyComb.SIMMERING, 1), 0.30f)
 				          .addProduct(OreDicPreferences.get("crushedUranium", 1), 0.15f)
 				          .setHasEffect()
 				          .setTemperature(EnumTemperature.HELLISH).setHumidity(EnumHumidity.ARID);
@@ -1116,7 +1116,7 @@ public enum BeeSpecies implements IBeeDefinition
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies)
 		{
-			beeSpecies.addProduct(PluginApiculture.getItems().beeComb.get(EnumHoneyComb.HONEY, 1), 0.30f)
+			beeSpecies.addProduct(ModuleApiculture.getItems().beeComb.get(EnumHoneyComb.HONEY, 1), 0.30f)
 			          .addProduct(new ItemStack(Items.PRISMARINE_CRYSTALS, 2), 0.2f)
 			          .addProduct(new ItemStack(Items.PRISMARINE_SHARD, 2), 0.2f)
 			          .setHasEffect()
@@ -1147,7 +1147,7 @@ public enum BeeSpecies implements IBeeDefinition
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies)
 		{
-			beeSpecies.addProduct(PluginApiculture.getItems().beeComb.get(EnumHoneyComb.SIMMERING, 1), 0.30f)
+			beeSpecies.addProduct(ModuleApiculture.getItems().beeComb.get(EnumHoneyComb.SIMMERING, 1), 0.30f)
 			          .addSpecialty(new ItemStack(Items.BLAZE_POWDER), 0.2f)
 			          .addSpecialty(new ItemStack(Items.GUNPOWDER), 0.2f)
 			          .addSpecialty(new ItemStack(Items.GHAST_TEAR), 0.05f)
@@ -1351,8 +1351,8 @@ public enum BeeSpecies implements IBeeDefinition
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies)
 		{
-			beeSpecies.addProduct(PluginApiculture.getItems().beeComb.get(EnumHoneyComb.SILKY,1), 0.30f)
-			          .addProduct(PluginApiculture.getItems().beeComb.get(EnumHoneyComb.STRINGY,1), 0.30f)
+			beeSpecies.addProduct(ModuleApiculture.getItems().beeComb.get(EnumHoneyComb.SILKY,1), 0.30f)
+			          .addProduct(ModuleApiculture.getItems().beeComb.get(EnumHoneyComb.STRINGY,1), 0.30f)
 			          .addProduct(new ItemStack(Items.STRING,1), 0.70f)
 			          .setTemperature(EnumTemperature.WARM).setHumidity(EnumHumidity.DAMP);
 		}
@@ -1379,7 +1379,7 @@ public enum BeeSpecies implements IBeeDefinition
 		{
 			if (LoadMods.enableDraconium)
 			{
-				beeSpecies.addProduct(PluginApiculture.getItems().beeComb.get(EnumHoneyComb.MYSTERIOUS, 1), 0.30f)
+				beeSpecies.addProduct(ModuleApiculture.getItems().beeComb.get(EnumHoneyComb.MYSTERIOUS, 1), 0.30f)
 				          .addProduct(OreDicPreferences.get("dustDraconium", 1), 0.15f)
 				          .setTemperature(EnumTemperature.COLD).setHumidity(EnumHumidity.ARID);
 			}

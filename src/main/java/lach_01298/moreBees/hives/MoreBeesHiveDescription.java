@@ -21,16 +21,11 @@ import forestry.api.apiculture.IBeeGenome;
 import forestry.api.apiculture.hives.HiveManager;
 import forestry.api.apiculture.hives.IHiveDescription;
 import forestry.api.apiculture.hives.IHiveGen;
-import forestry.api.apiculture.hives.IHiveRegistry;
 import forestry.api.core.BiomeHelper;
 import forestry.api.core.EnumHumidity;
 import forestry.api.core.EnumTemperature;
 import forestry.api.genetics.AlleleManager;
 import forestry.api.genetics.EnumTolerance;
-import forestry.apiculture.PluginApiculture;
-import forestry.apiculture.genetics.BeeDefinition;
-import forestry.apiculture.genetics.IBeeDefinition;
-import forestry.core.config.Constants;
 
 public enum MoreBeesHiveDescription implements IHiveDescription 
 {
