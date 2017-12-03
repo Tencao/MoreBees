@@ -6,12 +6,13 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
+
+import javax.annotation.Nonnull;
 
 
 public class BasicBlock extends Block implements ItemModelProvider{
 
-	protected String name;
+	protected final String name;
 
 	public BasicBlock(Material material, String name) {
 		super(material);
@@ -27,7 +28,8 @@ public class BasicBlock extends Block implements ItemModelProvider{
 	}
 
 	@Override
-	public BasicBlock setCreativeTab(CreativeTabs tab) {
+	@Nonnull
+	public BasicBlock setCreativeTab(@Nonnull CreativeTabs tab) {
 		super.setCreativeTab(tab);
 		return this;
 	}

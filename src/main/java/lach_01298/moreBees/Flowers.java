@@ -2,9 +2,10 @@ package lach_01298.moreBees;
 
 import java.util.Locale;
 
-import forestry.api.apiculture.FlowerManager;
 import forestry.apiculture.flowers.FlowerProvider;
 import forestry.core.genetics.alleles.IAlleleValue;
+
+import javax.annotation.Nonnull;
 
 public enum Flowers implements IAlleleValue<FlowerProvider>
 {
@@ -34,9 +35,8 @@ public enum Flowers implements IAlleleValue<FlowerProvider>
 
 
 	@Override
-	public FlowerProvider getValue()
+	public @Nonnull FlowerProvider getValue()
 	{
-
 		return value;
 	}
 

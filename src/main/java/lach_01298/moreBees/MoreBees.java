@@ -1,6 +1,6 @@
 package lach_01298.moreBees;
 
-import lach_01298.moreBees.Genetics.BeeSpecies;
+import lach_01298.moreBees.genetics.BeeSpecies;
 import lach_01298.moreBees.block.MoreBeesBlocks;
 import lach_01298.moreBees.item.MoreBeesItems;
 import lach_01298.moreBees.recipes.RecipesCarpenter;
@@ -15,6 +15,8 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 @Mod(modid = MoreBees.MOD_ID, name = "More Bees", version = MoreBees.VERSION, acceptedMinecraftVersions = MoreBees.MCVERSION ,
 	dependencies = "required-after:forestry;after:IndustrialCraft2;after:mekanism;after:draconicevolution;after:bigreactors;after:railcraft;after:techreborn")
@@ -27,8 +29,9 @@ public class MoreBees
 	public static MoreBees instance;
 	@SidedProxy(clientSide = "lach_01298.moreBees.ClientProxy", serverSide = "lach_01298.moreBees.CommonProxy")
 	public static CommonProxy proxy;
+	public static final Logger LOGGER = LogManager.getLogger(MOD_ID);
 
-	public static Registry registry = new Registry();
+	public static final Registry registry = new Registry();
 	
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event)

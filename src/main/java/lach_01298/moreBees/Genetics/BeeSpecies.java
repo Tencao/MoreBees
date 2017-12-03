@@ -1,11 +1,8 @@
-package lach_01298.moreBees.Genetics;
+package lach_01298.moreBees.genetics;
 
 import java.awt.Color;
 import java.util.Arrays;
-import java.util.EnumSet;
 import java.util.Locale;
-import java.util.Random;
-import java.util.Set;
 
 import forestry.apiculture.ModuleApiculture;
 import forestry.core.ModuleCore;
@@ -14,29 +11,26 @@ import lach_01298.moreBees.Register;
 import lach_01298.moreBees.item.MoreBeesItems;
 import lach_01298.moreBees.util.*;
 
+import net.minecraft.item.Item;
 import org.apache.commons.lang3.text.WordUtils;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.BiomeDictionary;
-import net.minecraftforge.oredict.OreDictionary;
 import forestry.api.apiculture.*;
 import forestry.api.core.EnumHumidity;
 import forestry.api.core.EnumTemperature;
 import forestry.api.genetics.AlleleManager;
 import forestry.api.genetics.IAllele;
 import forestry.apiculture.genetics.*;
-import forestry.apiculture.genetics.alleles.AlleleEffect;
 import forestry.apiculture.genetics.alleles.AlleleEffects;
 import forestry.apiculture.items.EnumHoneyComb;
-import forestry.apiculture.items.EnumPollenCluster;
-import forestry.core.config.Constants;
 import forestry.core.genetics.IBranchDefinition;
 import forestry.core.genetics.alleles.AlleleHelper;
 import forestry.core.genetics.alleles.EnumAllele;
-import forestry.core.utils.OreDictUtil;
+
+import javax.annotation.Nonnull;
 
 public enum BeeSpecies implements IBeeDefinition
 {
@@ -182,10 +176,8 @@ public enum BeeSpecies implements IBeeDefinition
 		@Override
 		protected void registerMutations()
 		{
-
-			for(int i = 0; i < hiveBees.length; i++)
-			{
-				BeeManager.beeMutationFactory.createMutation(RockBee, hiveBees[i], getTemplate(), MathUtil.maxInt((int)(15*Config.mutationMultipler),100));
+			for (IAlleleBeeSpecies hiveBee : hiveBees) {
+				BeeManager.beeMutationFactory.createMutation(RockBee, hiveBee, getTemplate(), MathUtil.maxInt((int) (15 * Config.mutationMultipler), 100));
 			}
 
 		}
@@ -512,7 +504,7 @@ public enum BeeSpecies implements IBeeDefinition
 		{
 
 		        beeSpecies.addProduct(new ItemStack(MoreBeesItems.CombCrystal),0.3f)
-		                  .addProduct(new ItemStack(ModuleCore.items.apatite),0.1f)
+		                  .addProduct(new ItemStack(ModuleCore.getItems().apatite),0.1f)
 		                  .setTemperature(EnumTemperature.WARM).setHumidity(EnumHumidity.NORMAL);
 		}
 
@@ -1007,7 +999,7 @@ public enum BeeSpecies implements IBeeDefinition
 			if(LoadMods.enableResonating)
 			{
 				beeSpecies.addProduct(ModuleApiculture.getItems().beeComb.get(EnumHoneyComb.SIMMERING, 1), 0.30f)
-				          .addProduct(OreDicPreferences.get("oreResonating", 1), 0.05f)
+				          .addProduct(new ItemStack(Item.getByNameOrId("deepresonance:resonating_ore"), 1), 0.05f)
 				          .setTemperature(EnumTemperature.HOT).setHumidity(EnumHumidity.NORMAL);
 			}
 
@@ -1236,7 +1228,7 @@ public enum BeeSpecies implements IBeeDefinition
 		}
 	},
 	// Slime Branch
-	SLIMEY(BeeBranches.Slime, "Slimey", true, new Color(0x7dc873), new Color(0x7dc873))
+	SLIMY(BeeBranches.Slime, "Slimy", true, new Color(0x7dc873), new Color(0x7dc873))
 	{
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies)
@@ -1256,7 +1248,7 @@ public enum BeeSpecies implements IBeeDefinition
 			AlleleHelper.getInstance().set(template, EnumBeeChromosome.HUMIDITY_TOLERANCE, EnumAllele.Tolerance.DOWN_1);
 			AlleleHelper.getInstance().set(template, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.BOTH_1);
 			AlleleHelper.getInstance().set(template, EnumBeeChromosome.FERTILITY, EnumAllele.Fertility.NORMAL);
-			AlleleHelper.getInstance().set(template, EnumBeeChromosome.EFFECT, Register.effectSlimey);
+			AlleleHelper.getInstance().set(template, EnumBeeChromosome.EFFECT, Register.effectSlimy);
 
 		}
 
@@ -1266,7 +1258,7 @@ public enum BeeSpecies implements IBeeDefinition
 			BeeManager.beeMutationFactory.createMutation(RockBee, BoggyBee, getTemplate(), MathUtil.maxInt((int)(30*Config.mutationMultipler),100));
 		}
 	},
-	BLUESLIMEY(BeeBranches.Slime, "BlueSlimey", true, new Color(0x7dc873), new Color(0x74c8c7))
+	BLUESLIMY(BeeBranches.Slime, "BlueSlimy", true, new Color(0x7dc873), new Color(0x74c8c7))
 	{
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies)
@@ -1289,10 +1281,10 @@ public enum BeeSpecies implements IBeeDefinition
 		@Override
 		protected void registerMutations()
 		{
-			BeeManager.beeMutationFactory.createMutation(SlimeyBee, PrismarineBee, getTemplate(), MathUtil.maxInt((int)(30*Config.mutationMultipler),100));
+			BeeManager.beeMutationFactory.createMutation(SlimyBee, PrismarineBee, getTemplate(), MathUtil.maxInt((int)(30*Config.mutationMultipler),100));
 		}
 	},
-	PURPLESLIMEY(BeeBranches.Slime, "PurpleSlimey", false, new Color(0x7dc873), new Color(0xbb5aff))
+	PURPLESLIMY(BeeBranches.Slime, "PurpleSlimy", false, new Color(0x7dc873), new Color(0xbb5aff))
 	{
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies)
@@ -1315,11 +1307,11 @@ public enum BeeSpecies implements IBeeDefinition
 		@Override
 		protected void registerMutations()
 		{
-			System.out.println(BlueSlimeyBee);
-			BeeManager.beeMutationFactory.createMutation(BlueSlimeyBee, RedstoneBee, getTemplate(), MathUtil.maxInt((int)(8*Config.mutationMultipler),100));
+			System.out.println(BlueSlimyBee);
+			BeeManager.beeMutationFactory.createMutation(BlueSlimyBee, RedstoneBee, getTemplate(), MathUtil.maxInt((int)(8*Config.mutationMultipler),100));
 		}
 	},
-	MAGMASLIMEY(BeeBranches.Slime, "MagmaSlimey", false, new Color(0x7dc873), new Color(0xffab49))
+	MAGMASLIMY(BeeBranches.Slime, "MagmaSlimy", false, new Color(0x7dc873), new Color(0xffab49))
 	{
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies)
@@ -1342,7 +1334,7 @@ public enum BeeSpecies implements IBeeDefinition
 		@Override
 		protected void registerMutations()
 		{
-			BeeManager.beeMutationFactory.createMutation(SlimeyBee, FiendishBee, getTemplate(), MathUtil.maxInt((int)(10*Config.mutationMultipler),100));
+			BeeManager.beeMutationFactory.createMutation(SlimyBee, FiendishBee, getTemplate(), MathUtil.maxInt((int)(10*Config.mutationMultipler),100));
 		}
 	},
 	//forestry branches
@@ -1409,41 +1401,41 @@ public enum BeeSpecies implements IBeeDefinition
 			(IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele("forestry.speciesModest"),
 			(IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele("forestry.speciesTropical"),
 			(IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele("forestry.speciesWintry") };
-	private static IAlleleBeeSpecies SteadfastBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele("forestry.speciesSteadfast");
-	private static IAlleleBeeSpecies CultivatedBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele("forestry.speciesCultivated");
-	private static IAlleleBeeSpecies SinisterBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele("forestry.speciesSinister");
-	private static IAlleleBeeSpecies FiendishBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele("forestry.speciesFiendish");
-	private static IAlleleBeeSpecies IndustriousBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele("forestry.speciesIndustrious");
-	private static IAlleleBeeSpecies ImperialBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele("forestry.speciesImperial");
-	private static IAlleleBeeSpecies AustereBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele("forestry.speciesAustere");
-	private static IAlleleBeeSpecies DemonicBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele("forestry.speciesDemonic");
-	private static IAlleleBeeSpecies EnderBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele("forestry.speciesEnded");
-	private static IAlleleBeeSpecies BoggyBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele("forestry.speciesBoggy");
-	private static IAlleleBeeSpecies DiligentBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele("forestry.speciesDiligent");
-	private static IAlleleBeeSpecies TropicalBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele("forestry.speciesTropical");
+	private static final IAlleleBeeSpecies SteadfastBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele("forestry.speciesSteadfast");
+	private static final IAlleleBeeSpecies CultivatedBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele("forestry.speciesCultivated");
+	private static final IAlleleBeeSpecies SinisterBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele("forestry.speciesSinister");
+	private static final IAlleleBeeSpecies FiendishBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele("forestry.speciesFiendish");
+	private static final IAlleleBeeSpecies IndustriousBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele("forestry.speciesIndustrious");
+	private static final IAlleleBeeSpecies ImperialBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele("forestry.speciesImperial");
+	private static final IAlleleBeeSpecies AustereBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele("forestry.speciesAustere");
+	private static final IAlleleBeeSpecies DemonicBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele("forestry.speciesDemonic");
+	private static final IAlleleBeeSpecies EnderBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele("forestry.speciesEnded");
+	private static final IAlleleBeeSpecies BoggyBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele("forestry.speciesBoggy");
+	private static final IAlleleBeeSpecies DiligentBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele("forestry.speciesDiligent");
+	private static final IAlleleBeeSpecies TropicalBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele("forestry.speciesTropical");
 
 	// moreBees Bees that have daughters
-	private static IAlleleBeeSpecies RockBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesRock");
-	private static IAlleleBeeSpecies HardenedBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesHardened");
-	private static IAlleleBeeSpecies ObsidianBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesObsidian");
-	private static IAlleleBeeSpecies LapisBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesLapis");
-	private static IAlleleBeeSpecies QuartzBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesQuartz");
-	private static IAlleleBeeSpecies RedstoneBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesRedstone");
-	private static IAlleleBeeSpecies EmeraldBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesEmerald");
-	private static IAlleleBeeSpecies DirtBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesDirt");
-	private static IAlleleBeeSpecies ClayBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesClay");
-	private static IAlleleBeeSpecies MetallicBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesMetallic");
-	private static IAlleleBeeSpecies LeadBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesLead");
-	private static IAlleleBeeSpecies GoldBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesGold");
-	private static IAlleleBeeSpecies TinBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesTin");
-	private static IAlleleBeeSpecies RadioactiveBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesRadioactive");
-	private static IAlleleBeeSpecies ApocalypticBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesApocalyptic");
-	private static IAlleleBeeSpecies WitherBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesWither");
-	private static IAlleleBeeSpecies SlimeyBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesSlimey");
-	private static IAlleleBeeSpecies BlueSlimeyBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesBlueslimey");
-	private static IAlleleBeeSpecies PrismarineBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesPrismarine");
-	private static IAlleleBeeSpecies CopperBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesCopper");
-	private static IAlleleBeeSpecies IronBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesIron");
+	private static final IAlleleBeeSpecies RockBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesRock");
+	private static final IAlleleBeeSpecies HardenedBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesHardened");
+	private static final IAlleleBeeSpecies ObsidianBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesObsidian");
+	private static final IAlleleBeeSpecies LapisBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesLapis");
+	private static final IAlleleBeeSpecies QuartzBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesQuartz");
+	private static final IAlleleBeeSpecies RedstoneBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesRedstone");
+	private static final IAlleleBeeSpecies EmeraldBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesEmerald");
+	private static final IAlleleBeeSpecies DirtBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesDirt");
+	private static final IAlleleBeeSpecies ClayBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesClay");
+	private static final IAlleleBeeSpecies MetallicBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesMetallic");
+	private static final IAlleleBeeSpecies LeadBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesLead");
+	private static final IAlleleBeeSpecies GoldBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesGold");
+	private static final IAlleleBeeSpecies TinBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesTin");
+	private static final IAlleleBeeSpecies RadioactiveBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesRadioactive");
+	private static final IAlleleBeeSpecies ApocalypticBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesApocalyptic");
+	private static final IAlleleBeeSpecies WitherBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesWither");
+	private static final IAlleleBeeSpecies SlimyBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesSlimy");
+	private static final IAlleleBeeSpecies BlueSlimyBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesBlueslimy");
+	private static final IAlleleBeeSpecies PrismarineBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesPrismarine");
+	private static final IAlleleBeeSpecies CopperBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesCopper");
+	private static final IAlleleBeeSpecies IronBee = (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(MoreBees.MOD_ID+ ".speciesIron");
 
 	private final IBranchDefinition branch;
 	private final IAlleleBeeSpecies species;
@@ -1642,21 +1634,21 @@ public enum BeeSpecies implements IBeeDefinition
 						bee.registerMutations();
 					}
 					break;
-				case BLUESLIMEY:
+				case BLUESLIMY:
 					if(LoadMods.enableTinkers && Config.tinkersSlimeBees)
 					{
 						bee.init();
 						bee.registerMutations();
 					}
 					break;
-				case MAGMASLIMEY:
+				case MAGMASLIMY:
 					if(LoadMods.enableTinkers && Config.tinkersSlimeBees)
 					{
 						bee.init();
 						bee.registerMutations();
 					}
 					break;
-				case PURPLESLIMEY:
+				case PURPLESLIMY:
 					if(LoadMods.enableTinkers && Config.tinkersSlimeBees)
 					{
 						bee.init();
@@ -1669,11 +1661,6 @@ public enum BeeSpecies implements IBeeDefinition
 					bee.registerMutations();
 			}
 		}
-
-	}
-
-	public static void preInit()
-	{
 
 	}
 
@@ -1691,10 +1678,11 @@ public enum BeeSpecies implements IBeeDefinition
 	@Override
 	public final IAllele[] getTemplate()
 	{
-		return Arrays.copyOf(template, template.length);
+        return Arrays.copyOf(template, template.length);
 	}
 
 	@Override
+	@Nonnull
 	public final IBeeGenome getGenome()
 	{
 		return genome;
@@ -1707,7 +1695,7 @@ public enum BeeSpecies implements IBeeDefinition
 	}
 
 	@Override
-	public final ItemStack getMemberStack(EnumBeeType beeType)
+	public final ItemStack getMemberStack(@Nonnull EnumBeeType beeType)
 	{
 		IBee bee = getIndividual();
 		return BeeManager.beeRoot.getMemberStack(bee, beeType);

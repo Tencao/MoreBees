@@ -12,8 +12,8 @@ public class RecipesCrafting
 
 	public static void registerRecipes(Registry registry)
 	{
-		registry.addShapelessOreRecipe("diamond", Items.DIAMOND, MBI.DiamondFrag,MBI.DiamondFrag,MBI.DiamondFrag,MBI.DiamondFrag,MBI.DiamondFrag,MBI.DiamondFrag,MBI.DiamondFrag,MBI.DiamondFrag,MBI.DiamondFrag);
-		registry.addShapelessOreRecipe("emerald", Items.EMERALD, MBI.EmeraldFrag,MBI.EmeraldFrag,MBI.EmeraldFrag,MBI.EmeraldFrag,MBI.EmeraldFrag,MBI.EmeraldFrag,MBI.EmeraldFrag,MBI.EmeraldFrag,MBI.EmeraldFrag);
+		Registry.addShapelessOreRecipe("diamond", Items.DIAMOND, MoreBeesItems.DiamondFrag, MoreBeesItems.DiamondFrag, MoreBeesItems.DiamondFrag, MoreBeesItems.DiamondFrag, MoreBeesItems.DiamondFrag, MoreBeesItems.DiamondFrag, MoreBeesItems.DiamondFrag, MoreBeesItems.DiamondFrag, MoreBeesItems.DiamondFrag);
+		Registry.addShapelessOreRecipe("emerald", Items.EMERALD, MoreBeesItems.EmeraldFrag, MoreBeesItems.EmeraldFrag, MoreBeesItems.EmeraldFrag, MoreBeesItems.EmeraldFrag, MoreBeesItems.EmeraldFrag, MoreBeesItems.EmeraldFrag, MoreBeesItems.EmeraldFrag, MoreBeesItems.EmeraldFrag, MoreBeesItems.EmeraldFrag);
 		//GameRegistry.addShapelessRecipe(new ItemStack(Items.NETHER_STAR),MBI.NetherFrag,MBI.NetherFrag,MBI.NetherFrag,MBI.NetherFrag);
 	}
 

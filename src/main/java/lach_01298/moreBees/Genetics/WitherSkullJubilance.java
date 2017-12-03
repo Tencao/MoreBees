@@ -1,4 +1,4 @@
-package lach_01298.moreBees.Genetics;
+package lach_01298.moreBees.genetics;
 
 import forestry.api.apiculture.IAlleleBeeSpecies;
 import forestry.api.apiculture.IBeeGenome;
@@ -9,10 +9,12 @@ import net.minecraft.tileentity.TileEntitySkull;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+import javax.annotation.Nonnull;
+
 public class WitherSkullJubilance implements IJubilanceProvider {
 
 	@Override
-	public boolean isJubilant(IAlleleBeeSpecies species, IBeeGenome genome, IBeeHousing housing) {
+	public boolean isJubilant(@Nonnull IAlleleBeeSpecies species, @Nonnull IBeeGenome genome, @Nonnull IBeeHousing housing) {
 		World world = housing.getWorldObj();
 		BlockPos pos = housing.getCoordinates();
 

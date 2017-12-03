@@ -10,7 +10,7 @@ public class MoreBeesBlocks
 
 	public static void init(Registry registry)
 	{
-		hive = registry.registerBlock(new BlockHive("hive"));
+		hive = Registry.registerBlock(new BlockHive("hive"));
 		
 	
 	}

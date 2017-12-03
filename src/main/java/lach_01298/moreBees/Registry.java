@@ -3,6 +3,7 @@ package lach_01298.moreBees;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -19,11 +20,11 @@ import net.minecraftforge.oredict.ShapelessOreRecipe;
 import lach_01298.moreBees.item.ItemModelProvider;
 
 public class Registry {
-	private static List<Block> blocks = new LinkedList<>();
-	private static List<Item> items = new LinkedList<>();
-	private static HashMap<ItemModelProvider, Item> models = new HashMap<>();
-	private static List<IRecipe> recipes = new LinkedList<>();
-	private static HashMap<Item, String> ores = new HashMap<>();
+	private static final List<Block> blocks = new LinkedList<>();
+	private static final List<Item> items = new LinkedList<>();
+	private static final HashMap<ItemModelProvider, Item> models = new HashMap<>();
+	private static final List<IRecipe> recipes = new LinkedList<>();
+	private static final HashMap<Item, String> ores = new HashMap<>();
 	
 	public static <T extends Block> T registerBlock(T block, ItemBlock itemBlock) {
 		blocks.add(block);
@@ -37,7 +38,7 @@ public class Registry {
 	
 	public static <T extends Block> T registerBlock(T block) {
 		ItemBlock itemBlock = new ItemBlock(block);
-		itemBlock.setRegistryName(block.getRegistryName());
+		itemBlock.setRegistryName(Objects.requireNonNull(block.getRegistryName()));
 		return registerBlock(block, itemBlock);
 	}
 	
@@ -73,7 +74,7 @@ public class Registry {
 	
 	@SubscribeEvent
 	public void registerModels(ModelRegistryEvent event) {
-		models.forEach((model, item) -> model.registerItemModel(item));
+		models.forEach(ItemModelProvider::registerItemModel);
 	}
 	
 	@SubscribeEvent

@@ -1,23 +1,20 @@
-package lach_01298.moreBees.Genetics;
+package lach_01298.moreBees.genetics;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Locale;
-import java.util.Map;
 
-import lach_01298.moreBees.Flowers;
-import lach_01298.moreBees.MoreBees;
-import lach_01298.moreBees.Register;
 import forestry.api.apiculture.BeeManager;
+import lach_01298.moreBees.Register;
 import forestry.api.apiculture.EnumBeeChromosome;
 import forestry.api.genetics.AlleleManager;
 import forestry.api.genetics.IAllele;
 import forestry.api.genetics.IClassification;
-import forestry.apiculture.genetics.alleles.AlleleEffect;
 import forestry.apiculture.genetics.alleles.AlleleEffects;
 import forestry.core.genetics.IBranchDefinition;
 import forestry.core.genetics.alleles.AlleleHelper;
 import forestry.core.genetics.alleles.EnumAllele;
+
+import javax.annotation.Nonnull;
 
 public enum BeeBranches implements IBranchDefinition 
 {
@@ -152,7 +149,7 @@ public enum BeeBranches implements IBranchDefinition
 			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.HUMIDITY_TOLERANCE, EnumAllele.Tolerance.DOWN_1);
 			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.BOTH_1);
 			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.FERTILITY, EnumAllele.Fertility.NORMAL);
-			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.EFFECT, Register.effectSlimey);
+			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.EFFECT, Register.effectSlimy);
 		}
 	};
 	
@@ -164,14 +161,15 @@ public enum BeeBranches implements IBranchDefinition
 	BeeBranches(String scientific) {
 		branch = getOrCreateBranch(this.name().toLowerCase(Locale.ENGLISH), scientific);
 	}
-	
+
+	@Nonnull
 	private IClassification getOrCreateBranch(String uid, String scientific){
-		IClassification newBranch = AlleleManager.alleleRegistry.getClassification(IClassification.EnumClassLevel.GENUS.name().toLowerCase(Locale.ENGLISH) + ".bees." + uid);
-		if(newBranch != null){
-			return newBranch;
-		}else{
-			return BeeManager.beeFactory.createBranch(uid, scientific);
-		}
+        IClassification newBranch = AlleleManager.alleleRegistry.getClassification(IClassification.EnumClassLevel.GENUS.name().toLowerCase(Locale.ENGLISH) + ".bees." + uid);
+        if(newBranch != null){
+            return newBranch;
+        }else{
+            return BeeManager.beeFactory.createBranch(uid, scientific);
+        }
 	}
 
 	protected void setBranchProperties(IAllele[] template) {
@@ -179,6 +177,7 @@ public enum BeeBranches implements IBranchDefinition
 	}
 
 	@Override
+	@Nonnull
 	public final IAllele[] getTemplate() {
 		IAllele[] template = getDefaultTemplate();
 		setBranchProperties(template);
@@ -186,6 +185,7 @@ public enum BeeBranches implements IBranchDefinition
 	}
 
 	@Override
+	@Nonnull
 	public final IClassification getBranch() {
 		return branch;
 	}

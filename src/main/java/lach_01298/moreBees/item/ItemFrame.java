@@ -1,13 +1,13 @@
 
 package lach_01298.moreBees.item;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.List;
 
 import lach_01298.moreBees.MoreBees;
 
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -26,7 +26,7 @@ public class ItemFrame extends ItemForestry implements IHiveFrame, ItemModelProv
 
 	private final HiveFrameBeeModifier beeModifier;
 
-	protected String name;
+	protected final String name;
 	
 	public ItemFrame(int maxDamage, float geneticDecay ,float production  , float lifespan, float mutationRate, String name) {
 		setMaxStackSize(1);
@@ -40,25 +40,27 @@ public class ItemFrame extends ItemForestry implements IHiveFrame, ItemModelProv
 	}
 
 	@Override
-	public ItemStack frameUsed(IBeeHousing housing, ItemStack frame, IBee queen, int wear) {
+	@Nonnull
+	public ItemStack frameUsed(@Nonnull IBeeHousing housing, @Nonnull ItemStack frame, @Nonnull IBee queen, int wear) {
 		frame.setItemDamage(frame.getItemDamage() + wear);
 		if (frame.getItemDamage() >= frame.getMaxDamage()) {
-			return null;
+			return ItemStack.EMPTY;
 		} else {
 			return frame;
 		}
 	}
 
 	@Override
+	@Nonnull
 	public IBeeModifier getBeeModifier() {
 		return beeModifier;
 	}
 	
 	@Override
-	public void addInformation(ItemStack stack, @Nullable World world, List<String> tooltip, ITooltipFlag advanced) {
+	public void addInformation(ItemStack stack, @Nullable World world, @Nullable List<String> tooltip, ITooltipFlag advanced) {
 		super.addInformation(stack, world, tooltip, advanced);
 		beeModifier.addInformation(stack, world, tooltip, advanced);
-		if (!stack.isItemDamaged()) {
+		if (!stack.isItemDamaged() && tooltip != null) {
 			tooltip.add(Translator.translateToLocalFormatted("item.for.durability", stack.getMaxDamage()));
 		}
 	}

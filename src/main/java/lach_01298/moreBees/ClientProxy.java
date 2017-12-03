@@ -2,8 +2,6 @@ package lach_01298.moreBees;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
-import net.minecraft.world.World;
-import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.client.model.ModelLoader;
 
 public class ClientProxy extends CommonProxy {

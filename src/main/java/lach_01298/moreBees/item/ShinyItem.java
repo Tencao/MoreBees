@@ -1,6 +1,5 @@
 package lach_01298.moreBees.item;
 
-import lach_01298.moreBees.ClientProxy;
 import lach_01298.moreBees.MoreBees;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -8,10 +7,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.Nonnull;
+
 
 public class ShinyItem extends Item implements ItemModelProvider {
 
-	protected String name;
+	protected final String name;
 
 
 	public ShinyItem(String name) {
@@ -31,7 +32,8 @@ public class ShinyItem extends Item implements ItemModelProvider {
 	
 	
 	@Override
-	public ShinyItem setCreativeTab(CreativeTabs tab) {
+	@Nonnull
+	public ShinyItem setCreativeTab(@Nonnull CreativeTabs tab) {
 		super.setCreativeTab(tab);
 		return this;
 	}

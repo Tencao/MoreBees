@@ -1,23 +1,17 @@
 package lach_01298.moreBees.recipes;
 
-import com.google.common.collect.ImmutableMap;
-
 import forestry.api.recipes.RecipeManagers;
 import forestry.apiculture.ModuleApiculture;
-import forestry.apiculture.items.EnumHoneyComb;
-import forestry.apiculture.items.EnumPollenCluster;
 import forestry.core.ModuleCore;
 import forestry.core.fluids.Fluids;
 import forestry.core.utils.OreDictUtil;
 import lach_01298.moreBees.item.MoreBeesItems;
 import lach_01298.moreBees.util.OreDicPreferences;
 import lach_01298.moreBees.util.LoadMods;
-import lach_01298.moreBees.util.Config;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 
@@ -49,69 +43,69 @@ public class RecipesCarpenter
 			//crystal
 		RecipeManagers.carpenterManager.addRecipe(20, new FluidStack(FluidRegistry.WATER, 500), ItemStack.EMPTY, new ItemStack(Items.QUARTZ),
 				" G ", "G G", " G ",
-				'G',MBI.GrainsCrystal);
+				'G', MoreBeesItems.GrainsCrystal);
 		RecipeManagers.carpenterManager.addRecipe(20, new FluidStack(FluidRegistry.WATER, 500), ItemStack.EMPTY, new ItemStack(Items.REDSTONE),
 				"G G", "   ", "G G",
-				'G',MBI.GrainsCrystal);
-		RecipeManagers.carpenterManager.addRecipe(60, new FluidStack(FluidRegistry.WATER, 1000), ItemStack.EMPTY, new ItemStack(MBI.EmeraldFrag),
+				'G', MoreBeesItems.GrainsCrystal);
+		RecipeManagers.carpenterManager.addRecipe(60, new FluidStack(FluidRegistry.WATER, 1000), ItemStack.EMPTY, new ItemStack(MoreBeesItems.EmeraldFrag),
 				"G G", "GGG", "G G",
-				'G',MBI.GrainsCrystal);
+				'G', MoreBeesItems.GrainsCrystal);
 
-		RecipeManagers.carpenterManager.addRecipe(40, new FluidStack(FluidRegistry.WATER, 1000), ItemStack.EMPTY, new ItemStack(ModuleCore.items.apatite),
+		RecipeManagers.carpenterManager.addRecipe(40, new FluidStack(FluidRegistry.WATER, 1000), ItemStack.EMPTY, new ItemStack(ModuleCore.getItems().apatite),
 				"G G", " G ", "G G",
-				'G',MBI.GrainsCrystal);
+				'G', MoreBeesItems.GrainsCrystal);
 		
 			
 		//metal
 		RecipeManagers.carpenterManager.addRecipe(25, new FluidStack(FluidRegistry.WATER, 500), ItemStack.EMPTY, OreDicPreferences.get("dustIron", 1),
 				" G ", "G G", "   ",
-				'G',MBI.GrainsMetallic);
+				'G', MoreBeesItems.GrainsMetallic);
 		RecipeManagers.carpenterManager.addRecipe(25, new FluidStack(FluidRegistry.WATER, 500), ItemStack.EMPTY, OreDicPreferences.get("dustCopper", 1),
 				"   ", "G G", " G ",
-				'G',MBI.GrainsMetallic);
+				'G', MoreBeesItems.GrainsMetallic);
 		RecipeManagers.carpenterManager.addRecipe(30, new FluidStack(FluidRegistry.WATER, 500), ItemStack.EMPTY, OreDicPreferences.get("dustTin", 1),
 				" G ", "G G", " G ",
-				'G',MBI.GrainsMetallic);
+				'G', MoreBeesItems.GrainsMetallic);
 		RecipeManagers.carpenterManager.addRecipe(40, new FluidStack(FluidRegistry.WATER, 1000), ItemStack.EMPTY, OreDicPreferences.get("dustGold", 1),
 				"G G", "GGG", "G G",
-				'G',MBI.GrainsMetallic);
+				'G', MoreBeesItems.GrainsMetallic);
 		if (LoadMods.enableSilver)
 		{
 			RecipeManagers.carpenterManager.addRecipe(35, new FluidStack(FluidRegistry.WATER, 1000), ItemStack.EMPTY, OreDicPreferences.get("dustSilver", 1),
 					"G G", " G ", "G G",
-					'G',MBI.GrainsMetallic);
+					'G', MoreBeesItems.GrainsMetallic);
 		}
 		if (LoadMods.enableLead)
 		{
 			RecipeManagers.carpenterManager.addRecipe(30, new FluidStack(FluidRegistry.WATER, 750), ItemStack.EMPTY, OreDicPreferences.get("dustLead", 1),
 					" G ", "GGG", " G ",
-					'G',MBI.GrainsMetallic);
+					'G', MoreBeesItems.GrainsMetallic);
 	    }
 		if (LoadMods.enableAluminium)
 		{
 			RecipeManagers.carpenterManager.addRecipe(30, new FluidStack(FluidRegistry.WATER, 750), ItemStack.EMPTY, OreDicPreferences.get("dustAluminum", 1),
 					"G G", "   ", "G G",
-					'G',MBI.GrainsMetallic);
+					'G', MoreBeesItems.GrainsMetallic);
 	    }
 		if (LoadMods.enableOsmium)
 		{
 			RecipeManagers.carpenterManager.addRecipe(30, new FluidStack(FluidRegistry.WATER, 750), ItemStack.EMPTY, OreDicPreferences.get("dustOsmium", 1),
 					"GGG", "   ", "G G",
-					'G',MBI.GrainsMetallic);
+					'G', MoreBeesItems.GrainsMetallic);
 		}
 	
 		if (LoadMods.enableNickel)
 		{
 			RecipeManagers.carpenterManager.addRecipe(30, new FluidStack(FluidRegistry.WATER, 750), ItemStack.EMPTY, OreDicPreferences.get("dustNickel", 1),
 					"G G", "G G", "G G",
-					'G',MBI.GrainsMetallic);
+					'G', MoreBeesItems.GrainsMetallic);
 		}
 		
 
 		//fragments
 			RecipeManagers.carpenterManager.addRecipe(600, new FluidStack(FluidRegistry.LAVA, 4000), ItemStack.EMPTY, new ItemStack(Items.NETHER_STAR),
 					"FF", "FF",
-					'F',MBI.NetherFrag);
+					'F', MoreBeesItems.NetherFrag);
 	}
 	
 }

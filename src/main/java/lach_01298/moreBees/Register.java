@@ -3,36 +3,21 @@ package lach_01298.moreBees;
 import forestry.api.apiculture.EnumBeeChromosome;
 import forestry.api.apiculture.FlowerManager;
 import forestry.api.apiculture.IAlleleBeeEffect;
-import forestry.api.apiculture.IHiveDrop;
-import forestry.api.apiculture.hives.IHiveDescription;
 import forestry.api.genetics.AlleleManager;
-import forestry.api.genetics.IAllele;
-import forestry.api.genetics.IAlleleFactory;
 import forestry.api.genetics.IAlleleFlowers;
-import forestry.api.genetics.IAlleleRegistry;
-import forestry.api.genetics.IChromosomeType;
-import forestry.api.genetics.IFlowerProvider;
-import forestry.api.genetics.IFlowerRegistry;
 import forestry.apiculture.ModuleApiculture;
-import forestry.apiculture.flowers.FlowerProvider;
 import forestry.apiculture.flowers.FlowerRegistry;
 import forestry.apiculture.genetics.BeeDefinition;
 import forestry.apiculture.genetics.HiveDrop;
-import forestry.apiculture.genetics.IBeeDefinition;
 import forestry.apiculture.genetics.alleles.AlleleEffectPotion;
 import forestry.apiculture.items.EnumHoneyComb;
-import forestry.apiculture.items.ItemHoneyComb;
-import forestry.apiculture.items.ItemRegistryApiculture;
-import forestry.apiculture.worldgen.HiveRegistry;
 
 import java.util.List;
 
-import lach_01298.moreBees.Flowers;
-import lach_01298.moreBees.Genetics.BeeSpecies;
+import lach_01298.moreBees.genetics.BeeSpecies;
 import lach_01298.moreBees.block.BlockHive;
 import lach_01298.moreBees.hives.MoreBeesHiveDescription;
 import lach_01298.moreBees.hives.MoreBeesHiveType;
-import lach_01298.moreBees.item.BasicItem;
 import lach_01298.moreBees.item.MoreBeesItems;
 import lach_01298.moreBees.util.Config;
 import lach_01298.moreBees.util.LoadMods;
@@ -40,9 +25,7 @@ import lach_01298.moreBees.util.OreDicPreferences;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.MobEffects;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
 import net.minecraftforge.oredict.OreDictionary;
 
 public class Register
@@ -58,7 +41,7 @@ public class Register
 	public static final String FlowerEmerald = "Emerald";
 	public static IAlleleBeeEffect effectWither;
 	public static IAlleleBeeEffect effectRadiation;
-	public static IAlleleBeeEffect effectSlimey;
+	public static IAlleleBeeEffect effectSlimy;
 	public static IAlleleFlowers FlowerTypeOre;
 
 	public static IAlleleFlowers FlowerTypeRedstone;
@@ -139,8 +122,8 @@ public class Register
 		AlleleManager.alleleRegistry.registerAllele(effectWither, EnumBeeChromosome.EFFECT );
 		effectRadiation = new AlleleEffectPotion("Radiation", true, MobEffects.HUNGER, 400);
 		AlleleManager.alleleRegistry.registerAllele(effectRadiation,  EnumBeeChromosome.EFFECT );
-		effectSlimey = new AlleleEffectPotion("Slimey", true, MobEffects.JUMP_BOOST, 400);
-		AlleleManager.alleleRegistry.registerAllele(effectSlimey, EnumBeeChromosome.EFFECT );
+		effectSlimy = new AlleleEffectPotion("Slimy", true, MobEffects.JUMP_BOOST, 400);
+		AlleleManager.alleleRegistry.registerAllele(effectSlimy, EnumBeeChromosome.EFFECT );
 	}
 
 	public static void RegisterHives()
@@ -150,9 +133,8 @@ public class Register
 			ModuleApiculture.getHiveRegistry().registerHive(MoreBeesHiveType.ROCK.getHiveUid(), MoreBeesHiveDescription.ROCK);
 			ItemStack honeyComb = ModuleApiculture.getItems().beeComb.get(EnumHoneyComb.HONEY, 1);
 			ItemStack rockComb = new ItemStack(MoreBeesItems.CombRock);
-			ModuleApiculture.getHiveRegistry().addDrops(MoreBeesHiveType.ROCK.getHiveUid(), new IHiveDrop[] {
-					new HiveDrop(0.8, BeeSpecies.ROCK, new ItemStack[] { rockComb }).setIgnobleShare(0.7),
-					new HiveDrop(0.03, BeeDefinition.VALIANT, new ItemStack[] { honeyComb }) });
+			ModuleApiculture.getHiveRegistry().addDrops(MoreBeesHiveType.ROCK.getHiveUid(), new HiveDrop(0.8, BeeSpecies.ROCK, rockComb).setIgnobleShare(0.7),
+					new HiveDrop(0.03, BeeDefinition.VALIANT, honeyComb));
 		}
 
 	}

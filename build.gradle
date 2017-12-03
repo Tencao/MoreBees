@@ -20,11 +20,11 @@ group= "lach_01298.morebees"
 archivesBaseName = "morebees"
 
 minecraft {
-    version = "14.23.0.2529"
+    version = "14.23.1.2555"
     runDir = "run"
     
     
-    mappings = "snapshot_20171104"
+    mappings = "snapshot_20171201"
     
 }
 

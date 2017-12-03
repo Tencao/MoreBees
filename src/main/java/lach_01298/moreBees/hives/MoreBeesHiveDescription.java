@@ -1,13 +1,10 @@
 package lach_01298.moreBees.hives;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-import lach_01298.moreBees.Register;
-import lach_01298.moreBees.Genetics.BeeSpecies;
-import lach_01298.moreBees.block.BlockHive;
+import lach_01298.moreBees.genetics.BeeSpecies;
 import lach_01298.moreBees.block.MoreBeesBlocks;
 import lach_01298.moreBees.util.Config;
 import net.minecraft.block.Block;
@@ -27,20 +24,22 @@ import forestry.api.core.EnumTemperature;
 import forestry.api.genetics.AlleleManager;
 import forestry.api.genetics.EnumTolerance;
 
+import javax.annotation.Nonnull;
+
 public enum MoreBeesHiveDescription implements IHiveDescription 
 {
 
 	ROCK(MoreBeesHiveType.ROCK, 2.0f, BeeSpecies.ROCK, HiveManager.genHelper.ground(Blocks.STONE)) 
 	{
 		
-		public boolean isGoodBiome(Biome biome) 
+		public boolean isGoodBiome(@Nonnull Biome biome)
 		{
 			
 			return !BiomeHelper.isBiomeHellish(biome)&&!BiomeDictionary.hasType(biome, BiomeDictionary.Type.END);
 		}
 
 		@Override
-		public void postGen(World world, Random rand, BlockPos pos) 
+		public void postGen(@Nonnull World world, @Nonnull Random rand, @Nonnull BlockPos pos)
 		{
 			
 			super.postGen(world, rand, pos);
@@ -52,7 +51,7 @@ public enum MoreBeesHiveDescription implements IHiveDescription
 	};
 
 	private static final IHiveGen groundGen = HiveManager.genHelper.ground(Blocks.STONE);
-	private static final List<IBlockState> OreStates = new ArrayList();
+	private static final List<IBlockState> OreStates = new ArrayList<>();
 	
 
 	static 
@@ -76,25 +75,27 @@ public enum MoreBeesHiveDescription implements IHiveDescription
 	}
 
 	@Override
+	@Nonnull
 	public IHiveGen getHiveGen() 
 	{
 		return hiveGen;
 	}
 
 	@Override
+	@Nonnull
 	public IBlockState getBlockState() 
 	{
 		return blockState;
 	}
 
 	@Override
-	public boolean isGoodBiome(Biome biome) 
+	public boolean isGoodBiome(@Nonnull Biome biome)
 	{
 		return !BiomeHelper.isBiomeHellish(biome);
 	}
 
 	@Override
-	public boolean isGoodHumidity(EnumHumidity humidity) 
+	public boolean isGoodHumidity(@Nonnull EnumHumidity humidity)
 	{
 		
 		EnumHumidity idealHumidity = beeGenome.getPrimary().getHumidity();
@@ -103,7 +104,7 @@ public enum MoreBeesHiveDescription implements IHiveDescription
 	}
 
 	@Override
-	public boolean isGoodTemperature(EnumTemperature temperature) 
+	public boolean isGoodTemperature(@Nonnull EnumTemperature temperature)
 	{
 		EnumTemperature idealTemperature = beeGenome.getPrimary().getTemperature();
 		EnumTolerance temperatureTolerance = beeGenome.getToleranceTemp();
@@ -117,7 +118,7 @@ public enum MoreBeesHiveDescription implements IHiveDescription
 	}
 
 	@Override
-	public void postGen(World world, Random rand, BlockPos pos) 
+	public void postGen(@Nonnull World world, @Nonnull Random rand, @Nonnull BlockPos pos)
 	{
 
 	}

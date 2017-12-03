@@ -1,6 +1,5 @@
 package lach_01298.moreBees.item;
 
-import lach_01298.moreBees.ClientProxy;
 import lach_01298.moreBees.MoreBees;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -8,10 +7,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.Nonnull;
+
 
 public class BasicItem extends Item implements ItemModelProvider {
 
-	protected String name;
+	protected final String name;
 	protected boolean effect;
 
 	public BasicItem(String name) {
@@ -35,7 +36,8 @@ public class BasicItem extends Item implements ItemModelProvider {
 	
 	
 	@Override
-	public BasicItem setCreativeTab(CreativeTabs tab) {
+	@Nonnull
+	public BasicItem setCreativeTab(@Nonnull CreativeTabs tab) {
 		super.setCreativeTab(tab);
 		return this;
 	}
@@ -43,12 +45,8 @@ public class BasicItem extends Item implements ItemModelProvider {
 	 @SideOnly(Side.CLIENT)
     public boolean hasEffect(ItemStack stack)
     {
-     if(this.effect) 
-     {
-    	 return true; 
-     }
-	 return false;
-    }
+		return this.effect;
+	}
 	
 	
 }

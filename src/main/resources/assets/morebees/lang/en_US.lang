@@ -33,10 +33,10 @@ for.bees.species.aluminium=Aluminium
 for.bees.species.ruby=Ruby
 for.bees.species.sapphire=Sapphire
 for.bees.species.stringy=Stringy
-for.bees.species.slimey=Slimey
-for.bees.species.blueslimey=Blue Slimey
-for.bees.species.purpleslimey=Purple Slimey
-for.bees.species.magmaslimey=Magma Slimey
+for.bees.species.slimy=Slimy
+for.bees.species.blueslimy=Blue Slimy
+for.bees.species.purpleslimy=Purple Slimy
+for.bees.species.magmaslimy=Magma Slimy
 for.bees.species.cobalt=Cobalt
 for.bees.species.ardite=Ardite
 
@@ -49,7 +49,7 @@ for.bees.species.iridium=Iridium
 
 
 //species descriptions
-morebees.description.speciesRock=Can be found on large expansives of exposed stone; commonly mountains.
+morebees.description.speciesRock=Can be found on large areas of exposed stone; commonly mountains.
 
 morebees.description.speciesHardened=Theses bees are a hard bunch. Rain or shine they work there hardest.
 
@@ -61,21 +61,21 @@ morebees.description.speciesDirt=That's a dirty bee!
 
 morebees.description.speciesClay=This bee naturally creates wet metal oxide silicates(clay).
 
-morebees.description.speciesRedsand=This bee naturally creates large amounts of silcon dioxide(sand).
+morebees.description.speciesRedsand=This bee naturally creates large amounts of silicon dioxide(sand).
 
 morebees.description.speciesEmerald=Villagers are especially fond of this bee.
 
 morebees.description.speciesDiamond=Blue Shiny Rocks!
 
-morebees.description.speciesRedstone=These bees extract small amounts of redstone from the souronding redstone ore.
+morebees.description.speciesRedstone=These bees extract small amounts of redstone from the surrounding redstone ore.
 
-morebees.description.speciesMetallic=These bees extract small amounts of metal from the souronding ore.
+morebees.description.speciesMetallic=These bees extract small amounts of metal from the surrounding ore.
 
 morebees.description.speciesIron=These bees like turning iron oxides to iron.
 
-morebees.description.speciesCopper=These bees extract small amounts of copper from the souronding ore.
+morebees.description.speciesCopper=These bees extract small amounts of copper from the surrounding ore.
 
-morebees.description.speciesTin=These bees extract small amounts of tin from the souronding ore.
+morebees.description.speciesTin=These bees extract small amounts of tin from the surrounding ore.
 
 morebees.description.speciesGold=These bees can make a mint.
 
@@ -83,9 +83,9 @@ morebees.description.speciesSilver=These bees can make less of a mint.
 
 morebees.description.speciesLead=These bees have a strange obsession with collecting toxic lead from the environment.
 
-morebees.description.speciesRadioactive=They feed of the natural decay of uraium in the ground. 
+morebees.description.speciesRadioactive=They feed of the natural decay of uranium in the ground.
 
-morebees.description.speciesUranium=These bees like it HOT! Litraly and radioactively.
+morebees.description.speciesUranium=These bees like it HOT! Literally and radioactively.
 
 morebees.description.speciesPrismarine=If theses bees could swim they'd be fish.
 
@@ -96,31 +96,31 @@ one knows where the get these.
 
 morebees.description.speciesNetherstar= These bees wither away all life around them to create there precious star.
 
-morebees.description.speciesAluminium=These bees extract small amounts of aluminium from the souronding ore.
+morebees.description.speciesAluminium=These bees extract small amounts of aluminium from the surrounding ore.
 
 morebees.description.speciesRuby=Red shiny rocks!
 
 morebees.description.speciesSapphire= Really Blue shiny rocks!
 
-morebees.description.speciesStringy= They create long protein strands to build ther hives. 
+morebees.description.speciesStringy= They create long protein strands to build their hives.
 
-morebees.description.speciesSlimey= They create lots of green slimey mucus.
+morebees.description.speciesSlimy= They create lots of green slimy mucus.
 
-morebees.description.speciesBlueslimey= They create lots of blue slimey  mucus.
+morebees.description.speciesBlueslimy= They create lots of blue slimy  mucus.
 
-morebees.description.speciesPurpleslimey= They create lots of purple slimey mucus.
+morebees.description.speciesPurpleslimy= They create lots of purple slimy mucus.
 
-morebees.description.speciesMagmaslimey= They create lots of hot orange slimey mucus.
+morebees.description.speciesMagmaslimy= They create lots of hot orange slimy mucus.
 
-morebees.description.speciesMagmaslimey= They create lots of hot orange slimey mucus.
+morebees.description.speciesMagmaslimy= They create lots of hot orange slimy mucus.
 
 morebees.description.speciesCobalt=A very hard metal is produced by theses bees.
 
 morebees.description.speciesArdite=A very hard metal is produced by theses bees.
 
-morebees.description.speciesApatite=This bee takes nutriats out of the groud to create a fertiliser.
+morebees.description.speciesApatite=This bee takes nutrients out of the ground to create a fertiliser.
 
-morebees.description.speciesSulfur=You can smell these bees from a mile away becuase they produce smelly sulfur compounds.
+morebees.description.speciesSulfur=You can smell these bees from a mile away because they produce smelly sulfur compounds.
 
 morebees.description.speciesQuartz=Not a diamond, but still shiny.
 
@@ -161,7 +161,7 @@ for.flowers.slime=Slime
 //effects
 forestry.allele.Wither=Wither
 forestry.allele.Radiation=Radiation
-forestry.allele.Slimey=Slimey
+forestry.allele.Slimy=Slimy
 
 //items
 item.morebees.diamondFragment.name=Diamond Fragment
@@ -175,7 +175,7 @@ item.morebees.propolisCrystal.name=Crystal Propolis
 item.morebees.CombRock.name=Rocky Comb
 item.morebees.CombDirt.name=Dirty Comb
 item.morebees.CombWither.name=Withering Comb
-item.morebees.CombSlime.name=Slimey Comb
+item.morebees.CombSlime.name=Slimy Comb
 item.morebees.CombMetallic.name=Metallic Comb
 item.morebees.CombCrystal.name=Crystal Comb
 

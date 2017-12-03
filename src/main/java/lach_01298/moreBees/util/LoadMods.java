@@ -1,12 +1,8 @@
 package lach_01298.moreBees.util;
 
-import java.io.PrintStream;
-
-import lach_01298.moreBees.util.Log;
+import lach_01298.moreBees.MoreBees;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.oredict.OreDictionary;
-
-import org.apache.logging.log4j.Level;
 
 public class LoadMods
 {
@@ -87,33 +83,33 @@ public class LoadMods
 		if(Loader.isModLoaded("deepresonance"))
 		{
 			enableResonating = true;
-			Log.log(Level.INFO, "Loaded Deep Resonance fetures");
+			MoreBees.LOGGER.info("Loaded Deep Resonance fetures");
 		}
 		if(Loader.isModLoaded("bigreactors"))
 		{
 			enableYellorite = true;
-			Log.log(Level.INFO, "Loaded Extreme Reactors fetures");
+			MoreBees.LOGGER.info("Loaded Extreme Reactors fetures");
 		}
 		if(!OreDictionary.getOres("dustCertusQuartz").isEmpty())
 		{
 			enableCertusQuartz = true;
-			Log.log(Level.INFO, "Loaded Applied Energistics fetures");
+			MoreBees.LOGGER.info("Loaded Applied Energistics fetures");
 		}
 		if(!OreDictionary.getOres("dustDraconium").isEmpty())
 		{
 			enableDraconium = true;
-			Log.log((Level) Level.INFO, "Loaded Draconic Evolution fetures");
+			MoreBees.LOGGER.info("Loaded Draconic Evolution fetures");
 		}
 		if(Loader.isModLoaded("IC2"))
 		{
 			try
 			{
 				enableIC2 = true;
-				Log.log(Level.INFO, "Loaded Industrialcraft2 fetures");
+				MoreBees.LOGGER.info("Loaded Industrialcraft2 fetures");
 			}
 			catch(Exception e)
 			{
-				Log.log(Level.INFO, "Could not load Industrialcraft2 fetures");
+				MoreBees.LOGGER.info("Could not load Industrialcraft2 fetures");
 				e.printStackTrace(System.err);
 			}
 		}
@@ -122,11 +118,11 @@ public class LoadMods
 			try
 			{
 				enableIC2Classic = true;
-				Log.log(Level.INFO, "Loaded Industrialcraft2 classic fetures");
+				MoreBees.LOGGER.info("Loaded Industrialcraft2 classic fetures");
 			}
 			catch(Exception e)
 			{
-				Log.log(Level.INFO, "Could not load Industrialcraft2 classic fetures");
+				MoreBees.LOGGER.info("Could not load Industrialcraft2 classic fetures");
 				e.printStackTrace(System.err);
 			}
 		}
@@ -135,11 +131,11 @@ public class LoadMods
 			try
 			{
 				enableTinkers = true;
-				Log.log(Level.INFO, "Loaded tinkers construct fetures");
+				MoreBees.LOGGER.info("Loaded tinkers construct fetures");
 			}
 			catch(Exception e)
 			{
-				Log.log(Level.INFO, "Could not load tinkers construct fetures");
+				MoreBees.LOGGER.info("Could not load tinkers construct fetures");
 				e.printStackTrace(System.err);
 			}
 		}
@@ -147,7 +143,7 @@ public class LoadMods
 		if(!OreDictionary.getOres("dustOsmium").isEmpty())
 		{
 			enableOsmium = true;
-			Log.log(Level.INFO, "Loaded Mekanism fetures");
+			MoreBees.LOGGER.info("Loaded Mekanism fetures");
 		}
 		if(!OreDictionary.getOres("gemRuby").isEmpty())
 		{
@@ -158,6 +154,6 @@ public class LoadMods
 			enableSapphire = true;
 		}
 
-		Log.log(Level.INFO, "Loaded More Bees modCompat fetures");
+		MoreBees.LOGGER.info("Loaded More Bees modCompat fetures");
 	}
 }
