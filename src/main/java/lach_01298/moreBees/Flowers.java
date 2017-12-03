@@ -35,7 +35,8 @@ public enum Flowers implements IAlleleValue<FlowerProvider>
 
 
 	@Override
-	public @Nonnull FlowerProvider getValue()
+	@Nonnull
+	public FlowerProvider getValue()
 	{
 		return value;
 	}
