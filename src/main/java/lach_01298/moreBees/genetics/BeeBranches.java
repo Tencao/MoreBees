@@ -23,16 +23,12 @@ public enum BeeBranches implements IBranchDefinition
 		@Override
 		protected void setBranchProperties(IAllele[] alleles) 
 		{
-			
-			
 			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.FLOWER_PROVIDER, Register.FlowerTypeOre);			
 			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.NEVER_SLEEPS, true);
 			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.CAVE_DWELLING, true);
 			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.HUMIDITY_TOLERANCE, EnumAllele.Tolerance.BOTH_1);
 			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.BOTH_1);
-			
-			
-			
+
 		}
 	},
 	METAL("Metalis") 
@@ -152,28 +148,20 @@ public enum BeeBranches implements IBranchDefinition
 			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.EFFECT, Register.effectSlimy);
 		}
 	};
-	
-	 
 
-
+	private static IAllele[] defaultTemplate;
 	private final IClassification branch;
 
 	BeeBranches(String scientific) {
-		branch = getOrCreateBranch(this.name().toLowerCase(Locale.ENGLISH), scientific);
-	}
-
-	@Nonnull
-	private IClassification getOrCreateBranch(String uid, String scientific){
-        IClassification newBranch = AlleleManager.alleleRegistry.getClassification(IClassification.EnumClassLevel.GENUS.name().toLowerCase(Locale.ENGLISH) + ".bees." + uid);
-        if(newBranch != null){
-            return newBranch;
-        }else{
-            return BeeManager.beeFactory.createBranch(uid, scientific);
-        }
+		branch = BeeManager.beeFactory.createBranch(name().toLowerCase(Locale.ENGLISH), scientific);
+		IClassification parent = AlleleManager.alleleRegistry.getClassification("family.apidae");
+		if (parent != null){
+			parent.addMemberGroup(branch);
+		}
 	}
 
 	protected void setBranchProperties(IAllele[] template) {
-
+		// ignored
 	}
 
 	@Override
@@ -189,8 +177,6 @@ public enum BeeBranches implements IBranchDefinition
 	public final IClassification getBranch() {
 		return branch;
 	}
-
-	private static IAllele[] defaultTemplate;
 
 	private static IAllele[] getDefaultTemplate() {
 		if (defaultTemplate == null) {
