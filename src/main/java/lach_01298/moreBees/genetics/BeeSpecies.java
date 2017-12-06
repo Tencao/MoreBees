@@ -1225,8 +1225,8 @@ public enum BeeSpecies implements IBeeDefinition
 			registerMutation(WitherBee, EnderBee, getTemplate(), MathUtil.maxInt((int)(2*Config.mutationMultipler),100)).restrictBiomeType(BiomeDictionary.Type.NETHER);
 		}
 	},
-	// Slime Branch
-	SLIMY(BeeBranches.Slime, "Slimy", true, new Color(0x7dc873), new Color(0x7dc873))
+	// SLIME Branch
+	SLIMY(BeeBranches.SLIME, "Slimy", true, new Color(0x7dc873), new Color(0x7dc873))
 	{
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies)
@@ -1256,7 +1256,7 @@ public enum BeeSpecies implements IBeeDefinition
 			registerMutation(RockBee, BoggyBee, getTemplate(), MathUtil.maxInt((int)(30*Config.mutationMultipler),100));
 		}
 	},
-	BLUESLIMY(BeeBranches.Slime, "BlueSlimy", true, new Color(0x7dc873), new Color(0x74c8c7))
+	BLUESLIMY(BeeBranches.SLIME, "BlueSlimy", true, new Color(0x7dc873), new Color(0x74c8c7))
 	{
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies)
@@ -1282,7 +1282,7 @@ public enum BeeSpecies implements IBeeDefinition
 			registerMutation(SlimyBee, PrismarineBee, getTemplate(), MathUtil.maxInt((int)(30*Config.mutationMultipler),100));
 		}
 	},
-	PURPLESLIMY(BeeBranches.Slime, "PurpleSlimy", false, new Color(0x7dc873), new Color(0xbb5aff))
+	PURPLESLIMY(BeeBranches.SLIME, "PurpleSlimy", false, new Color(0x7dc873), new Color(0xbb5aff))
 	{
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies)
@@ -1309,7 +1309,7 @@ public enum BeeSpecies implements IBeeDefinition
 			registerMutation(BlueSlimyBee, RedstoneBee, getTemplate(), MathUtil.maxInt((int)(8*Config.mutationMultipler),100));
 		}
 	},
-	MAGMASLIMY(BeeBranches.Slime, "MagmaSlimy", false, new Color(0x7dc873), new Color(0xffab49))
+	MAGMASLIMY(BeeBranches.SLIME, "MagmaSlimy", false, new Color(0x7dc873), new Color(0xffab49))
 	{
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesBuilder beeSpecies)

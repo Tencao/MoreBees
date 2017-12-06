@@ -102,7 +102,7 @@ public enum BeeBranches implements IBranchDefinition
 			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.EFFECT, AlleleEffects.effectIgnition);
 		}
 	},
-	AQUATIC("Aqus") 
+    AQUATIC("Aqus")
 	{
 		@Override
 		protected void setBranchProperties(IAllele[] alleles) 
@@ -132,7 +132,7 @@ public enum BeeBranches implements IBranchDefinition
 			AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.EFFECT, Register.effectWither);
 		}
 	},
-	Slime("Slimeus") 
+	SLIME("Slimeus")
 	{
 		@Override
 		protected void setBranchProperties(IAllele[] alleles) 
@@ -152,14 +152,22 @@ public enum BeeBranches implements IBranchDefinition
 	private static IAllele[] defaultTemplate;
 	private final IClassification branch;
 
-	@SuppressWarnings("ConstantConditions")
     BeeBranches(String scientific) {
-		branch = BeeManager.beeFactory.createBranch(name().toLowerCase(Locale.ENGLISH), scientific);
-		IClassification parent = AlleleManager.alleleRegistry.getClassification("family.apidae");
-		if (parent != null){
-			parent.addMemberGroup(branch);
-		}
+	    branch = getOrCreateBranch(name().toLowerCase(Locale.ENGLISH), scientific);
 	}
+
+	@SuppressWarnings("ConstantConditions")
+	private IClassification getOrCreateBranch(String uid, String scientific){
+	    IClassification fetchBranch = AlleleManager.alleleRegistry.getClassification("genus.bees." + uid);
+	    if (fetchBranch == null){
+            fetchBranch = BeeManager.beeFactory.createBranch(uid, scientific);
+            IClassification parent = AlleleManager.alleleRegistry.getClassification("family.apidae");
+            if (parent != null){
+                parent.addMemberGroup(fetchBranch);
+            }
+        }
+        return fetchBranch;
+    }
 
 	protected void setBranchProperties(IAllele[] template) {
 		// ignored
