@@ -36,6 +36,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 
+@SuppressWarnings("deprecation")
 public class BlockHive extends BlockContainer implements ItemModelProvider {
 	private static final PropertyEnum<MoreBeesHiveType> HIVE_TYPES = PropertyEnum.create("hive", MoreBeesHiveType.class);
 	private static String name;

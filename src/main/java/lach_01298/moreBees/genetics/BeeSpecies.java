@@ -3,6 +3,7 @@ package lach_01298.moreBees.genetics;
 import java.awt.Color;
 import java.util.Arrays;
 import java.util.Locale;
+import java.util.Objects;
 
 import com.google.common.base.Preconditions;
 import forestry.apiculture.ModuleApiculture;
@@ -998,7 +999,7 @@ public enum BeeSpecies implements IBeeDefinition
 			if(LoadMods.enableResonating)
 			{
 				beeSpecies.addProduct(ModuleApiculture.getItems().beeComb.get(EnumHoneyComb.SIMMERING, 1), 0.30f)
-				          .addProduct(new ItemStack(Item.getByNameOrId("deepresonance:resonating_ore"), 1), 0.05f)
+				          .addProduct(new ItemStack(Objects.requireNonNull(Item.getByNameOrId("deepresonance:resonating_ore")), 1), 0.05f)
 				          .setTemperature(EnumTemperature.HOT).setHumidity(EnumHumidity.NORMAL);
 			}
 
@@ -1451,7 +1452,7 @@ public enum BeeSpecies implements IBeeDefinition
 
 		this.branch = branch;
 		if (branch != null){
-			IAlleleBeeSpeciesBuilder speciesBuilder = BeeManager.beeFactory.createSpecies(uid, dominant, "Lach_01298", name, description, branch.getBranch(), binomial, primary.getRGB(), secondary.getRGB());
+			IAlleleBeeSpeciesBuilder speciesBuilder = BeeManager.beeFactory.createSpecies(modId, uid, dominant, "Lach_01298", name, description, branch.getBranch(), binomial, primary.getRGB(), secondary.getRGB());
 			if(isSecret())
 			{
 				speciesBuilder.setIsSecret();

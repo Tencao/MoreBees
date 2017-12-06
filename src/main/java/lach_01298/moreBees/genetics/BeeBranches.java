@@ -152,7 +152,8 @@ public enum BeeBranches implements IBranchDefinition
 	private static IAllele[] defaultTemplate;
 	private final IClassification branch;
 
-	BeeBranches(String scientific) {
+	@SuppressWarnings("ConstantConditions")
+    BeeBranches(String scientific) {
 		branch = BeeManager.beeFactory.createBranch(name().toLowerCase(Locale.ENGLISH), scientific);
 		IClassification parent = AlleleManager.alleleRegistry.getClassification("family.apidae");
 		if (parent != null){
