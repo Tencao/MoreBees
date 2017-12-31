@@ -138,7 +138,7 @@ class BlockHive(name: String) : BlockContainer(Material.WOOD), ItemModelProvider
     }
 
     companion object {
-        private val HIVE_TYPES = PropertyEnum.create<HiveTypes>("hive", HiveTypes::class.java)
+        val HIVE_TYPES: PropertyEnum<HiveTypes> = PropertyEnum.create<HiveTypes>("hive", HiveTypes::class.java)
         private var name: String = ""
 
         private fun getDropsForHive(meta: Int): List<IHiveDrop> {

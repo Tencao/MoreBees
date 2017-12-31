@@ -21,19 +21,13 @@ import java.util.*
 
 enum class HiveDescription constructor(hiveType: HiveTypes, private val genChance: Float, beeTemplate: BeeSpecies, private val hiveGen: IHiveGen) : IHiveDescription {
 
-    ROCK(HiveTypes.ROCK, 2.0f, BeeSpecies.ROCK, HiveManager.genHelper.ground(Blocks.STONE)) {
-
+    ROCK(HiveTypes.ROCK, Config.worldGen.rockHiveSpawnRate.toFloat(), BeeSpecies.ROCK, HiveManager.genHelper.ground(Blocks.STONE)) {
         override fun isGoodBiome(biome: Biome): Boolean {
-
             return !BiomeHelper.isBiomeHellish(biome) && !BiomeDictionary.hasType(biome, BiomeDictionary.Type.END)
         }
 
-        override fun postGen(world: World, rand: Random, pos: BlockPos) {
-
-            super.postGen(world, rand, pos)
-            if (Config.worldGen.genHiveFlowers) {
-                postGenFlowers(world, rand, pos, OreStates)
-            }
+        override fun getHiveGen(): IHiveGen {
+            return HiveGen.ROCK
         }
     };
 
@@ -73,45 +67,4 @@ enum class HiveDescription constructor(hiveType: HiveTypes, private val genChanc
 
     }
 
-    companion object {
-
-        private val groundGen = HiveManager.genHelper.ground(Blocks.STONE)
-        private val OreStates = ArrayList<IBlockState>()
-
-
-        init {
-            OreStates.addAll(Blocks.COAL_ORE.blockState.validStates)
-            OreStates.addAll(Blocks.IRON_ORE.blockState.validStates)
-
-        }
-
-        protected fun postGenFlowers(world: World, rand: Random, hivePos: BlockPos, flowerStates: List<IBlockState>) {
-            var plantedCount = 0
-            for (i in 0..9) {
-                val xOffset = rand.nextInt(8) - 4
-                val zOffset = rand.nextInt(8) - 4
-                var blockPos: BlockPos? = hivePos.add(xOffset, 0, zOffset)
-                if (xOffset == 0 && zOffset == 0 || !world.isBlockLoaded(blockPos!!)) {
-                    continue
-                }
-
-                blockPos = groundGen.getPosForHive(world, blockPos.x, blockPos.z)
-                if (blockPos == null) {
-                    continue
-                }
-
-                val state = flowerStates[rand.nextInt(flowerStates.size)]
-                val block = state.block
-                if (!block.canPlaceBlockAt(world, blockPos)) {
-                    continue
-                }
-
-                world.setBlockState(blockPos, state)
-                plantedCount++
-                if (plantedCount >= 5) {
-                    break
-                }
-            }
-        }
-    }
 }

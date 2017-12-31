@@ -1,7 +1,7 @@
 package com.tencao.morebees
 
 import com.tencao.morebees.bees.BeeSpecies
-import com.tencao.morebees.events.GameRegistry
+import com.tencao.morebees.events.MBRegistry
 import com.tencao.morebees.proxy.CommonProxy
 import net.minecraftforge.common.MinecraftForge
 import net.minecraftforge.fml.common.Mod
@@ -11,8 +11,9 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 import org.apache.logging.log4j.LogManager
 import org.apache.logging.log4j.Logger
+import java.io.File
 
-@Mod(modid = MBCore.MODID, name = "No More Drops", version = MBCore.VERSION, dependencies = MBCore.DEPS)
+@Mod(modid = MBCore.MODID, name = "MoreBees", version = MBCore.VERSION, dependencies = MBCore.DEPS)
 object MBCore {
     const val MODID = "morebees"
     const val VERSION = "1.12.2-2.0.0"
@@ -22,6 +23,7 @@ object MBCore {
 
     @SidedProxy(clientSide = "com.tencao.morebees.proxy.ClientProxy", serverSide = "com.tencao.morebees.proxy.CommonProxy")
     internal lateinit var proxy: CommonProxy
+    lateinit var configDirectory: File
 
     val LOGGER: Logger = LogManager.getLogger(MODID)
 
@@ -32,7 +34,9 @@ object MBCore {
 
     @Mod.EventHandler
     fun preInit(e: FMLPreInitializationEvent) {
-        MinecraftForge.EVENT_BUS.register(GameRegistry)
+        configDirectory = File(e.modConfigurationDirectory, "morebees")
+        configDirectory.mkdirs()
+        MinecraftForge.EVENT_BUS.register(MBRegistry)
     }
 
     @Mod.EventHandler

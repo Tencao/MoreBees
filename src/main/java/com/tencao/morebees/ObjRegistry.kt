@@ -2,7 +2,7 @@ package com.tencao.morebees
 
 import com.tencao.morebees.bees.BeeSpecies
 import com.tencao.morebees.blocks.BlockHive
-import com.tencao.morebees.events.GameRegistry
+import com.tencao.morebees.events.MBRegistry
 import com.tencao.morebees.hives.HiveDescription
 import com.tencao.morebees.hives.HiveTypes
 import com.tencao.morebees.items.BasicItem
@@ -95,59 +95,59 @@ object ObjRegistry {
     }
 
     fun registerBlocks() {
-        GameRegistry.registerBlock(hive)
+        MBRegistry.registerBlock(hive)
     }
 
     fun registerItems() {
 
         if (Config.general.enableFrames) {
-            GameRegistry.register(frameSweet)
-            GameRegistry.register(frameCooled)
-            GameRegistry.register(frameMutating)
+            MBRegistry.register(frameSweet)
+            MBRegistry.register(frameCooled)
+            MBRegistry.register(frameMutating)
         }
-        GameRegistry.registerOreItem(CombRock, "beeComb")
-        GameRegistry.registerOreItem(CombDirt, "beeComb")
-        GameRegistry.registerOreItem(CombWither, "beeComb")
-        GameRegistry.registerOreItem(CombSlime, "beeComb")
-        GameRegistry.registerOreItem(CombMetallic, "beeComb")
-        GameRegistry.registerOreItem(CombCrystal, "beeComb")
+        MBRegistry.registerOreItem(CombRock, "beeComb")
+        MBRegistry.registerOreItem(CombDirt, "beeComb")
+        MBRegistry.registerOreItem(CombWither, "beeComb")
+        MBRegistry.registerOreItem(CombSlime, "beeComb")
+        MBRegistry.registerOreItem(CombMetallic, "beeComb")
+        MBRegistry.registerOreItem(CombCrystal, "beeComb")
 
-        GameRegistry.registerOreItem(DiamondFrag, "nuggetDiamond")
-        GameRegistry.registerOreItem(EmeraldFrag, "nuggetEmerald")
-        GameRegistry.register(NetherFrag)
+        MBRegistry.registerOreItem(DiamondFrag, "nuggetDiamond")
+        MBRegistry.registerOreItem(EmeraldFrag, "nuggetEmerald")
+        MBRegistry.register(NetherFrag)
 
-        GameRegistry.register(PropolisMetallic)
-        GameRegistry.register(PropolisCrystal)
-        GameRegistry.register(GrainsMetallic)
-        GameRegistry.register(GrainsCrystal)
+        MBRegistry.register(PropolisMetallic)
+        MBRegistry.register(PropolisCrystal)
+        MBRegistry.register(GrainsMetallic)
+        MBRegistry.register(GrainsCrystal)
 
-        GameRegistry.registerOreItem(DustIron, "dustIron")
-        GameRegistry.registerOreItem(DustCopper, "dustCopper")
-        GameRegistry.registerOreItem(DustTin, "dustTin")
-        GameRegistry.registerOreItem(DustGold, "dustGold")
+        MBRegistry.registerOreItem(DustIron, "dustIron")
+        MBRegistry.registerOreItem(DustCopper, "dustCopper")
+        MBRegistry.registerOreItem(DustTin, "dustTin")
+        MBRegistry.registerOreItem(DustGold, "dustGold")
         //addon ore dic items
         if (OreDictionary.getOres("dustLead").isNotEmpty()) {
-            GameRegistry.registerOreItem(DustLead, "dustLead")
+            MBRegistry.registerOreItem(DustLead, "dustLead")
             MBILead = true
         }
         if (OreDictionary.getOres("dustSilver").isNotEmpty()) {
-            GameRegistry.registerOreItem(DustSilver, "dustSilver")
+            MBRegistry.registerOreItem(DustSilver, "dustSilver")
             MBISilver = true
         }
         if (OreDictionary.getOres("dustAluminum").isNotEmpty()) {
-            GameRegistry.registerOreItem(DustAluminium, "dustAluminum")
+            MBRegistry.registerOreItem(DustAluminium, "dustAluminum")
             MBIAluminium = true
         }
         if (OreDictionary.getOres("dustNickel").isNotEmpty()) {
-            GameRegistry.registerOreItem(DustNickel, "dustNickel")
+            MBRegistry.registerOreItem(DustNickel, "dustNickel")
             MBINickel = true
         }
         if (OreDictionary.getOres("dustPlatinum").isNotEmpty()) {
-             GameRegistry.registerOreItem(DustPlatinum, "dustPlatinum")
+             MBRegistry.registerOreItem(DustPlatinum, "dustPlatinum")
             MBIPlatinum = true
         }
         if (OreDictionary.getOres("dustIridium").isNotEmpty()) {
-            GameRegistry.registerOreItem(DustIridium, "dustIridium")
+            MBRegistry.registerOreItem(DustIridium, "dustIridium")
             MBIIridium = true
         }
 

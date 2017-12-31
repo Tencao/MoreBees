@@ -24,7 +24,7 @@ import kotlin.collections.HashMap
 
 
 
-object GameRegistry {
+object MBRegistry {
 
     private val blocks: LinkedList<Block> = LinkedList()
     private val items: LinkedList<Item>  = LinkedList()
