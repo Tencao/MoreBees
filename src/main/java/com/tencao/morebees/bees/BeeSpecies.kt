@@ -67,7 +67,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
         }
 
         override fun registerMutations() {
-            registerMutation(BeeSpecies.ROCK, BeeDefinition.CULTIVATED, template, Math.max((10 * ModConfig.bees.mutationMultipler).toInt(), 100))
+            registerMutation(BeeSpecies.ROCK, BeeDefinition.CULTIVATED, template, Math.min((10 * ModConfig.bees.mutationMultipler).toInt(), 100))
 
         }
     },
@@ -88,7 +88,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
         }
 
         override fun registerMutations() {
-            registerMutation(BeeSpecies.HARDENED, BeeDefinition.STEADFAST, template, Math.max((10 * ModConfig.bees.mutationMultipler).toInt(), 100))
+            registerMutation(BeeSpecies.HARDENED, BeeDefinition.STEADFAST, template, Math.min((10 * ModConfig.bees.mutationMultipler).toInt(), 100))
         }
 
     },
@@ -108,7 +108,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
         }
 
         override fun registerMutations() {
-            registerMutation(BeeSpecies.OBSIDIAN, BeeDefinition.IMPERIAL, template, Math.max((8 * ModConfig.bees.mutationMultipler).toInt(), 100))
+            registerMutation(BeeSpecies.OBSIDIAN, BeeDefinition.IMPERIAL, template, Math.min((8 * ModConfig.bees.mutationMultipler).toInt(), 100))
         }
     },
     // Earth Branch
@@ -128,12 +128,12 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
         }
 
         override fun registerMutations() {
-            registerMutation(BeeSpecies.ROCK, BeeDefinition.FOREST, template, Math.max((15 * ModConfig.bees.mutationMultipler).toInt(), 100))
-            registerMutation(BeeSpecies.ROCK, BeeDefinition.MARSHY, template, Math.max((15 * ModConfig.bees.mutationMultipler).toInt(), 100))
-            registerMutation(BeeSpecies.ROCK, BeeDefinition.MEADOWS, template, Math.max((15 * ModConfig.bees.mutationMultipler).toInt(), 100))
-            registerMutation(BeeSpecies.ROCK, BeeDefinition.MODEST, template, Math.max((15 * ModConfig.bees.mutationMultipler).toInt(), 100))
-            registerMutation(BeeSpecies.ROCK, BeeDefinition.TROPICAL, template, Math.max((15 * ModConfig.bees.mutationMultipler).toInt(), 100))
-            registerMutation(BeeSpecies.ROCK, BeeDefinition.WINTRY, template, Math.max((15 * ModConfig.bees.mutationMultipler).toInt(), 100))
+            registerMutation(BeeSpecies.ROCK, BeeDefinition.FOREST, template, Math.min((15 * ModConfig.bees.mutationMultipler).toInt(), 100))
+            registerMutation(BeeSpecies.ROCK, BeeDefinition.MARSHY, template, Math.min((15 * ModConfig.bees.mutationMultipler).toInt(), 100))
+            registerMutation(BeeSpecies.ROCK, BeeDefinition.MEADOWS, template, Math.min((15 * ModConfig.bees.mutationMultipler).toInt(), 100))
+            registerMutation(BeeSpecies.ROCK, BeeDefinition.MODEST, template, Math.min((15 * ModConfig.bees.mutationMultipler).toInt(), 100))
+            registerMutation(BeeSpecies.ROCK, BeeDefinition.TROPICAL, template, Math.min((15 * ModConfig.bees.mutationMultipler).toInt(), 100))
+            registerMutation(BeeSpecies.ROCK, BeeDefinition.WINTRY, template, Math.min((15 * ModConfig.bees.mutationMultipler).toInt(), 100))
         }
     },
     CLAY(BeeBranches.EARTH, "Clay", true, Color(0xa7abbb), Color(0xffdc16)) {
@@ -156,7 +156,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
 
         override fun registerMutations() {
 
-            registerMutation(BeeSpecies.DIRT, BeeDefinition.MARSHY, template, Math.max((15 * ModConfig.bees.mutationMultipler).toInt(), 100))
+            registerMutation(BeeSpecies.DIRT, BeeDefinition.MARSHY, template, Math.min((15 * ModConfig.bees.mutationMultipler).toInt(), 100))
 
         }
     },
@@ -181,7 +181,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
         }
 
         override fun registerMutations() {
-            registerMutation(BeeSpecies.DIRT, BeeDefinition.MODEST, template, Math.max((15 * ModConfig.bees.mutationMultipler).toInt(), 100))
+            registerMutation(BeeSpecies.DIRT, BeeDefinition.MODEST, template, Math.min((15 * ModConfig.bees.mutationMultipler).toInt(), 100))
         }
     },
     // Crystal branch
@@ -203,7 +203,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
         }
 
         override fun registerMutations() {
-            registerMutation(BeeSpecies.LAPIS, BeeDefinition.SINISTER, template, Math.max((10 * ModConfig.bees.mutationMultipler).toInt(), 100))
+            registerMutation(BeeSpecies.LAPIS, BeeDefinition.SINISTER, template, Math.min((10 * ModConfig.bees.mutationMultipler).toInt(), 100))
         }
     },
     CERTUS(BeeBranches.CRYSTAL, "Certus", false, Color(0xf6feff), Color(0xffdc16)) {
@@ -224,7 +224,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
         }
 
         override fun registerMutations() {
-            registerMutation(BeeSpecies.QUARTZ, BeeDefinition.INDUSTRIOUS, template, Math.max((10 * ModConfig.bees.mutationMultipler).toInt(), 100))
+            registerMutation(BeeSpecies.QUARTZ, BeeDefinition.INDUSTRIOUS, template, Math.min((10 * ModConfig.bees.mutationMultipler).toInt(), 100))
         }
     },
     REDSTONE(BeeBranches.CRYSTAL, "Redstone", false, Color(0xaa0404), Color(0xffdc16)) {
@@ -246,7 +246,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
         }
 
         override fun registerMutations() {
-            registerMutation(BeeSpecies.OBSIDIAN, BeeDefinition.STEADFAST, template, Math.max((8 * ModConfig.bees.mutationMultipler).toInt(), 100))
+            registerMutation(BeeSpecies.OBSIDIAN, BeeDefinition.STEADFAST, template, Math.min((8 * ModConfig.bees.mutationMultipler).toInt(), 100))
         }
     },
     EMERALD(BeeBranches.CRYSTAL, "Emerald", false, Color(0x4adc73), Color(0xffdc16)) {
@@ -268,7 +268,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
         }
 
         override fun registerMutations() {
-            registerMutation(BeeSpecies.REDSTONE, BeeDefinition.IMPERIAL, template, Math.max((5 * ModConfig.bees.mutationMultipler).toInt(), 100))
+            registerMutation(BeeSpecies.REDSTONE, BeeDefinition.IMPERIAL, template, Math.min((5 * ModConfig.bees.mutationMultipler).toInt(), 100))
         }
     },
     DIAMOND(BeeBranches.CRYSTAL, "Diamond", false, Color(0x5decf5), Color(0xffdc16)) {
@@ -292,7 +292,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
 
         override fun registerMutations() {
 
-            registerMutation(BeeSpecies.EMERALD, BeeSpecies.QUARTZ, template, Math.max((2 * ModConfig.bees.mutationMultipler).toInt(), 100))
+            registerMutation(BeeSpecies.EMERALD, BeeSpecies.QUARTZ, template, Math.min((2 * ModConfig.bees.mutationMultipler).toInt(), 100))
 
         }
     },
@@ -313,7 +313,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
         }
 
         override fun registerMutations() {
-            registerMutation(BeeSpecies.REDSTONE, BeeDefinition.IMPERIAL, template, Math.max((7 * ModConfig.bees.mutationMultipler).toInt(), 100))
+            registerMutation(BeeSpecies.REDSTONE, BeeDefinition.IMPERIAL, template, Math.min((7 * ModConfig.bees.mutationMultipler).toInt(), 100))
 
         }
     },
@@ -334,7 +334,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
         }
 
         override fun registerMutations() {
-            registerMutation(BeeSpecies.LAPIS, BeeDefinition.IMPERIAL, template, Math.max((7 * ModConfig.bees.mutationMultipler).toInt(), 100))
+            registerMutation(BeeSpecies.LAPIS, BeeDefinition.IMPERIAL, template, Math.min((7 * ModConfig.bees.mutationMultipler).toInt(), 100))
         }
     },
     SULFUR(BeeBranches.CRYSTAL, "Sulfur", false, Color(0xE9F800), Color(0xffdc16)) {
@@ -354,7 +354,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
         }
 
         override fun registerMutations() {
-            registerMutation(BeeSpecies.REDSTONE, BeeDefinition.FIENDISH, template, Math.max((15 * ModConfig.bees.mutationMultipler).toInt(), 100))
+            registerMutation(BeeSpecies.REDSTONE, BeeDefinition.FIENDISH, template, Math.min((15 * ModConfig.bees.mutationMultipler).toInt(), 100))
         }
     },
     APATITE(BeeBranches.CRYSTAL, "Apatite", false, Color(0x4baef1), Color(0xffdc16)) {
@@ -373,7 +373,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
         }
 
         override fun registerMutations() {
-            registerMutation(BeeSpecies.REDSTONE, BeeSpecies.LAPIS, template, Math.max((10 * ModConfig.bees.mutationMultipler).toInt(), 100))
+            registerMutation(BeeSpecies.REDSTONE, BeeSpecies.LAPIS, template, Math.min((10 * ModConfig.bees.mutationMultipler).toInt(), 100))
         }
     },
 
@@ -395,7 +395,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
         }
 
         override fun registerMutations() {
-            registerMutation(BeeSpecies.OBSIDIAN, BeeDefinition.FIENDISH, template, Math.max((10 * ModConfig.bees.mutationMultipler).toInt(), 100))
+            registerMutation(BeeSpecies.OBSIDIAN, BeeDefinition.FIENDISH, template, Math.min((10 * ModConfig.bees.mutationMultipler).toInt(), 100))
 
         }
     },
@@ -417,7 +417,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
         }
 
         override fun registerMutations() {
-            registerMutation(BeeSpecies.METALLIC, BeeDefinition.INDUSTRIOUS, template, Math.max((10 * ModConfig.bees.mutationMultipler).toInt(), 100))
+            registerMutation(BeeSpecies.METALLIC, BeeDefinition.INDUSTRIOUS, template, Math.min((10 * ModConfig.bees.mutationMultipler).toInt(), 100))
         }
     },
     COPPER(BeeBranches.METAL, "Copper", false, Color(0xa76430), Color(0x999999)) {
@@ -437,7 +437,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
         }
 
         override fun registerMutations() {
-            registerMutation(BeeSpecies.METALLIC, BeeDefinition.INDUSTRIOUS, template, Math.max((10 * ModConfig.bees.mutationMultipler).toInt(), 100))
+            registerMutation(BeeSpecies.METALLIC, BeeDefinition.INDUSTRIOUS, template, Math.min((10 * ModConfig.bees.mutationMultipler).toInt(), 100))
         }
     },
     TIN(BeeBranches.METAL, "Tin", false, Color(0xe8e8e8), Color(0x999999)) {
@@ -457,7 +457,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
         }
 
         override fun registerMutations() {
-            registerMutation(BeeSpecies.METALLIC, BeeDefinition.INDUSTRIOUS, template, Math.max((10 * ModConfig.bees.mutationMultipler).toInt(), 100))
+            registerMutation(BeeSpecies.METALLIC, BeeDefinition.INDUSTRIOUS, template, Math.min((10 * ModConfig.bees.mutationMultipler).toInt(), 100))
         }
     },
     ALUMINIUM(BeeBranches.METAL, "Aluminium", false, Color(0xF6F6F6), Color(0x999999)) {
@@ -477,7 +477,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
         }
 
         override fun registerMutations() {
-            registerMutation(BeeSpecies.METALLIC, BeeDefinition.INDUSTRIOUS, template, Math.max((10 * ModConfig.bees.mutationMultipler).toInt(), 100))
+            registerMutation(BeeSpecies.METALLIC, BeeDefinition.INDUSTRIOUS, template, Math.min((10 * ModConfig.bees.mutationMultipler).toInt(), 100))
         }
     },
     GOLD(BeeBranches.METAL, "Gold", false, Color(0xeed83d), Color(0x999999)) {
@@ -497,7 +497,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
         }
 
         override fun registerMutations() {
-            registerMutation(BeeSpecies.METALLIC, BeeDefinition.IMPERIAL, template, Math.max((8 * ModConfig.bees.mutationMultipler).toInt(), 100))
+            registerMutation(BeeSpecies.METALLIC, BeeDefinition.IMPERIAL, template, Math.min((8 * ModConfig.bees.mutationMultipler).toInt(), 100))
         }
     },
     SILVER(BeeBranches.METAL, "Silver", false, Color(0xf4f6f6), Color(0x999999)) {
@@ -517,7 +517,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
         }
 
         override fun registerMutations() {
-            registerMutation(BeeSpecies.GOLD, BeeSpecies.TIN, template, Math.max((8 * ModConfig.bees.mutationMultipler).toInt(), 100))
+            registerMutation(BeeSpecies.GOLD, BeeSpecies.TIN, template, Math.min((8 * ModConfig.bees.mutationMultipler).toInt(), 100))
         }
     },
     LEAD(BeeBranches.METAL, "Lead", false, Color(0xd5d9b9), Color(0x999999)) {
@@ -537,7 +537,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
         }
 
         override fun registerMutations() {
-            registerMutation(BeeSpecies.METALLIC, BeeSpecies.OBSIDIAN, template, Math.max((8 * ModConfig.bees.mutationMultipler).toInt(), 100))
+            registerMutation(BeeSpecies.METALLIC, BeeSpecies.OBSIDIAN, template, Math.min((8 * ModConfig.bees.mutationMultipler).toInt(), 100))
         }
     },
     COBALT(BeeBranches.METAL, "Cobalt", false, Color(0x1d62b8), Color(0x999999)) {
@@ -558,7 +558,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
         }
 
         override fun registerMutations() {
-            registerMutation(BeeDefinition.DEMONIC, BeeSpecies.TIN, template, Math.max((8 * ModConfig.bees.mutationMultipler).toInt(), 100))
+            registerMutation(BeeDefinition.DEMONIC, BeeSpecies.TIN, template, Math.min((8 * ModConfig.bees.mutationMultipler).toInt(), 100))
         }
     },
     ARDITE(BeeBranches.METAL, "Ardite", false, Color(0xa82517), Color(0x999999)) {
@@ -579,7 +579,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
         }
 
         override fun registerMutations() {
-            registerMutation(BeeDefinition.DEMONIC, BeeSpecies.COPPER, template, Math.max((8 * ModConfig.bees.mutationMultipler).toInt(), 100))
+            registerMutation(BeeDefinition.DEMONIC, BeeSpecies.COPPER, template, Math.min((8 * ModConfig.bees.mutationMultipler).toInt(), 100))
         }
     },
     OSMIUM(BeeBranches.METAL, "Osmium", false, Color(0x95a5b4), Color(0x999999)) {
@@ -599,7 +599,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
         }
 
         override fun registerMutations() {
-            registerMutation(BeeSpecies.COPPER, BeeDefinition.INDUSTRIOUS, template, Math.max((10 * ModConfig.bees.mutationMultipler).toInt(), 100))
+            registerMutation(BeeSpecies.COPPER, BeeDefinition.INDUSTRIOUS, template, Math.min((10 * ModConfig.bees.mutationMultipler).toInt(), 100))
         }
     },
     NICKEL(BeeBranches.METAL, "Nickel", false, Color(0xa3a998), Color(0x999999)) {
@@ -619,7 +619,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
         }
 
         override fun registerMutations() {
-            registerMutation(BeeSpecies.IRON, BeeDefinition.INDUSTRIOUS, template, Math.max((8 * ModConfig.bees.mutationMultipler).toInt(), 100))
+            registerMutation(BeeSpecies.IRON, BeeDefinition.INDUSTRIOUS, template, Math.min((8 * ModConfig.bees.mutationMultipler).toInt(), 100))
         }
     },
     PLATINUM(BeeBranches.METAL, "Platinum", false, Color(0x6fe5f3), Color(0x999999)) {
@@ -639,7 +639,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
         }
 
         override fun registerMutations() {
-            registerMutation(BeeDefinition.IMPERIAL, BeeSpecies.GOLD, template, Math.max((5 * ModConfig.bees.mutationMultipler).toInt(), 100))
+            registerMutation(BeeDefinition.IMPERIAL, BeeSpecies.GOLD, template, Math.min((5 * ModConfig.bees.mutationMultipler).toInt(), 100))
         }
     },
     IRIDIUM(BeeBranches.METAL, "Iridium", false, Color(0xe4e2eb), Color(0x999999)) {
@@ -659,7 +659,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
         }
 
         override fun registerMutations() {
-            registerMutation(BeeSpecies.APOCALYPTIC, BeeSpecies.GOLD, template, Math.max((4 * ModConfig.bees.mutationMultipler).toInt(), 100))
+            registerMutation(BeeSpecies.APOCALYPTIC, BeeSpecies.GOLD, template, Math.min((4 * ModConfig.bees.mutationMultipler).toInt(), 100))
         }
     },
     // RadioActive branch
@@ -685,7 +685,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
         }
 
         override fun registerMutations() {
-            registerMutation(BeeSpecies.LEAD, BeeDefinition.AUSTERE, template, Math.max((8 * ModConfig.bees.mutationMultipler).toInt(), 100))
+            registerMutation(BeeSpecies.LEAD, BeeDefinition.AUSTERE, template, Math.min((8 * ModConfig.bees.mutationMultipler).toInt(), 100))
         }
     },
     RESONATING(BeeBranches.RADIOACTIVE, "Resonating", true, Color(0xff6565), Color(0x999999)) {
@@ -709,7 +709,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
         }
 
         override fun registerMutations() {
-            registerMutation(BeeSpecies.RADIOACTIVE, BeeSpecies.REDSTONE, template, Math.max((8 * ModConfig.bees.mutationMultipler).toInt(), 100))
+            registerMutation(BeeSpecies.RADIOACTIVE, BeeSpecies.REDSTONE, template, Math.min((8 * ModConfig.bees.mutationMultipler).toInt(), 100))
         }
     },
     YELLORITE(BeeBranches.RADIOACTIVE, "Yellorite", true, Color(0xd7ef00), Color(0x999999)) {
@@ -732,7 +732,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
         }
 
         override fun registerMutations() {
-            registerMutation(BeeSpecies.RADIOACTIVE, BeeSpecies.REDSTONE, template, Math.max((8 * ModConfig.bees.mutationMultipler).toInt(), 100))
+            registerMutation(BeeSpecies.RADIOACTIVE, BeeSpecies.REDSTONE, template, Math.min((8 * ModConfig.bees.mutationMultipler).toInt(), 100))
         }
     },
     URANIUM(BeeBranches.RADIOACTIVE, "Uranium", false, Color(0x6ac013), Color(0x999999)) {
@@ -760,7 +760,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
         }
 
         override fun registerMutations() {
-            registerMutation(BeeSpecies.RADIOACTIVE, BeeSpecies.APOCALYPTIC, template, Math.max((5 * ModConfig.bees.mutationMultipler).toInt(), 100)).restrictBiomeType(BiomeDictionary.Type.NETHER)
+            registerMutation(BeeSpecies.RADIOACTIVE, BeeSpecies.APOCALYPTIC, template, Math.min((5 * ModConfig.bees.mutationMultipler).toInt(), 100)).restrictBiomeType(BiomeDictionary.Type.NETHER)
         }
     },
     // Aquatic branch
@@ -782,7 +782,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
         }
 
         override fun registerMutations() {
-            registerMutation(BeeSpecies.OBSIDIAN, BeeSpecies.CLAY, template, Math.max((15 * ModConfig.bees.mutationMultipler).toInt(), 100)).restrictBiomeType(BiomeDictionary.Type.OCEAN)
+            registerMutation(BeeSpecies.OBSIDIAN, BeeSpecies.CLAY, template, Math.min((15 * ModConfig.bees.mutationMultipler).toInt(), 100)).restrictBiomeType(BiomeDictionary.Type.OCEAN)
         }
     },
     // Apocalyptic branch
@@ -808,7 +808,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
         }
 
         override fun registerMutations() {
-            registerMutation(BeeDefinition.AUSTERE, BeeDefinition.DEMONIC, template, Math.max((5 * ModConfig.bees.mutationMultipler).toInt(), 100)).restrictBiomeType(BiomeDictionary.Type.NETHER)
+            registerMutation(BeeDefinition.AUSTERE, BeeDefinition.DEMONIC, template, Math.min((5 * ModConfig.bees.mutationMultipler).toInt(), 100)).restrictBiomeType(BiomeDictionary.Type.NETHER)
         }
     },
     // Wither Branch
@@ -830,7 +830,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
         }
 
         override fun registerMutations() {
-            registerMutation(BeeSpecies.APOCALYPTIC, BeeDefinition.DEMONIC, template, Math.max((5 * ModConfig.bees.mutationMultipler).toInt(), 100)).restrictBiomeType(BiomeDictionary.Type.NETHER)
+            registerMutation(BeeSpecies.APOCALYPTIC, BeeDefinition.DEMONIC, template, Math.min((5 * ModConfig.bees.mutationMultipler).toInt(), 100)).restrictBiomeType(BiomeDictionary.Type.NETHER)
 
         }
     },
@@ -852,7 +852,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
         }
 
         override fun registerMutations() {
-            registerMutation(BeeSpecies.WITHER, BeeDefinition.ENDED, template, Math.max((2 * ModConfig.bees.mutationMultipler).toInt(), 100)).restrictBiomeType(BiomeDictionary.Type.NETHER)
+            registerMutation(BeeSpecies.WITHER, BeeDefinition.ENDED, template, Math.min((2 * ModConfig.bees.mutationMultipler).toInt(), 100)).restrictBiomeType(BiomeDictionary.Type.NETHER)
         }
     },
     // SLIME Branch
@@ -874,7 +874,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
         }
 
         override fun registerMutations() {
-            registerMutation(BeeSpecies.ROCK, BeeDefinition.BOGGY, template, Math.max((30 * ModConfig.bees.mutationMultipler).toInt(), 100))
+            registerMutation(BeeSpecies.ROCK, BeeDefinition.BOGGY, template, Math.min((30 * ModConfig.bees.mutationMultipler).toInt(), 100))
         }
     },
     BLUESLIMY(BeeBranches.SLIME, "BlueSlimy", true, Color(0x7dc873), Color(0x74c8c7)) {
@@ -890,7 +890,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
         }
 
         override fun registerMutations() {
-            registerMutation(BeeSpecies.SLIMY, BeeSpecies.PRISMARINE, template, Math.max((30 * ModConfig.bees.mutationMultipler).toInt(), 100))
+            registerMutation(BeeSpecies.SLIMY, BeeSpecies.PRISMARINE, template, Math.min((30 * ModConfig.bees.mutationMultipler).toInt(), 100))
         }
     },
     PURPLESLIMY(BeeBranches.SLIME, "PurpleSlimy", false, Color(0x7dc873), Color(0xbb5aff)) {
@@ -906,7 +906,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
         }
 
         override fun registerMutations() {
-            registerMutation(BeeSpecies.BLUESLIMY, BeeSpecies.REDSTONE, template, Math.max((8 * ModConfig.bees.mutationMultipler).toInt(), 100))
+            registerMutation(BeeSpecies.BLUESLIMY, BeeSpecies.REDSTONE, template, Math.min((8 * ModConfig.bees.mutationMultipler).toInt(), 100))
         }
     },
     MAGMASLIMY(BeeBranches.SLIME, "MagmaSlimy", false, Color(0x7dc873), Color(0xffab49)) {
@@ -922,7 +922,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
         }
 
         override fun registerMutations() {
-            registerMutation(BeeSpecies.SLIMY, BeeDefinition.FIENDISH, template, Math.max((10 * ModConfig.bees.mutationMultipler).toInt(), 100))
+            registerMutation(BeeSpecies.SLIMY, BeeDefinition.FIENDISH, template, Math.min((10 * ModConfig.bees.mutationMultipler).toInt(), 100))
         }
     },
     //forestry branches
@@ -942,7 +942,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
         }
 
         override fun registerMutations() {
-            registerMutation(BeeDefinition.TROPICAL, BeeDefinition.DILIGENT, template, Math.max((10 * ModConfig.bees.mutationMultipler).toInt(), 100))
+            registerMutation(BeeDefinition.TROPICAL, BeeDefinition.DILIGENT, template, Math.min((10 * ModConfig.bees.mutationMultipler).toInt(), 100))
         }
     },
     DRACONIC(BeeBranchDefinition.END, "Draconic", true, Color(0x4c0e80), Color(0x830d0d)) {
@@ -958,7 +958,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
         }
 
         override fun registerMutations() {
-            registerMutation(BeeDefinition.AUSTERE, BeeDefinition.ENDED, template, Math.max((5 * ModConfig.bees.mutationMultipler).toInt(), 100)).restrictBiomeType(BiomeDictionary.Type.NETHER)
+            registerMutation(BeeDefinition.AUSTERE, BeeDefinition.ENDED, template, Math.min((5 * ModConfig.bees.mutationMultipler).toInt(), 100)).restrictBiomeType(BiomeDictionary.Type.NETHER)
         }
     },
     SPECTRITE(BeeBranchDefinition.INDUSTRIOUS, "Spectrite", true, Color(0x6fe5f3), Color(0x999999)) {
@@ -974,13 +974,14 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
 
         override fun setAlleles(template: Array<IAllele>) {
             AlleleHelper.getInstance().set(template, EnumBeeChromosome.SPEED, EnumAllele.Speed.SLOWEST)
+            AlleleHelper.getInstance().set(template, EnumBeeChromosome.LIFESPAN, EnumAllele.Lifespan.NORMAL)
         }
 
         override fun registerMutations() {
             if (!OreDictionary.getOres("dustIridium").isEmpty())
-                registerMutation(BeeSpecies.NETHERSTAR, BeeSpecies.IRIDIUM, template, Math.max((1 * ModConfig.bees.mutationMultipler).toInt(), 100)).requireNight().setIsSecret()
+                registerMutation(BeeSpecies.NETHERSTAR, BeeSpecies.IRIDIUM, template, Math.min((1 * ModConfig.bees.mutationMultipler).toInt(), 100)).requireNight().setIsSecret()
             else
-                registerMutation(BeeSpecies.NETHERSTAR, BeeSpecies.METALLIC, template, Math.max((1 * ModConfig.bees.mutationMultipler).toInt(), 100)).requireNight().setIsSecret()
+                registerMutation(BeeSpecies.NETHERSTAR, BeeSpecies.METALLIC, template, Math.min((1 * ModConfig.bees.mutationMultipler).toInt(), 100)).requireNight().setIsSecret()
         }
     };
 

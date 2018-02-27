@@ -27,15 +27,15 @@ import net.minecraft.item.ItemStack
 import net.minecraftforge.oredict.OreDictionary
 
 object ObjRegistry {
-    val FlowerOre = "Ore"
-    val FlowerRedstone = "Redstone"
-    val FlowerUranium = "Uranium"
-    val FlowerWater = "Water"
-    val FlowerTNT = "TNT"
-    val FlowerType = "flowers"
-    val FlowerSlime = "Slime"
-    val FlowerDiamond = "Diamond"
-    val FlowerEmerald = "Emerald"
+    const val FlowerOre = "Ore"
+    const val FlowerRedstone = "Redstone"
+    const val FlowerUranium = "Uranium"
+    const val FlowerWater = "Water"
+    const val FlowerTNT = "TNT"
+    const val FlowerType = "flowers"
+    const val FlowerSlime = "Slime"
+    const val FlowerDiamond = "Diamond"
+    const val FlowerEmerald = "Emerald"
     lateinit var effectWither: IAlleleBeeEffect
     lateinit var effectRadiation: IAlleleBeeEffect
     lateinit var effectSlimy: IAlleleBeeEffect

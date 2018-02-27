@@ -36,7 +36,7 @@ object MBRegistry {
         blocks.add(block)
         items.add(itemBlock)
         if (block is ItemModelProvider) {
-            models.put(block as ItemModelProvider, itemBlock)
+            models[block] = itemBlock
         }
 
         return block
@@ -52,7 +52,7 @@ object MBRegistry {
         items.add(item)
 
         if (item is ItemModelProvider) {
-            models.put(item as ItemModelProvider, item)
+            models[item] = item
         }
 
         return item
@@ -60,10 +60,10 @@ object MBRegistry {
 
     fun <T : Item> registerOreItem(item: T, oreDicName: String): T {
         items.add(item)
-        ores.put(item, oreDicName)
+        ores[item] = oreDicName
 
         if (item is ItemModelProvider) {
-            models.put(item as ItemModelProvider, item)
+            models[item] = item
         }
 
         return item
