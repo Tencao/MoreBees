@@ -5,11 +5,10 @@ import forestry.api.apiculture.IAlleleBeeSpecies
 import forestry.api.apiculture.IBeeGenome
 import forestry.api.apiculture.IBeeHousing
 import forestry.api.apiculture.IJubilanceProvider
-import net.minecraft.tileentity.TileEntity
-import net.minecraft.tileentity.TileEntitySkull
 import net.minecraft.util.math.AxisAlignedBB
+import net.minecraftforge.fml.common.registry.ForgeRegistries
 
-class WitherSkullJubilance : IJubilanceProvider {
+class SpectriteJubilance : IJubilanceProvider {
 
     /**
      * Why are you looking at this, you dirty cheater
@@ -21,12 +20,15 @@ class WitherSkullJubilance : IJubilanceProvider {
         val area = AxisAlignedBB(pos)
         area.grow(5.0, 2.0, 5.0)
 
-        WorldHelper.getPositionsFromBox(area).forEach {
-            val tile: TileEntity? = world.getTileEntity(it)
-            if (tile is TileEntitySkull && tile.skullType == 1)
-                return true
-        }
-        return false
-    }
+        var count = 0
 
+        WorldHelper.getPositionsFromBox(area).forEach {
+            val block = world.getBlockState(it).block
+            val resource = ForgeRegistries.BLOCKS.getKey(block)
+            if (resource.toString() == "spectrite:spectrite_ore")
+                count++
+        }
+
+        return count >= 5
+    }
 }

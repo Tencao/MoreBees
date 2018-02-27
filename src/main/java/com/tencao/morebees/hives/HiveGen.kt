@@ -1,6 +1,6 @@
 package com.tencao.morebees.hives
 
-import com.tencao.morebees.Config
+import com.tencao.morebees.ModConfig
 import forestry.api.apiculture.hives.IHiveGen
 import forestry.core.utils.BlockUtil
 import net.minecraft.block.Block
@@ -13,9 +13,8 @@ import java.util.*
 
 enum class HiveGen(private val type: GenType, vararg groundBlocks: Block) : IHiveGen {
     ROCK(GenType.GROUND, Blocks.STONE){
-
         override fun isValidLocation(world: World, pos: BlockPos): Boolean {
-            return if (!Config.worldGen.rockDimBlackList.contains(world.provider.dimension))
+            return if (!ModConfig.worldGen.rockDimBlackList.contains(world.provider.dimension))
                 checkValidLocation(world, pos)
             else false
         }

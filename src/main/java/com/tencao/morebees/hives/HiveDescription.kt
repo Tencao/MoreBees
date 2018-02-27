@@ -1,6 +1,6 @@
 package com.tencao.morebees.hives
 
-import com.tencao.morebees.Config
+import com.tencao.morebees.ModConfig
 import com.tencao.morebees.ObjRegistry
 import com.tencao.morebees.bees.BeeSpecies
 import forestry.api.apiculture.IBeeGenome
@@ -21,7 +21,7 @@ import java.util.*
 
 enum class HiveDescription constructor(hiveType: HiveTypes, private val genChance: Float, beeTemplate: BeeSpecies, private val hiveGen: IHiveGen) : IHiveDescription {
 
-    ROCK(HiveTypes.ROCK, Config.worldGen.rockHiveSpawnRate.toFloat(), BeeSpecies.ROCK, HiveManager.genHelper.ground(Blocks.STONE)) {
+    ROCK(HiveTypes.ROCK, ModConfig.worldGen.rockHiveSpawnRate.toFloat(), BeeSpecies.ROCK, HiveManager.genHelper.ground(Blocks.STONE)) {
         override fun isGoodBiome(biome: Biome): Boolean {
             return !BiomeHelper.isBiomeHellish(biome) && !BiomeDictionary.hasType(biome, BiomeDictionary.Type.END)
         }

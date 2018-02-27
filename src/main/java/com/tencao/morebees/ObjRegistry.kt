@@ -56,13 +56,17 @@ object ObjRegistry {
     val CombSlime: BasicItem = BasicItem("CombSlime").setCreativeTab(Tabs.tabApiculture)
     val CombMetallic: BasicItem = BasicItem("CombMetallic").setCreativeTab(Tabs.tabApiculture)
     val CombCrystal: BasicItem = BasicItem("CombCrystal").setCreativeTab(Tabs.tabApiculture)
+    val CombSpectrite: BasicItem = BasicItem("CombSpectrite").setCreativeTab(Tabs.tabApiculture).setEffect(true) as BasicItem
     val DiamondFrag: BasicItem = BasicItem("diamondFragment").setCreativeTab(Tabs.tabApiculture)
     val EmeraldFrag: BasicItem = BasicItem("emeraldFragment").setCreativeTab(Tabs.tabApiculture)
     val NetherFrag: BasicItem = BasicItem("nether_starFragment").setCreativeTab(Tabs.tabApiculture).setEffect(true) as BasicItem
+    val SpectriteFrag: BasicItem = BasicItem("spectriteFragment").setCreativeTab(Tabs.tabApiculture).setEffect(true) as BasicItem
     val PropolisMetallic: BasicItem = BasicItem("propolisMetallic").setCreativeTab(Tabs.tabApiculture)
     val PropolisCrystal: BasicItem = BasicItem("propolisCrystal").setCreativeTab(Tabs.tabApiculture)
+    val PropolisSpectrite: BasicItem = BasicItem("propolisSpectrite").setCreativeTab(Tabs.tabApiculture).setEffect(true) as BasicItem
     val GrainsMetallic: BasicItem = BasicItem("grainMetallic").setCreativeTab(Tabs.tabApiculture)
     val GrainsCrystal: BasicItem = BasicItem("grainCrystal").setCreativeTab(Tabs.tabApiculture)
+    val GrainsSpectrite: BasicItem = BasicItem("grainSpectrite").setCreativeTab(Tabs.tabApiculture).setEffect(true) as BasicItem
 
     //ore dic items
     val DustIron: BasicItem = BasicItem("dustIron").setCreativeTab(CreativeTabs.MATERIALS)
@@ -82,6 +86,7 @@ object ObjRegistry {
     var MBINickel = false
     var MBIPlatinum = false
     var MBIIridium = false
+    var MBISpectrite = false
 
     //frames
     val frameSweet: ItemFrame = ItemFrame(120, 1.1f, 2.5f, 1.0f, 0.5f, "frameSweet")
@@ -100,7 +105,7 @@ object ObjRegistry {
 
     fun registerItems() {
 
-        if (Config.general.enableFrames) {
+        if (ModConfig.general.enableFrames) {
             MBRegistry.register(frameSweet)
             MBRegistry.register(frameCooled)
             MBRegistry.register(frameMutating)
@@ -111,6 +116,7 @@ object ObjRegistry {
         MBRegistry.registerOreItem(CombSlime, "beeComb")
         MBRegistry.registerOreItem(CombMetallic, "beeComb")
         MBRegistry.registerOreItem(CombCrystal, "beeComb")
+        MBRegistry.registerOreItem(CombSpectrite, "beeComb")
 
         MBRegistry.registerOreItem(DiamondFrag, "nuggetDiamond")
         MBRegistry.registerOreItem(EmeraldFrag, "nuggetEmerald")
@@ -118,8 +124,10 @@ object ObjRegistry {
 
         MBRegistry.register(PropolisMetallic)
         MBRegistry.register(PropolisCrystal)
+        MBRegistry.register(PropolisSpectrite)
         MBRegistry.register(GrainsMetallic)
         MBRegistry.register(GrainsCrystal)
+        MBRegistry.register(GrainsSpectrite)
 
         MBRegistry.registerOreItem(DustIron, "dustIron")
         MBRegistry.registerOreItem(DustCopper, "dustCopper")
@@ -149,6 +157,10 @@ object ObjRegistry {
         if (OreDictionary.getOres("dustIridium").isNotEmpty()) {
             MBRegistry.registerOreItem(DustIridium, "dustIridium")
             MBIIridium = true
+        }
+        if (OreDictionary.getOres("dustSpectrite").isNotEmpty()) {
+            MBRegistry.register(SpectriteFrag)
+            MBISpectrite = true
         }
 
     }
@@ -193,7 +205,7 @@ object ObjRegistry {
     }
 
     fun registerHives() {
-        if (Config.worldGen.genHives) {
+        if (ModConfig.worldGen.genHives) {
             ModuleApiculture.getHiveRegistry().registerHive(HiveTypes.ROCK.hiveUid, HiveDescription.ROCK)
             val honeyComb = ModuleApiculture.getItems().beeComb.get(EnumHoneyComb.HONEY, 1)
             val rockComb = ItemStack(CombRock)

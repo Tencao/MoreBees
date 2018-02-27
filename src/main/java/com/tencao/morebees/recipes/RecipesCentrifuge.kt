@@ -55,6 +55,10 @@ object RecipesCentrifuge {
                 ModuleApiculture.getItems().honeyDrop.itemStack, 0.5f,
                 ItemStack(ObjRegistry.PropolisCrystal), 0.5f))
 
+        RecipeManagers.centrifugeManager.addRecipe(20, ItemStack(ObjRegistry.CombSpectrite), ImmutableMap.of(
+                ModuleCore.getItems().beeswax.itemStack, 0.8f,
+                ModuleApiculture.getItems().honeyDrop.itemStack, 0.5f,
+                ItemStack(ObjRegistry.PropolisSpectrite), 0.35f))
 
         RecipeManagers.centrifugeManager.addRecipe(10, ItemStack(ObjRegistry.PropolisCrystal), ImmutableMap.of(
                 ModuleApiculture.getItems().propolis.itemStack, 0.3f,
@@ -65,5 +69,10 @@ object RecipesCentrifuge {
                 ModuleApiculture.getItems().propolis.itemStack, 0.3f,
                 ItemStack(ObjRegistry.GrainsMetallic), 0.6f,
                 ItemStack(ObjRegistry.GrainsMetallic), 0.3f))
+
+        RecipeManagers.centrifugeManager.addRecipe(10, ItemStack(ObjRegistry.PropolisSpectrite), ImmutableMap.of(
+                ModuleApiculture.getItems().propolis.itemStack, 0.3f,
+                ItemStack(ObjRegistry.GrainsSpectrite), 0.5f,
+                ItemStack(ObjRegistry.GrainsSpectrite), 0.2f))
     }
 }

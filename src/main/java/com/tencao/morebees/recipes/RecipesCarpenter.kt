@@ -50,6 +50,7 @@ object RecipesCarpenter {
                 'G', ObjRegistry.GrainsCrystal)
 
 
+
         //metal
         RecipeManagers.carpenterManager.addRecipe(25, FluidStack(FluidRegistry.WATER, 500), ItemStack.EMPTY, OreDictUtil.getOreStack("dustIron"),
                 " G ", "G G", "   ",
@@ -90,11 +91,24 @@ object RecipesCarpenter {
                     'G', ObjRegistry.GrainsMetallic)
         }
 
+        RecipeManagers.carpenterManager.addRecipe(40, FluidStack(FluidRegistry.WATER, 1000), ItemStack.EMPTY, OreDictUtil.getOreStack("dustGold"),
+                "G G", "GGG", "G G",
+                'G', ObjRegistry.GrainsMetallic)
+
 
         //fragments
         RecipeManagers.carpenterManager.addRecipe(600, FluidStack(FluidRegistry.LAVA, 4000), ItemStack.EMPTY, ItemStack(Items.NETHER_STAR),
                 "FF", "FF",
                 'F', ObjRegistry.NetherFrag)
-    }
 
+        if (ObjRegistry.MBISpectrite) {
+            RecipeManagers.carpenterManager.addRecipe(1000, FluidStack(FluidRegistry.LAVA, 24000), ItemStack.EMPTY, OreDictUtil.getOreStack("gemSpectrite"),
+                    "FFF", "FFF", "FFF",
+                    'F', ObjRegistry.SpectriteFrag)
+
+            RecipeManagers.carpenterManager.addRecipe(80, FluidStack(FluidRegistry.LAVA, 4000), ItemStack.EMPTY, ItemStack(ObjRegistry.SpectriteFrag),
+                    "G G", " G ", "G G",
+                    'G', ObjRegistry.GrainsSpectrite)
+        }
+    }
 }
