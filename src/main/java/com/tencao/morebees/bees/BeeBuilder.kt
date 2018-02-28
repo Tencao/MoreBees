@@ -7,8 +7,8 @@ import forestry.api.genetics.IClassification
 import forestry.apiculture.genetics.alleles.AlleleBeeSpecies
 import net.minecraft.item.ItemStack
 
-class BeeBuilder(modId: String, uid: String, unlocalizedName: String, authority: String, unlocalizedDescription: String, dominant: Boolean, branch: IClassification, binomial: String, primaryColor: Int, secondaryColor: Int)
-    : AlleleBeeSpecies(modId, uid, unlocalizedName, authority, unlocalizedDescription, dominant, branch, binomial, primaryColor, secondaryColor) {
+class BeeBuilder(uid: String, unlocalizedName: String, authority: String, unlocalizedDescription: String, dominant: Boolean, branch: IClassification, binomial: String, primaryColor: Int, secondaryColor: Int)
+    : AlleleBeeSpecies(uid, unlocalizedName, authority, unlocalizedDescription, dominant, branch, binomial, primaryColor, secondaryColor) {
 
     private var valid = true
 

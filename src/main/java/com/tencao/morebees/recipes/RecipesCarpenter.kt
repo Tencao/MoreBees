@@ -3,8 +3,8 @@ package com.tencao.morebees.recipes
 import com.tencao.morebees.ObjRegistry
 import com.tencao.morebees.util.OreDictUtil
 import forestry.api.recipes.RecipeManagers
-import forestry.apiculture.ModuleApiculture
-import forestry.core.ModuleCore
+import forestry.apiculture.PluginApiculture
+import forestry.core.PluginCore
 import forestry.core.fluids.Fluids
 import net.minecraft.init.Blocks
 import net.minecraft.init.Items
@@ -18,20 +18,20 @@ object RecipesCarpenter {
         //frames
         RecipeManagers.carpenterManager.addRecipe(50, Fluids.FOR_HONEY.getFluid(1000), ItemStack.EMPTY, ItemStack(ObjRegistry.frameSweet),
                 "SSS", "SFS", "SSS",
-                'F', ModuleApiculture.getItems().frameUntreated,
+                'F', PluginApiculture.getItems().frameUntreated,
                 'S', Items.STICK)
 
         RecipeManagers.carpenterManager.addRecipe(100, Fluids.ICE.getFluid(1000), ItemStack.EMPTY, ItemStack(ObjRegistry.frameCooled),
                 "SCS", "CFC", "SCS",
-                'F', ModuleApiculture.getItems().frameImpregnated,
+                'F', PluginApiculture.getItems().frameImpregnated,
                 'S', Items.STICK,
                 'C', "ingotCopper")
 
         RecipeManagers.carpenterManager.addRecipe(100, Fluids.SHORT_MEAD.getFluid(1000), ItemStack.EMPTY, ItemStack(ObjRegistry.frameMutating),
                 "RSR", "SFS", "RSR",
-                'F', ModuleApiculture.getItems().frameImpregnated,
+                'F', PluginApiculture.getItems().frameImpregnated,
                 'S', Blocks.SOUL_SAND,
-                'R', ModuleApiculture.getItems().royalJelly)
+                'R', PluginApiculture.getItems().royalJelly)
 
         //grains
         //crystal
@@ -45,7 +45,7 @@ object RecipesCarpenter {
                 "G G", "GGG", "G G",
                 'G', ObjRegistry.GrainsCrystal)
 
-        RecipeManagers.carpenterManager.addRecipe(40, FluidStack(FluidRegistry.WATER, 1000), ItemStack.EMPTY, ItemStack(ModuleCore.getItems().apatite),
+        RecipeManagers.carpenterManager.addRecipe(40, FluidStack(FluidRegistry.WATER, 1000), ItemStack.EMPTY, ItemStack(PluginCore.getItems().apatite),
                 "G G", " G ", "G G",
                 'G', ObjRegistry.GrainsCrystal)
 

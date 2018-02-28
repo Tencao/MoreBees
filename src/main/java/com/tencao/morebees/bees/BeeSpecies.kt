@@ -8,14 +8,14 @@ import forestry.api.apiculture.*
 import forestry.api.core.EnumHumidity
 import forestry.api.core.EnumTemperature
 import forestry.api.genetics.IAllele
-import forestry.apiculture.ModuleApiculture
+import forestry.apiculture.PluginApiculture
 import forestry.apiculture.genetics.Bee
 import forestry.apiculture.genetics.BeeBranchDefinition
 import forestry.apiculture.genetics.BeeDefinition
 import forestry.apiculture.genetics.IBeeDefinition
 import forestry.apiculture.genetics.alleles.AlleleEffects
 import forestry.apiculture.items.EnumHoneyComb
-import forestry.core.ModuleCore
+import forestry.core.PluginCore
 import forestry.core.genetics.IBranchDefinition
 import forestry.core.genetics.alleles.AlleleHelper
 import forestry.core.genetics.alleles.EnumAllele
@@ -340,7 +340,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
     SULFUR(BeeBranches.CRYSTAL, "Sulfur", false, Color(0xE9F800), Color(0xffdc16)) {
         override fun setSpeciesProperties(beeSpecies: IAlleleBeeSpeciesBuilder) {
             val stack = OreDictionary.getOres("dustSulfur").stream().findFirst().orElse(ItemStack.EMPTY)
-            beeSpecies.addProduct(ModuleApiculture.getItems().beeComb.get(EnumHoneyComb.SIMMERING, 1), 0.3f)
+            beeSpecies.addProduct(PluginApiculture.getItems().beeComb.get(EnumHoneyComb.SIMMERING, 1), 0.3f)
                     .addProduct(stack, 0.15f)
                     .setTemperature(EnumTemperature.WARM).setHumidity(EnumHumidity.NORMAL)
         }
@@ -360,7 +360,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
     APATITE(BeeBranches.CRYSTAL, "Apatite", false, Color(0x4baef1), Color(0xffdc16)) {
         override fun setSpeciesProperties(beeSpecies: IAlleleBeeSpeciesBuilder) {
             beeSpecies.addProduct(ItemStack(ObjRegistry.CombCrystal), 0.3f)
-                    .addProduct(ItemStack(ModuleCore.getItems().apatite), 0.1f)
+                    .addProduct(ItemStack(PluginCore.getItems().apatite), 0.1f)
                     .setTemperature(EnumTemperature.WARM).setHumidity(EnumHumidity.NORMAL)
         }
 
@@ -668,7 +668,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
             var stack = OreDictionary.getOres("oreUranium").stream().findFirst().orElse(ItemStack.EMPTY)
             if (stack.isEmpty)
                 stack = OreDictionary.getOres("dropUranium").stream().findFirst().orElse(ItemStack.EMPTY)
-            beeSpecies.addProduct(ModuleApiculture.getItems().beeComb.get(EnumHoneyComb.SIMMERING, 1), 0.30f)
+            beeSpecies.addProduct(PluginApiculture.getItems().beeComb.get(EnumHoneyComb.SIMMERING, 1), 0.30f)
                     .addProduct(stack, 0.05f)
                     .setTemperature(EnumTemperature.HOT).setHumidity(EnumHumidity.NORMAL)
         }
@@ -692,7 +692,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
         override fun setSpeciesProperties(beeSpecies: IAlleleBeeSpeciesBuilder) {
             val item = Item.getByNameOrId("deepresonance:resonating_ore")
             val stack = if (item != null) ItemStack(item, 1) else ItemStack.EMPTY
-            beeSpecies.addProduct(ModuleApiculture.getItems().beeComb.get(EnumHoneyComb.SIMMERING, 1), 0.30f)
+            beeSpecies.addProduct(PluginApiculture.getItems().beeComb.get(EnumHoneyComb.SIMMERING, 1), 0.30f)
                     .addProduct(stack, 0.05f)
                     .setTemperature(EnumTemperature.HOT).setHumidity(EnumHumidity.NORMAL)
         }
@@ -715,7 +715,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
     YELLORITE(BeeBranches.RADIOACTIVE, "Yellorite", true, Color(0xd7ef00), Color(0x999999)) {
         override fun setSpeciesProperties(beeSpecies: IAlleleBeeSpeciesBuilder) {
             val stack = OreDictionary.getOres("oreYellorite").stream().findFirst().orElse(ItemStack.EMPTY)
-            beeSpecies.addProduct(ModuleApiculture.getItems().beeComb.get(EnumHoneyComb.SIMMERING, 1), 0.30f)
+            beeSpecies.addProduct(PluginApiculture.getItems().beeComb.get(EnumHoneyComb.SIMMERING, 1), 0.30f)
                     .addProduct(stack, 0.05f)
                     .setTemperature(EnumTemperature.HOT).setHumidity(EnumHumidity.NORMAL)
         }
@@ -739,7 +739,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
         override fun setSpeciesProperties(beeSpecies: IAlleleBeeSpeciesBuilder) {
             var stack = OreDictionary.getOres("crushedUranium").stream().findFirst().orElse(ItemStack.EMPTY)
             if (!stack.isEmpty) {
-                beeSpecies.addProduct(ModuleApiculture.getItems().beeComb.get(EnumHoneyComb.SIMMERING, 1), 0.30f)
+                beeSpecies.addProduct(PluginApiculture.getItems().beeComb.get(EnumHoneyComb.SIMMERING, 1), 0.30f)
                         .addProduct(stack, 0.15f)
             } else {
                 stack = OreDictionary.getOres("dropUranium").stream().findFirst().orElse(ItemStack.EMPTY)
@@ -766,7 +766,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
     // Aquatic branch
     PRISMARINE(BeeBranches.AQUATIC, "Prismarine", true, Color(0x63ab9d), Color(0xffdc16)) {
         override fun setSpeciesProperties(beeSpecies: IAlleleBeeSpeciesBuilder) {
-            beeSpecies.addProduct(ModuleApiculture.getItems().beeComb.get(EnumHoneyComb.HONEY, 1), 0.30f)
+            beeSpecies.addProduct(PluginApiculture.getItems().beeComb.get(EnumHoneyComb.HONEY, 1), 0.30f)
                     .addProduct(ItemStack(Items.PRISMARINE_CRYSTALS, 2), 0.2f)
                     .addProduct(ItemStack(Items.PRISMARINE_SHARD, 2), 0.2f)
                     .setHasEffect()
@@ -788,7 +788,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
     // Apocalyptic branch
     APOCALYPTIC(BeeBranches.APOCALYTIC, "Apocalyptic", true, Color(0xcb7204), Color(0x830d0d)) {
         override fun setSpeciesProperties(beeSpecies: IAlleleBeeSpeciesBuilder) {
-            beeSpecies.addProduct(ModuleApiculture.getItems().beeComb.get(EnumHoneyComb.SIMMERING, 1), 0.30f)
+            beeSpecies.addProduct(PluginApiculture.getItems().beeComb.get(EnumHoneyComb.SIMMERING, 1), 0.30f)
                     .addSpecialty(ItemStack(Items.BLAZE_POWDER), 0.2f)
                     .addSpecialty(ItemStack(Items.GUNPOWDER), 0.2f)
                     .addSpecialty(ItemStack(Items.GHAST_TEAR), 0.05f)
@@ -928,8 +928,8 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
     //forestry branches
     STRINGY(BeeBranchDefinition.TROPICAL, "Stringy", false, Color(0x6d6d6d), Color(0xe5e5e5)) {
         override fun setSpeciesProperties(beeSpecies: IAlleleBeeSpeciesBuilder) {
-            beeSpecies.addProduct(ModuleApiculture.getItems().beeComb.get(EnumHoneyComb.SILKY, 1), 0.30f)
-                    .addProduct(ModuleApiculture.getItems().beeComb.get(EnumHoneyComb.STRINGY, 1), 0.30f)
+            beeSpecies.addProduct(PluginApiculture.getItems().beeComb.get(EnumHoneyComb.SILKY, 1), 0.30f)
+                    .addProduct(PluginApiculture.getItems().beeComb.get(EnumHoneyComb.STRINGY, 1), 0.30f)
                     .addProduct(ItemStack(Items.STRING, 1), 0.70f)
                     .setTemperature(EnumTemperature.WARM).setHumidity(EnumHumidity.DAMP)
         }
@@ -948,7 +948,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
     DRACONIC(BeeBranchDefinition.END, "Draconic", true, Color(0x4c0e80), Color(0x830d0d)) {
         override fun setSpeciesProperties(beeSpecies: IAlleleBeeSpeciesBuilder) {
             val stack = OreDictionary.getOres("dustDraconium").stream().findFirst().orElse(ItemStack.EMPTY)
-            beeSpecies.addProduct(ModuleApiculture.getItems().beeComb.get(EnumHoneyComb.MYSTERIOUS, 1), 0.30f)
+            beeSpecies.addProduct(PluginApiculture.getItems().beeComb.get(EnumHoneyComb.MYSTERIOUS, 1), 0.30f)
                     .addProduct(stack, 0.15f)
                     .setTemperature(EnumTemperature.COLD).setHumidity(EnumHumidity.ARID)
         }
@@ -1002,7 +1002,7 @@ enum class BeeSpecies constructor(private val branch: IBranchDefinition, binomia
 
         val description = modId + ".description." + species
         val name = "for.bees.species." + species
-        speciesBuilder = BeeBuilder(modId, uid, name, "Tencao", description, dominant, branch.branch, binomial, primary.rgb, secondary.rgb)
+        speciesBuilder = BeeBuilder(uid, name, "Tencao", description, dominant, branch.branch, binomial, primary.rgb, secondary.rgb)
     }
 
     protected abstract fun setSpeciesProperties(beeSpecies: IAlleleBeeSpeciesBuilder)

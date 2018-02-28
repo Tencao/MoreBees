@@ -8,7 +8,7 @@ import forestry.api.apiculture.EnumBeeType
 import forestry.api.apiculture.IHiveDrop
 import forestry.api.apiculture.IHiveTile
 import forestry.api.core.Tabs
-import forestry.apiculture.ModuleApiculture
+import forestry.apiculture.PluginApiculture
 import forestry.apiculture.tiles.TileHive
 import net.minecraft.block.Block
 import net.minecraft.block.BlockContainer
@@ -145,7 +145,7 @@ class BlockHive(name: String) : BlockContainer(Material.WOOD), ItemModelProvider
             val hiveName = getHiveNameForMeta(meta)
             return if (hiveName.isEmpty()) {
                 emptyList()
-            } else ModuleApiculture.getHiveRegistry().getDrops(hiveName)
+            } else PluginApiculture.getHiveRegistry().getDrops(hiveName)
         }
 
         private fun getHiveNameForMeta(meta: Int): String {

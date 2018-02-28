@@ -13,7 +13,7 @@ import forestry.api.apiculture.IAlleleBeeEffect
 import forestry.api.core.Tabs
 import forestry.api.genetics.AlleleManager
 import forestry.api.genetics.IAlleleFlowers
-import forestry.apiculture.ModuleApiculture
+import forestry.apiculture.PluginApiculture
 import forestry.apiculture.flowers.FlowerRegistry
 import forestry.apiculture.genetics.BeeDefinition
 import forestry.apiculture.genetics.HiveDrop
@@ -206,10 +206,10 @@ object ObjRegistry {
 
     fun registerHives() {
         if (ModConfig.worldGen.genHives) {
-            ModuleApiculture.getHiveRegistry().registerHive(HiveTypes.ROCK.hiveUid, HiveDescription.ROCK)
-            val honeyComb = ModuleApiculture.getItems().beeComb.get(EnumHoneyComb.HONEY, 1)
+            PluginApiculture.getHiveRegistry().registerHive(HiveTypes.ROCK.hiveUid, HiveDescription.ROCK)
+            val honeyComb = PluginApiculture.getItems().beeComb.get(EnumHoneyComb.HONEY, 1)
             val rockComb = ItemStack(CombRock)
-            ModuleApiculture.getHiveRegistry().addDrops(HiveTypes.ROCK.hiveUid, HiveDrop(0.8, BeeSpecies.ROCK, rockComb).setIgnobleShare(0.7),
+            PluginApiculture.getHiveRegistry().addDrops(HiveTypes.ROCK.hiveUid, HiveDrop(0.8, BeeSpecies.ROCK, rockComb).setIgnobleShare(0.7),
                     HiveDrop(0.03, BeeDefinition.VALIANT, honeyComb))
         }
 

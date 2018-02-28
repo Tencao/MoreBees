@@ -5,10 +5,9 @@ import forestry.api.apiculture.*
 import forestry.api.core.Tabs
 import forestry.core.items.ItemForestry
 import forestry.core.utils.Translator
-import net.minecraft.client.util.ITooltipFlag
+import net.minecraft.entity.player.EntityPlayer
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
-import net.minecraft.world.World
 
 class ItemFrame(maxDamage: Int, geneticDecay: Float, production: Float, lifespan: Float, mutationRate: Float, private val name: String) : ItemForestry(), IHiveFrame, ItemModelProvider {
 
@@ -37,10 +36,10 @@ class ItemFrame(maxDamage: Int, geneticDecay: Float, production: Float, lifespan
         return beeModifier
     }
 
-    override fun addInformation(stack: ItemStack?, world: World?, tooltip: MutableList<String>?, advanced: ITooltipFlag?) {
-        super.addInformation(stack, world, tooltip, advanced)
-        beeModifier.addInformation(stack, world, tooltip, advanced)
-        if (!stack!!.isItemDamaged && tooltip != null) {
+    override fun addInformation(stack: ItemStack, playerIn: EntityPlayer, tooltip: MutableList<String>, advanced: Boolean) {
+        super.addInformation(stack, playerIn, tooltip, advanced)
+        beeModifier.addInformation(tooltip)
+        if (!stack.isItemDamaged) {
             tooltip.add(Translator.translateToLocalFormatted("item.for.durability", stack.maxDamage))
         }
     }
@@ -64,7 +63,7 @@ class ItemFrame(maxDamage: Int, geneticDecay: Float, production: Float, lifespan
         }
 
 
-        fun addInformation(stack: ItemStack?, world: World?, tooltip: MutableList<String>?, advanced: ITooltipFlag?) {
+        fun addInformation(tooltip: MutableList<String>?) {
             tooltip!!.add(Translator.translateToLocalFormatted("item.for.bee.modifier.production", production))
             tooltip.add(Translator.translateToLocalFormatted("item.for.bee.modifier.genetic.decay", geneticDecay))
             tooltip.add(Translator.translateToLocalFormatted("item.for.bee.modifier.mutationModifier", mutationRate))

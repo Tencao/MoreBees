@@ -11,26 +11,28 @@ import net.minecraft.block.Block
 import net.minecraft.item.Item
 import net.minecraft.item.ItemBlock
 import net.minecraft.item.crafting.IRecipe
-import net.minecraft.util.ResourceLocation
 import net.minecraftforge.client.event.ModelRegistryEvent
 import net.minecraftforge.event.RegistryEvent
+import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.eventhandler.EventPriority
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
+import net.minecraftforge.fml.common.registry.GameRegistry
 import net.minecraftforge.oredict.OreDictionary
 import net.minecraftforge.oredict.ShapelessOreRecipe
 import java.util.*
 import kotlin.collections.HashMap
 
-
-
-
+@Mod.EventBusSubscriber(modid = MBCore.MODID)
 object MBRegistry {
-
     private val blocks: LinkedList<Block> = LinkedList()
     private val items: LinkedList<Item>  = LinkedList()
     private val models: HashMap<ItemModelProvider, Item>  = HashMap()
     private val recipes: LinkedList<IRecipe>  = LinkedList()
     private val ores: HashMap<Item, String>  = HashMap()
+
+    @JvmStatic
+    @Mod.InstanceFactory
+    fun shenanigan() = this
 
     private fun <T : Block> registerBlock(block: T, itemBlock: ItemBlock): T {
         blocks.add(block)
@@ -69,8 +71,8 @@ object MBRegistry {
         return item
     }
 
-    fun addShapelessOreRecipe(name: String, result: Item, vararg recipe: Any) {
-        recipes.add(ShapelessOreRecipe(ResourceLocation(MBCore.MODID, name), result, *recipe).setRegistryName(MBCore.MODID, name))
+    fun addShapelessOreRecipe(result: Item, vararg recipe: Any) {
+        recipes.add(ShapelessOreRecipe(result, *recipe))
     }
 
     @SubscribeEvent(priority = EventPriority.LOWEST)
@@ -91,12 +93,11 @@ object MBRegistry {
         models.forEach(ItemModelProvider::registerItemModel)
     }
 
-    @SubscribeEvent(priority = EventPriority.LOWEST)
-    fun registerRecipes(event: RegistryEvent.Register<IRecipe>) {
+    fun registerRecipes() {
         RecipesCarpenter.registerRecipes()
         RecipesCentrifuge.registerRecipes()
         RecipesCrafting.registerRecipes()
         RecipesSmelting.registerRecipes()
-        recipes.forEach{ event.registry.register(it) }
+        recipes.forEach{ GameRegistry.addRecipe(it) }
     }
 }
