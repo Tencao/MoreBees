@@ -21,9 +21,6 @@ import net.minecraftforge.oredict.ShapelessOreRecipe
 import java.util.*
 import kotlin.collections.HashMap
 
-
-
-
 object MBRegistry {
 
     private val blocks: LinkedList<Block> = LinkedList()
