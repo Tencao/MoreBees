@@ -11,6 +11,6 @@
   "credits": "Forestry team for making Forestry",
   "logoFile": "",
   "screenshots": [],
-  "dependencies": ["Forestry"]
+  "dependencies": ["Forestry, Forgelin"]
 }
 ]

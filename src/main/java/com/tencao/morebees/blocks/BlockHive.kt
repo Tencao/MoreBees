@@ -84,8 +84,7 @@ class BlockHive(name: String) : BlockContainer(Material.WOOD), ItemModelProvider
 
         val random = if (world is World) world.rand else Block.RANDOM
 
-        val hiveDrops = getDropsForHive(getMetaFromState(state))
-        Collections.shuffle(hiveDrops)
+        val hiveDrops = getDropsForHive(getMetaFromState(state)).shuffled()
 
         // Grab a princess
         var tries = 0
@@ -100,7 +99,7 @@ class BlockHive(name: String) : BlockContainer(Material.WOOD), ItemModelProvider
                         bee.setIsNatural(false)
                     }
 
-                    val princess = BeeManager.beeRoot.getMemberStack(bee, EnumBeeType.PRINCESS)
+                    val princess = BeeManager.beeRoot!!.getMemberStack(bee, EnumBeeType.PRINCESS)
                     drops.add(princess)
                     hasPrincess = true
                     break
@@ -112,7 +111,7 @@ class BlockHive(name: String) : BlockContainer(Material.WOOD), ItemModelProvider
         for (drop in hiveDrops) {
             if (random.nextDouble() < drop.getChance(world, pos, fortune)) {
                 val bee = drop.getBeeType(world, pos)
-                val drone = BeeManager.beeRoot.getMemberStack(bee, EnumBeeType.DRONE)
+                val drone = BeeManager.beeRoot!!.getMemberStack(bee, EnumBeeType.DRONE)
                 drops.add(drone)
                 break
             }

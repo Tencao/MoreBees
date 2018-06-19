@@ -1,7 +1,7 @@
 package com.tencao.morebees.hives
 
+import com.tencao.morebees.MBBlocks
 import com.tencao.morebees.ModConfig
-import com.tencao.morebees.ObjRegistry
 import com.tencao.morebees.bees.BeeSpecies
 import forestry.api.apiculture.IBeeGenome
 import forestry.api.apiculture.hives.HiveManager
@@ -31,7 +31,7 @@ enum class HiveDescription constructor(hiveType: HiveTypes, private val genChanc
         }
     };
 
-    private val blockState: IBlockState = ObjRegistry.hive.getStateForType(hiveType)
+    private val blockState: IBlockState = MBBlocks.hive.getStateForType(hiveType)
     private val beeGenome: IBeeGenome = beeTemplate.genome
 
     override fun getHiveGen(): IHiveGen {

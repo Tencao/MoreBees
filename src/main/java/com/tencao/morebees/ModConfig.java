@@ -9,9 +9,9 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 @Config(modid = MBCore.MODID, name = "morebees/MoreBees", category = "morebees")
 public class ModConfig {
 
-    public static General general = new General();
-    public static WorldGen worldGen = new WorldGen();
-    public static Bees bees = new Bees();
+    public static final General general = new General();
+    public static final WorldGen worldGen = new WorldGen();
+    public static final Bees bees = new Bees();
 
     /**
      * All Config Classes

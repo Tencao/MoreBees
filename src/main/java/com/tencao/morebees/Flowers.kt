@@ -5,14 +5,14 @@ import forestry.core.genetics.alleles.IAlleleValue
 import java.util.*
 
 enum class Flowers constructor(flowerType: String, private val dominant: Boolean = false) : IAlleleValue<FlowerProvider> {
-    ORE(ObjRegistry.FlowerOre, true),
-    DIAMOND(ObjRegistry.FlowerDiamond, true),
-    EMERALD(ObjRegistry.FlowerEmerald, true),
-    REDSTONE(ObjRegistry.FlowerRedstone, true),
-    URANIUM(ObjRegistry.FlowerUranium, true),
-    WATER(ObjRegistry.FlowerWater),
-    TNT(ObjRegistry.FlowerTNT, true),
-    SLIME(ObjRegistry.FlowerSlime, true);
+    ORE(MBBlocks.FlowerOre, true),
+    DIAMOND(MBBlocks.FlowerDiamond, true),
+    EMERALD(MBBlocks.FlowerEmerald, true),
+    REDSTONE(MBBlocks.FlowerRedstone, true),
+    URANIUM(MBBlocks.FlowerUranium, true),
+    WATER(MBBlocks.FlowerWater),
+    TNT(MBBlocks.FlowerTNT, true),
+    SLIME(MBBlocks.FlowerSlime, true);
 
     private val value: FlowerProvider = FlowerProvider(flowerType, "for.flowers." + name.toLowerCase(Locale.ENGLISH))
 

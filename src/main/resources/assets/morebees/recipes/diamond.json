@@ -1,0 +1,17 @@
+{
+  "result": {
+    "item": "minecraft:diamond"
+  },
+  "pattern": [
+    "DDD",
+    "DDD",
+    "DDD"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "group": "minecraft:diamond",
+  "key": {
+    "D": {
+      "item": "morebees:diamondFragment"
+    }
+  }
+}

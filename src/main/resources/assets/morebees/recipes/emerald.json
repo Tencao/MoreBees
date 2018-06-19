@@ -1,0 +1,17 @@
+{
+  "result": {
+    "item": "minecraft:emerald"
+  },
+  "pattern": [
+    "DDD",
+    "DDD",
+    "DDD"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "group": "minecraft:emerald",
+  "key": {
+    "D": {
+      "item": "morebees:emeraldFragment"
+    }
+  }
+}

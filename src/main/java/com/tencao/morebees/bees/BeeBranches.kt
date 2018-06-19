@@ -1,6 +1,7 @@
 package com.tencao.morebees.bees
 
-import com.tencao.morebees.ObjRegistry
+import com.tencao.morebees.MBBlocks
+import com.tencao.morebees.MBCore
 import forestry.api.apiculture.BeeManager
 import forestry.api.apiculture.EnumBeeChromosome
 import forestry.api.genetics.AlleleManager
@@ -15,7 +16,7 @@ import java.util.*
 enum class BeeBranches(scientific: String) : IBranchDefinition {
     ROCK("Petramis") {
         override fun setBranchProperties(alleles: Array<IAllele>) {
-            AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.FLOWER_PROVIDER, ObjRegistry.FlowerTypeOre)
+            AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.FLOWER_PROVIDER, MBBlocks.FlowerTypeOre)
             AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.NEVER_SLEEPS, true)
             AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.CAVE_DWELLING, true)
             AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.HUMIDITY_TOLERANCE, EnumAllele.Tolerance.BOTH_1)
@@ -26,7 +27,7 @@ enum class BeeBranches(scientific: String) : IBranchDefinition {
     METAL("Metalis") {
         override fun setBranchProperties(alleles: Array<IAllele>) {
 
-            AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.FLOWER_PROVIDER, ObjRegistry.FlowerTypeOre)
+            AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.FLOWER_PROVIDER, MBBlocks.FlowerTypeOre)
             AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.CAVE_DWELLING, true)
             AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.HUMIDITY_TOLERANCE, EnumAllele.Tolerance.BOTH_1)
             AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.UP_1)
@@ -36,7 +37,7 @@ enum class BeeBranches(scientific: String) : IBranchDefinition {
         override fun setBranchProperties(alleles: Array<IAllele>) {
 
 
-            AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.FLOWER_PROVIDER, ObjRegistry.FlowerTypeOre)
+            AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.FLOWER_PROVIDER, MBBlocks.FlowerTypeOre)
             AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.CAVE_DWELLING, true)
             AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.LIFESPAN, EnumAllele.Lifespan.LONG)
             AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.HUMIDITY_TOLERANCE, EnumAllele.Tolerance.BOTH_1)
@@ -56,19 +57,19 @@ enum class BeeBranches(scientific: String) : IBranchDefinition {
     RADIOACTIVE("Radioactivis") {
         override fun setBranchProperties(alleles: Array<IAllele>) {
 
-            AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.FLOWER_PROVIDER, ObjRegistry.FlowerTypeUranium)
+            AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.FLOWER_PROVIDER, MBBlocks.FlowerTypeUranium)
             AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.CAVE_DWELLING, true)
             AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.TERRITORY, EnumAllele.Territory.LARGE)
             AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.LIFESPAN, EnumAllele.Lifespan.LONG)
             AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.HUMIDITY_TOLERANCE, EnumAllele.Tolerance.BOTH_1)
             AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.UP_1)
-            AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.EFFECT, ObjRegistry.effectRadiation)
+            AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.EFFECT, MBBlocks.effectRadiation)
         }
     },
     APOCALYTIC("Apocalytus") {
         override fun setBranchProperties(alleles: Array<IAllele>) {
 
-            AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.FLOWER_PROVIDER, ObjRegistry.FlowerTypeTNT)
+            AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.FLOWER_PROVIDER, MBBlocks.FlowerTypeTNT)
             AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.NEVER_SLEEPS, true)
             AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.CAVE_DWELLING, true)
             AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.TERRITORY, EnumAllele.Territory.LARGER)
@@ -81,7 +82,7 @@ enum class BeeBranches(scientific: String) : IBranchDefinition {
     },
     AQUATIC("Aqus") {
         override fun setBranchProperties(alleles: Array<IAllele>) {
-            AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.FLOWER_PROVIDER, ObjRegistry.FlowerTypeWater)
+            AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.FLOWER_PROVIDER, MBBlocks.FlowerTypeWater)
             AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.NEVER_SLEEPS, false)
             AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.HUMIDITY_TOLERANCE, EnumAllele.Tolerance.UP_3)
             AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.DOWN_1)
@@ -100,20 +101,20 @@ enum class BeeBranches(scientific: String) : IBranchDefinition {
             AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.HUMIDITY_TOLERANCE, EnumAllele.Tolerance.DOWN_3)
             AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.UP_5)
             AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.FERTILITY, EnumAllele.Fertility.LOW)
-            AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.EFFECT, ObjRegistry.effectWither)
+            AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.EFFECT, MBBlocks.effectWither)
         }
     },
     SLIME("Slimeus") {
         override fun setBranchProperties(alleles: Array<IAllele>) {
 
-            AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.FLOWER_PROVIDER, ObjRegistry.FlowerTypeSlime)
+            AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.FLOWER_PROVIDER, MBBlocks.FlowerTypeSlime)
             AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.CAVE_DWELLING, false)
             AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.TERRITORY, EnumAllele.Territory.AVERAGE)
             AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.LIFESPAN, EnumAllele.Lifespan.NORMAL)
             AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.HUMIDITY_TOLERANCE, EnumAllele.Tolerance.DOWN_1)
             AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.BOTH_1)
             AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.FERTILITY, EnumAllele.Fertility.NORMAL)
-            AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.EFFECT, ObjRegistry.effectSlimy)
+            AlleleHelper.getInstance().set(alleles, EnumBeeChromosome.EFFECT, MBBlocks.effectSlimy)
         }
     };
 
@@ -124,13 +125,14 @@ enum class BeeBranches(scientific: String) : IBranchDefinition {
     }
 
     private fun getOrCreateBranch(uid: String, scientific: String): IClassification {
-        var fetchBranch: IClassification? = AlleleManager.alleleRegistry.getClassification("genus.bees." + uid)
+        var fetchBranch: IClassification? = AlleleManager.alleleRegistry.getClassification("genus.bees.$uid")
         if (fetchBranch == null) {
-            fetchBranch = BeeManager.beeFactory.createBranch(uid, scientific)
-            val parent = AlleleManager.alleleRegistry.getClassification("family.apidae")
-            parent.addMemberGroup(fetchBranch)
+            fetchBranch = BeeManager.beeFactory!!.createBranch(uid, scientific)
+            MBCore.LOGGER.info(AlleleManager.alleleRegistry.registeredClassifications.keys)
+            val parent = AlleleManager.alleleRegistry.createAndRegisterClassification(IClassification.EnumClassLevel.GENUS, uid, scientific)
+            parent.addMemberGroup(fetchBranch!!)
         }
-        return fetchBranch!!
+        return fetchBranch
     }
 
     protected open fun setBranchProperties(template: Array<IAllele>) {
